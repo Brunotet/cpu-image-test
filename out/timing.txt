@@ -1,0 +1,1 @@
+512 x 512: 559 seconds (model: /home/runner/work/cpu-image-test/cpu-image-test/models/z_image_turbo-Q4_K.gguf)
