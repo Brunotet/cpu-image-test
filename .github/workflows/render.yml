@@ -1,0 +1,35 @@
+name: CPU image test
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/render.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 345
+    env:
+      PROMPT: 'A cinematic photograph of an old stone lighthouse on a stormy coast at dusk, heavy rain, dramatic clouds, warm lamp light glowing in the tower, crashing waves, highly detailed, moody atmosphere'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Machine info
+        run: |
+          nproc
+          lscpu | grep -E 'Model name' || true
+          free -g
+          df -h /
+      - name: Build stable-diffusion.cpp
+        run: |
+          git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp
+          cd stable-diffusion.cpp
+          cmake -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release -j$(nproc)
+          ls build/bin
+      - name: Download models
+        run: |
+          pip install -q huggingface_hub pillow
+          python3 download.py
+      - name: Render
+        run: bash render.sh
