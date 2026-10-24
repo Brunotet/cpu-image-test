@@ -1,0 +1,103 @@
+name: Character test
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/char.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  character:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    env:
+      MODE: char
+      NAME: char
+      SIZE: '768'
+      PROMPT: 'A full body portrait of an original character: a young Black woman scientist with short curly black hair, round gold-rimmed glasses, a mustard yellow cardigan over a white shirt, dark green trousers, friendly smile, plain light gray studio background, soft even lighting, semi-realistic illustration'
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build stable-diffusion.cpp
+        run: |
+          git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp
+          cd stable-diffusion.cpp
+          cmake -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release -j$(nproc)
+      - name: Download models
+        run: |
+          pip install -q huggingface_hub pillow
+          python3 download_klein.py
+      - name: Render character
+        run: bash render_char.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: char
+          path: |
+            out/char.png
+            out/char.jpg
+            out/time_char.txt
+  scenes:
+    needs: character
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {idx: 1, prompt: 'The same woman from the reference image, now sitting at a cafe table by a window reading a book, warm afternoon light, same mustard cardigan and round glasses'}
+          - {idx: 2, prompt: 'The same woman from the reference image, now standing in a laboratory holding a glass flask and smiling, same mustard cardigan and round glasses'}
+          - {idx: 3, prompt: 'The same woman from the reference image, now walking down a rainy city street at night holding a yellow umbrella, same mustard cardigan and round glasses'}
+          - {idx: 4, prompt: 'The same woman from the reference image, now waving at the camera on a sunny beach, seen from the side, same mustard cardigan and round glasses'}
+    env:
+      MODE: scene
+      SIZE: '768'
+      NAME: scene_${{ matrix.idx }}
+      PROMPT: ${{ matrix.prompt }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build stable-diffusion.cpp
+        run: |
+          git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp
+          cd stable-diffusion.cpp
+          cmake -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release -j$(nproc)
+      - name: Download models
+        run: |
+          pip install -q huggingface_hub pillow
+          python3 download_klein.py
+      - uses: actions/download-artifact@v4
+        with:
+          name: char
+          path: ref
+      - name: Render scene with reference
+        run: |
+          ls -la ref
+          bash render_char.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: scene-${{ matrix.idx }}
+          path: |
+            out/scene_*.jpg
+            out/time_*.txt
+  collect:
+    needs: scenes
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: ct
+      - name: Commit results
+        run: |
+          rm -rf character-test
+          mv ct character-test
+          find character-test -type f | sort
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add character-test
+          git commit -m 'character test results' || true
+          git pull --rebase -q || true
+          git push
