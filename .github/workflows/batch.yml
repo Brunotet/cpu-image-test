@@ -1,0 +1,68 @@
+name: Batch render
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/batch.yml']
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 300
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - {idx: 1, prompt: 'A cinematic photograph of a Roman legionary standing guard on a misty stone wall at dawn, golden light, visible breath in cold air, highly detailed'}
+          - {idx: 2, prompt: 'A medieval monk copying a manuscript by candlelight in a stone scriptorium, warm glow, dust in the air, rich detail, painterly realism'}
+          - {idx: 3, prompt: 'A 1960s psychology laboratory with a researcher in a white coat behind a one-way mirror observing a participant at a table, muted retro colors, cinematic lighting'}
+          - {idx: 4, prompt: 'An ancient Egyptian marketplace at sunrise, merchants and colorful cloth, golden dust haze, wide shot, highly detailed'}
+          - {idx: 5, prompt: 'A lone astronaut walking across a red desert dune at sunset, long shadow, vast empty sky, cinematic wide shot'}
+          - {idx: 6, prompt: 'A chessboard in the middle of a game under dramatic side lighting, shallow depth of field, close-up, moody photograph'}
+          - {idx: 7, prompt: 'A vintage art deco travel poster of Cape Town with Table Mountain and the sea, bold title text CAPE TOWN in elegant lettering, flat colors'}
+          - {idx: 8, prompt: 'A close-up portrait of an elderly fisherman with a weathered face, natural window light, deep shadows, ultra detailed skin texture'}
+    env:
+      IDX: ${{ matrix.idx }}
+      PROMPT: ${{ matrix.prompt }}
+    steps:
+      - uses: actions/checkout@v4
+      - name: Build stable-diffusion.cpp
+        run: |
+          git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp
+          cd stable-diffusion.cpp
+          cmake -B build -DCMAKE_BUILD_TYPE=Release
+          cmake --build build --config Release -j$(nproc)
+      - name: Download models
+        run: |
+          pip install -q huggingface_hub pillow
+          python3 download.py
+      - name: Render
+        run: bash render_one.sh
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: img-${{ matrix.idx }}
+          path: |
+            out/img_*.jpg
+            out/time_*.txt
+  collect:
+    needs: render
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/download-artifact@v4
+        with:
+          path: batch
+          pattern: img-*
+          merge-multiple: true
+      - name: Commit results
+        run: |
+          ls -la batch
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add batch
+          git commit -m 'batch render' || true
+          git pull --rebase -q || true
+          git push
