@@ -1,0 +1,82 @@
+name: Kaggle GPU render
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - name: Write kernel
+        run: |
+          mkdir k
+          cat > k/kernel-metadata.json <<'JSON'
+          {"id":"simoncreaty/char-render","title":"char render","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":true}
+          JSON
+          cat > k/kernel.py <<'PY'
+          import os, subprocess, time, glob
+          def sh(c):
+              print('$', c, flush=True)
+              r = subprocess.run(c, shell=True, executable='/bin/bash')
+              return r.returncode
+          sh('nvidia-smi; nvcc --version | tail -2; nproc; free -h | head -2')
+          sh('pip install -q huggingface_hub pillow')
+          os.chdir('/kaggle/working')
+          t=time.time()
+          sh('git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp')
+          sh('cd stable-diffusion.cpp && cmake -B build -DCMAKE_BUILD_TYPE=Release -DSD_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES="60;75" && cmake --build build --config Release -j4')
+          print('BUILD SECONDS', int(time.time()-t), flush=True)
+          from huggingface_hub import list_repo_files, hf_hub_download
+          gg = list_repo_files('leejet/FLUX.2-klein-4B-GGUF')
+          pick = None
+          for pref in ['Q4_K','Q4_0','Q5','Q8']:
+              c=[f for f in gg if f.endswith('.gguf') and pref in f and 'base' not in f.lower()]
+              if c: pick=sorted(c)[0]; break
+          d=hf_hub_download('leejet/FLUX.2-klein-4B-GGUF', pick, local_dir='models')
+          cf=list_repo_files('Comfy-Org/flux2-klein-4B')
+          vf=[f for f in cf if 'vae' in f.lower() and f.endswith('.safetensors')][0]
+          v=hf_hub_download('Comfy-Org/flux2-klein-4B', vf, local_dir='models')
+          qf=list_repo_files('unsloth/Qwen3-4B-GGUF')
+          l=hf_hub_download('unsloth/Qwen3-4B-GGUF', [f for f in qf if f.endswith('Q4_K_M.gguf')][0], local_dir='models')
+          BIN=[b for b in ['stable-diffusion.cpp/build/bin/sd-cli','stable-diffusion.cpp/build/bin/sd'] if os.path.exists(b)][0]
+          os.makedirs('out', exist_ok=True)
+          STYLE='semi-realistic illustration, plain light gray studio background, soft even lighting'
+          CHAR='young Black woman scientist with short curly black hair, round gold-rimmed glasses, mustard yellow cardigan over a white shirt, dark green trousers'
+          jobs=[('char', None, 'A full body portrait of an original character: a '+CHAR+', friendly smile, standing front view, '+STYLE)]
+          poses=['sitting on a stool reading a book','holding a glass flask up and smiling','walking toward the camera mid-stride','waving at the camera with one hand','arms crossed, looking confident, three-quarter view','crouching down looking at a small plant']
+          for i,p in enumerate(poses,1):
+              jobs.append(('scene_%d'%i,'out/char.png','The same woman from the reference image, '+p+', same mustard cardigan, round gold-rimmed glasses and dark green trousers, '+STYLE))
+          for name,ref,prompt in jobs:
+              t=time.time()
+              cmd='%s --diffusion-model "%s" --vae "%s" --llm "%s" %s -p "%s" --cfg-scale 1.0 --steps 4 --sampling-method euler -H 768 -W 768 -o out/%s.png'%(BIN,d,v,l,('-r '+ref) if ref else '',prompt,name)
+              rc=sh(cmd+' 2>&1 | tail -n 4')
+              print('RENDER', name, int(time.time()-t), 'seconds', flush=True)
+          from PIL import Image
+          for f in glob.glob('out/*.png'):
+              Image.open(f).convert('RGB').save(f[:-4]+'.jpg', quality=90)
+          for f in glob.glob('out/*.png'): os.remove(f) if False else None
+          sh('rm -rf models stable-diffusion.cpp; ls -la out')
+          PY
+      - name: Push kernel and wait
+        run: |
+          kaggle kernels push -p k
+          for i in $(seq 1 120); do
+            s=$(kaggle kernels status simoncreaty/char-render 2>&1 | tail -1); echo "$s"
+            case "$s" in *COMPLETE*|*ERROR*|*CANCEL*) break;; esac
+            sleep 60
+          done
+          mkdir -p kout && kaggle kernels output simoncreaty/char-render -p kout || true
+          ls -la kout
+      - name: Commit results
+        run: |
+          mkdir -p kaggle-test
+          cp kout/out/*.jpg kaggle-test/ 2>/dev/null || cp kout/*.jpg kaggle-test/ 2>/dev/null || true
+          cp kout/*.log kaggle-test/ 2>/dev/null || true
+          git config user.name "github-actions"; git config user.email "a@b.c"
+          git add kaggle-test; git commit -m "Kaggle GPU results" || true
+          git push || true
