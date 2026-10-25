@@ -1,0 +1,249 @@
+[{"stream_name":"stdout","time":0.590820763,"data":"$ nvidia-smi; nvcc --version | tail -2; nproc; free -h | head -2\n"}
+,{"stream_name":"stdout","time":0.627751459,"data":"Sun Oct 25 11:52:43 2026       \n"}
+,{"stream_name":"stdout","time":0.627779509,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":0.627783029,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":0.627785785,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.627788183,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":0.627790469,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":0.627792705,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":0.627794958,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":0.67155813,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":0.6715783,"data":"| N/A   44C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":0.671583758,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":0.671587288,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.671590893,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":0.671594233,"data":"| N/A   45C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":0.671597643,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":0.67160104,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.672152088,"data":"\n"}
+,{"stream_name":"stdout","time":0.672162929,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":0.672167183,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":0.672170606,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":0.672174034,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":0.672177444,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":0.673902611,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":0.673915307,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.009617011,"data":"Cuda compilation tools, release 12.8, V12.8.93\n"}
+,{"stream_name":"stdout","time":1.009646911,"data":"Build cuda_12.8.r12.8/compiler.35583870_0\n"}
+,{"stream_name":"stdout","time":1.012125135,"data":"4\n"}
+,{"stream_name":"stdout","time":1.02813798,"data":"               total        used        free      shared  buff/cache   available\n"}
+,{"stream_name":"stdout","time":1.028154297,"data":"Mem:            31Gi       1.1Gi        26Gi       1.2Mi       4.5Gi        30Gi\n"}
+,{"stream_name":"stdout","time":1.029420717,"data":"$ pip install -q huggingface_hub pillow\n"}
+,{"stream_name":"stdout","time":4.182288703,"data":"$ git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp\n"}
+,{"stream_name":"stderr","time":4.202558834,"data":"Cloning into 'stable-diffusion.cpp'...\n"}
+,{"stream_name":"stderr","time":12.111512528,"data":"Updating files:  92% (629/680)\rUpdating files:  93% (633/680)\rUpdating files:  94% (640/680)\rUpdating files:  95% (646/680)\rUpdating files:  96% (653/680)\rUpdating files:  97% (660/680)\rUpdating files:  98% (667/680)\rUpdating files:  99% (674/680)\rUpdating files: 100% (680/680)\rUpdating files: 100% (680/680), done.\n"}
+,{"stream_name":"stderr","time":12.155878851,"data":"Submodule 'examples/server/frontend' (https://github.com/leejet/sdcpp-webui.git) registered for path 'examples/server/frontend'\n"}
+,{"stream_name":"stderr","time":12.156208506,"data":"Submodule 'ggml' (https://github.com/leejet/ggml.git) registered for path 'ggml'\n"}
+,{"stream_name":"stderr","time":12.156487539,"data":"Submodule 'thirdparty/libwebm' (https://github.com/webmproject/libwebm.git) registered for path 'thirdparty/libwebm'\n"}
+,{"stream_name":"stderr","time":12.156776873,"data":"Submodule 'thirdparty/libwebp' (https://github.com/webmproject/libwebp.git) registered for path 'thirdparty/libwebp'\n"}
+,{"stream_name":"stderr","time":12.16026107,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/examples/server/frontend'...\n"}
+,{"stream_name":"stderr","time":12.830939928,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/ggml'...\n"}
+,{"stream_name":"stderr","time":20.719709752,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/thirdparty/libwebm'...\n"}
+,{"stream_name":"stderr","time":21.692426223,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/thirdparty/libwebp'...\n"}
+,{"stream_name":"stdout","time":23.734471918,"data":"Submodule path 'examples/server/frontend': checked out '9157320a3bdd6a345f370868a32f730c77749cb5'\n"}
+,{"stream_name":"stderr","time":25.079981427,"data":"From https://github.com/leejet/ggml\n"}
+,{"stream_name":"stderr","time":25.080030286,"data":" * branch              a5915eb0e47adef21c3f25b889a008925ea838c2 -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stdout","time":25.264580246,"data":"Submodule path 'ggml': checked out 'a5915eb0e47adef21c3f25b889a008925ea838c2'\n"}
+,{"stream_name":"stdout","time":25.312486685,"data":"Submodule path 'thirdparty/libwebm': checked out '5bf12267eea773a32fcf4949de52b0add158a8d5'\n"}
+,{"stream_name":"stdout","time":25.375145021,"data":"Submodule path 'thirdparty/libwebp': checked out '0c9546f7efc61eac7f79ae115c3f99c91c21c443'\n"}
+,{"stream_name":"stdout","time":25.386416684,"data":"$ cd stable-diffusion.cpp \u0026\u0026 cmake -B build -DCMAKE_BUILD_TYPE=Release -DSD_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=\"60;75\" \u0026\u0026 cmake --build build --config Release -j4\n"}
+,{"stream_name":"stdout","time":25.896928797,"data":"-- The C compiler identification is GNU 13.3.0\n"}
+,{"stream_name":"stdout","time":26.107573338,"data":"-- The CXX compiler identification is GNU 13.3.0\n"}
+,{"stream_name":"stdout","time":26.126983962,"data":"-- Detecting C compiler ABI info\n"}
+,{"stream_name":"stdout","time":26.226523022,"data":"-- Detecting C compiler ABI info - done\n"}
+,{"stream_name":"stdout","time":26.248114351,"data":"-- Check for working C compiler: /usr/bin/cc - skipped\n"}
+,{"stream_name":"stdout","time":26.249019692,"data":"-- Detecting C compile features\n"}
+,{"stream_name":"stdout","time":26.250000881,"data":"-- Detecting C compile features - done\n"}
+,{"stream_name":"stdout","time":26.269670182,"data":"-- Detecting CXX compiler ABI info\n"}
+,{"stream_name":"stdout","time":26.357945587,"data":"-- Detecting CXX compiler ABI info - done\n"}
+,{"stream_name":"stdout","time":26.380373014,"data":"-- Check for working CXX compiler: /usr/bin/c++ - skipped\n"}
+,{"stream_name":"stdout","time":26.380938096,"data":"-- Detecting CXX compile features\n"}
+,{"stream_name":"stdout","time":26.382360868,"data":"-- Detecting CXX compile features - done\n"}
+,{"stream_name":"stderr","time":26.393432784,"data":"-- Use CUDA as backend stable-diffusion\n"}
+,{"stream_name":"stdout","time":26.399957469,"data":"-- stable-diffusion.cpp version unknown\n"}
+,{"stream_name":"stdout","time":26.399973023,"data":"-- stable-diffusion.cpp commit 012c7f8\n"}
+,{"stream_name":"stderr","time":26.400010271,"data":"-- Build static library\n"}
+,{"stream_name":"stdout","time":26.410773825,"data":"-- The ASM compiler identification is GNU\n"}
+,{"stream_name":"stdout","time":26.414373781,"data":"-- Found assembler: /usr/bin/cc\n"}
+,{"stream_name":"stdout","time":26.561086263,"data":"-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n"}
+,{"stream_name":"stdout","time":26.663508739,"data":"-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n"}
+,{"stream_name":"stdout","time":26.665609309,"data":"-- Found Threads: TRUE\n"}
+,{"stream_name":"stdout","time":26.673538439,"data":"-- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF\n"}
+,{"stream_name":"stdout","time":26.695896194,"data":"-- CMAKE_SYSTEM_PROCESSOR: x86_64\n"}
+,{"stream_name":"stdout","time":26.696045779,"data":"-- GGML_SYSTEM_ARCH: x86\n"}
+,{"stream_name":"stdout","time":26.974073469,"data":"-- Found OpenMP_C: -fopenmp (found version \"4.5\")\n"}
+,{"stream_name":"stdout","time":27.066399498,"data":"-- Found OpenMP_CXX: -fopenmp (found version \"4.5\")\n"}
+,{"stream_name":"stdout","time":27.066874903,"data":"-- Found OpenMP: TRUE (found version \"4.5\")\n"}
+,{"stream_name":"stdout","time":27.070733182,"data":"-- Including CPU backend\n"}
+,{"stream_name":"stdout","time":27.071312512,"data":"-- x86 detected\n"}
+,{"stream_name":"stdout","time":27.071366923,"data":"-- Adding CPU backend variant ggml-cpu: -march=native \n"}
+,{"stream_name":"stdout","time":27.095797924,"data":"-- Found CUDAToolkit: /usr/local/cuda/targets/x86_64-linux/include (found version \"12.8.93\")\n"}
+,{"stream_name":"stdout","time":27.17294343,"data":"-- CUDA Toolkit found\n"}
+,{"stream_name":"stdout","time":29.013382926,"data":"-- The CUDA compiler identification is NVIDIA 12.8.93 with host compiler GNU 13.3.0\n"}
+,{"stream_name":"stdout","time":29.031072441,"data":"-- Detecting CUDA compiler ABI info\n"}
+,{"stream_name":"stdout","time":30.55495425,"data":"-- Detecting CUDA compiler ABI info - done\n"}
+,{"stream_name":"stdout","time":30.631796702,"data":"-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped\n"}
+,{"stream_name":"stdout","time":30.995612741,"data":"-- Detecting CUDA compile features\n"}
+,{"stream_name":"stdout","time":30.996433912,"data":"-- Detecting CUDA compile features - done\n"}
+,{"stream_name":"stdout","time":31.007794864,"data":"-- Using CMAKE_CUDA_ARCHITECTURES=60;75 CMAKE_CUDA_ARCHITECTURES_NATIVE=75-real\n"}
+,{"stream_name":"stdout","time":31.009594235,"data":"-- FlashAttention K-V type combinations: f16-f16;q4_0-q4_0;q8_0-q8_0;bf16-bf16\n"}
+,{"stream_name":"stdout","time":31.015954165,"data":"-- Found NCCL: /usr/lib/x86_64-linux-gnu/libnccl.so\n"}
+,{"stream_name":"stdout","time":31.055018566,"data":"-- CUDA host compiler is GNU 13.3.0\n"}
+,{"stream_name":"stdout","time":31.055408934,"data":"-- Including CUDA backend\n"}
+,{"stream_name":"stdout","time":31.065151683,"data":"-- ggml version: 0.27.0\n"}
+,{"stream_name":"stdout","time":31.065166249,"data":"-- ggml commit:  a5915eb0\n"}
+,{"stream_name":"stdout","time":31.07119097,"data":"-- Looking for include file alloca.h\n"}
+,{"stream_name":"stdout","time":31.141274933,"data":"-- Looking for include file alloca.h - found\n"}
+,{"stream_name":"stdout","time":31.1416477,"data":"-- Looking for include file stdint.h\n"}
+,{"stream_name":"stdout","time":31.215272242,"data":"-- Looking for include file stdint.h - found\n"}
+,{"stream_name":"stdout","time":31.215690438,"data":"-- Looking for include file sys/times.h\n"}
+,{"stream_name":"stdout","time":31.286481221,"data":"-- Looking for include file sys/times.h - found\n"}
+,{"stream_name":"stdout","time":31.286865944,"data":"-- Looking for include file sys/time.h\n"}
+,{"stream_name":"stdout","time":31.356973429,"data":"-- Looking for include file sys/time.h - found\n"}
+,{"stream_name":"stdout","time":31.357298326,"data":"-- Looking for include file sys/types.h\n"}
+,{"stream_name":"stdout","time":31.428457982,"data":"-- Looking for include file sys/types.h - found\n"}
+,{"stream_name":"stdout","time":31.428741934,"data":"-- Looking for include file unistd.h\n"}
+,{"stream_name":"stdout","time":31.504316924,"data":"-- Looking for include file unistd.h - found\n"}
+,{"stream_name":"stdout","time":31.504686796,"data":"-- Looking for include file inttypes.h\n"}
+,{"stream_name":"stdout","time":31.575684953,"data":"-- Looking for include file inttypes.h - found\n"}
+,{"stream_name":"stdout","time":31.576753681,"data":"-- Looking for stddef.h\n"}
+,{"stream_name":"stdout","time":31.659241605,"data":"-- Looking for stddef.h - found\n"}
+,{"stream_name":"stdout","time":31.659499362,"data":"-- Check size of int\n"}
+,{"stream_name":"stdout","time":31.740568965,"data":"-- Check size of int - done\n"}
+,{"stream_name":"stdout","time":31.74110295,"data":"-- Check size of long\n"}
+,{"stream_name":"stdout","time":31.815231312,"data":"-- Check size of long - done\n"}
+,{"stream_name":"stdout","time":31.815696529,"data":"-- Check size of long long\n"}
+,{"stream_name":"stdout","time":31.911404293,"data":"-- Check size of long long - done\n"}
+,{"stream_name":"stdout","time":31.912008666,"data":"-- Check size of void*\n"}
+,{"stream_name":"stdout","time":32.007791406,"data":"-- Check size of void* - done\n"}
+,{"stream_name":"stdout","time":32.008310048,"data":"-- Looking for alloca\n"}
+,{"stream_name":"stdout","time":32.077250867,"data":"-- Looking for alloca - found\n"}
+,{"stream_name":"stdout","time":32.082688446,"data":"-- Performing Test HAVE_BUILTIN_BSWAP16\n"}
+,{"stream_name":"stdout","time":32.150669535,"data":"-- Performing Test HAVE_BUILTIN_BSWAP16 - Success\n"}
+,{"stream_name":"stdout","time":32.150884724,"data":"-- Performing Test HAVE_BUILTIN_BSWAP32\n"}
+,{"stream_name":"stdout","time":32.21980513,"data":"-- Performing Test HAVE_BUILTIN_BSWAP32 - Success\n"}
+,{"stream_name":"stdout","time":32.220087506,"data":"-- Performing Test HAVE_BUILTIN_BSWAP64\n"}
+,{"stream_name":"stdout","time":32.300032438,"data":"-- Performing Test HAVE_BUILTIN_BSWAP64 - Success\n"}
+,{"stream_name":"stdout","time":32.331890961,"data":"-- Could NOT find OpenGL (missing: OPENGL_opengl_LIBRARY OPENGL_glx_LIBRARY OPENGL_INCLUDE_DIR) \n"}
+,{"stream_name":"stdout","time":32.334028037,"data":"-- Performing Test HAVE_MATH_LIBRARY\n"}
+,{"stream_name":"stdout","time":32.425035094,"data":"-- Performing Test HAVE_MATH_LIBRARY - Failed\n"}
+,{"stream_name":"stdout","time":32.425091083,"data":"-- Adding -lm flag.\n"}
+,{"stream_name":"stdout","time":32.425740461,"data":"-- Looking for include file GLUT/glut.h\n"}
+,{"stream_name":"stdout","time":32.458941223,"data":"-- Looking for include file GLUT/glut.h - not found\n"}
+,{"stream_name":"stdout","time":32.459284596,"data":"-- Looking for include file GL/glut.h\n"}
+,{"stream_name":"stdout","time":32.489510326,"data":"-- Looking for include file GL/glut.h - not found\n"}
+,{"stream_name":"stdout","time":32.489846105,"data":"-- Looking for include file OpenGL/glut.h\n"}
+,{"stream_name":"stdout","time":32.520954101,"data":"-- Looking for include file OpenGL/glut.h - not found\n"}
+,{"stream_name":"stdout","time":32.521319401,"data":"-- Looking for include file shlwapi.h\n"}
+,{"stream_name":"stdout","time":32.553276676,"data":"-- Looking for include file shlwapi.h - not found\n"}
+,{"stream_name":"stdout","time":32.553672912,"data":"-- Looking for include file unistd.h\n"}
+,{"stream_name":"stdout","time":32.628378909,"data":"-- Looking for include file unistd.h - found\n"}
+,{"stream_name":"stdout","time":32.628738012,"data":"-- Looking for include file wincodec.h\n"}
+,{"stream_name":"stdout","time":32.659992792,"data":"-- Looking for include file wincodec.h - not found\n"}
+,{"stream_name":"stdout","time":32.660379882,"data":"-- Looking for include file windows.h\n"}
+,{"stream_name":"stdout","time":32.690873127,"data":"-- Looking for include file windows.h - not found\n"}
+,{"stream_name":"stdout","time":32.692661709,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2\n"}
+,{"stream_name":"stdout","time":32.733485837,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2 - Failed\n"}
+,{"stream_name":"stdout","time":32.734042486,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2\n"}
+,{"stream_name":"stdout","time":32.811074195,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2 - Success\n"}
+,{"stream_name":"stdout","time":32.811937513,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41\n"}
+,{"stream_name":"stdout","time":32.850770896,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41 - Failed\n"}
+,{"stream_name":"stdout","time":32.851395334,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41\n"}
+,{"stream_name":"stdout","time":32.926681285,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41 - Success\n"}
+,{"stream_name":"stdout","time":32.927597001,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE2\n"}
+,{"stream_name":"stdout","time":33.000941782,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE2 - Success\n"}
+,{"stream_name":"stdout","time":33.001798697,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32\n"}
+,{"stream_name":"stdout","time":33.038652122,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32 - Failed\n"}
+,{"stream_name":"stdout","time":33.039285002,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32\n"}
+,{"stream_name":"stdout","time":33.064165701,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32 - Failed\n"}
+,{"stream_name":"stdout","time":33.066185429,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2\n"}
+,{"stream_name":"stdout","time":33.103789364,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2 - Failed\n"}
+,{"stream_name":"stdout","time":33.104394658,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2\n"}
+,{"stream_name":"stdout","time":33.129243101,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2 - Failed\n"}
+,{"stream_name":"stdout","time":33.130732796,"data":"-- Performing Test HAS_COMPILE_FLAG\n"}
+,{"stream_name":"stdout","time":33.156712923,"data":"-- Performing Test HAS_COMPILE_FLAG - Failed\n"}
+,{"stream_name":"stdout","time":33.157402772,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON\n"}
+,{"stream_name":"stdout","time":33.195383676,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON - Failed\n"}
+,{"stream_name":"stdout","time":33.195912029,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON\n"}
+,{"stream_name":"stdout","time":33.224217753,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON - Failed\n"}
+,{"stream_name":"stdout","time":33.225321952,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA\n"}
+,{"stream_name":"stdout","time":33.267192346,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA - Failed\n"}
+,{"stream_name":"stdout","time":33.267757021,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA\n"}
+,{"stream_name":"stdout","time":33.294979619,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA - Failed\n"}
+,{"stream_name":"stdout","time":33.304767931,"data":"-- Performing Test HAS_COMPILE_FLAG\n"}
+,{"stream_name":"stdout","time":33.333586765,"data":"-- Performing Test HAS_COMPILE_FLAG - Failed\n"}
+,{"stream_name":"stderr","time":33.35921059,"data":"Checking CXX compiler flag support for: -std=c++11\n"}
+,{"stream_name":"stdout","time":33.36030337,"data":"-- Performing Test LIBWEBM_HAVE_CXX_FLAG\n"}
+,{"stream_name":"stdout","time":33.444644954,"data":"-- Performing Test LIBWEBM_HAVE_CXX_FLAG - Success\n"}
+,{"stream_name":"stderr","time":33.445221885,"data":"Checking CXX compiler flag support for: -Wall\n"}
+,{"stream_name":"stdout","time":33.446347527,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":33.533491002,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":33.533941079,"data":"Checking CXX compiler flag support for: -Wc++14-compat\n"}
+,{"stream_name":"stdout","time":33.535116738,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":33.620971087,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":33.621329701,"data":"Checking CXX compiler flag support for: -Wc++17-compat\n"}
+,{"stream_name":"stdout","time":33.622450859,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":33.705341812,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":33.705680452,"data":"Checking CXX compiler flag support for: -Wc++20-compat\n"}
+,{"stream_name":"stdout","time":33.706958995,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":33.793450335,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":33.793777082,"data":"Checking CXX compiler flag support for: -Wextra\n"}
+,{"stream_name":"stdout","time":33.794996818,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":33.88281908,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":33.883248067,"data":"Checking CXX compiler flag support for: -Wnarrowing\n"}
+,{"stream_name":"stdout","time":33.884436103,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":33.972678824,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":33.973060689,"data":"Checking CXX compiler flag support for: -Wno-deprecated\n"}
+,{"stream_name":"stdout","time":33.974239737,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":34.063110017,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":34.063517253,"data":"Checking CXX compiler flag support for: -Wshorten-64-to-32\n"}
+,{"stream_name":"stdout","time":34.064667813,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":34.103638828,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Failed\n"}
+,{"stream_name":"stderr","time":34.158414152,"data":"CMake Warning at examples/server/CMakeLists.txt:58 (message):\n"}
+,{"stream_name":"stderr","time":34.158432342,"data":"  pnpm not found; frontend build disabled.\n"}
+,{"stream_name":"stderr","time":34.158436717,"data":"\n"}
+,{"stream_name":"stderr","time":34.158440462,"data":"\n"}
+,{"stream_name":"stdout","time":34.158712423,"data":"-- HAVE_INDEX_HTML disabled\n"}
+,{"stream_name":"stdout","time":34.168784999,"data":"-- Configuring done (8.5s)\n"}
+,{"stream_name":"stderr","time":34.368236414,"data":"CMake Error at CMakeLists.txt:344 (target_link_libraries):\n"}
+,{"stream_name":"stderr","time":34.368263874,"data":"  Target \"stable-diffusion\" links to:\n"}
+,{"stream_name":"stderr","time":34.368269317,"data":"\n"}
+,{"stream_name":"stderr","time":34.36827309,"data":"    CUDA::cuda_driver\n"}
+,{"stream_name":"stderr","time":34.368276657,"data":"\n"}
+,{"stream_name":"stderr","time":34.368280244,"data":"  but the target was not found.  Possible reasons include:\n"}
+,{"stream_name":"stderr","time":34.368284236,"data":"\n"}
+,{"stream_name":"stderr","time":34.368289957,"data":"    * There is a typo in the target name.\n"}
+,{"stream_name":"stderr","time":34.368297584,"data":"    * A find_package call is missing for an IMPORTED target.\n"}
+,{"stream_name":"stderr","time":34.368300245,"data":"    * An ALIAS target is missing.\n"}
+,{"stream_name":"stderr","time":34.36830276,"data":"\n"}
+,{"stream_name":"stderr","time":34.368305135,"data":"\n"}
+,{"stream_name":"stderr","time":34.368307512,"data":"\n"}
+,{"stream_name":"stderr","time":34.368309986,"data":"CMake Error at ggml/src/ggml-cuda/CMakeLists.txt:188 (target_link_libraries):\n"}
+,{"stream_name":"stderr","time":34.368312614,"data":"  Target \"ggml-cuda\" links to:\n"}
+,{"stream_name":"stderr","time":34.368315138,"data":"\n"}
+,{"stream_name":"stderr","time":34.368317493,"data":"    CUDA::cuda_driver\n"}
+,{"stream_name":"stderr","time":34.368320023,"data":"\n"}
+,{"stream_name":"stderr","time":34.368322406,"data":"  but the target was not found.  Possible reasons include:\n"}
+,{"stream_name":"stderr","time":34.368324924,"data":"\n"}
+,{"stream_name":"stderr","time":34.368327289,"data":"    * There is a typo in the target name.\n"}
+,{"stream_name":"stderr","time":34.368329873,"data":"    * A find_package call is missing for an IMPORTED target.\n"}
+,{"stream_name":"stderr","time":34.368332973,"data":"    * An ALIAS target is missing.\n"}
+,{"stream_name":"stderr","time":34.368335597,"data":"\n"}
+,{"stream_name":"stderr","time":34.368337994,"data":"\n"}
+,{"stream_name":"stderr","time":34.368340365,"data":"\n"}
+,{"stream_name":"stdout","time":34.373438689,"data":"-- Generating done (0.2s)\n"}
+,{"stream_name":"stderr","time":34.373473134,"data":"CMake Generate step failed.  Build files cannot be regenerated correctly.\n"}
+,{"stream_name":"stdout","time":34.38946828,"data":"BUILD SECONDS 30\n"}
+,{"stream_name":"stderr","time":35.743103007,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":48.852252127,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":48.852563852,"data":"  File \"/kaggle/src/script.py\", line 25, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":48.852611822,"data":"    BIN=[b for b in ['stable-diffusion.cpp/build/bin/sd-cli','stable-diffusion.cpp/build/bin/sd'] if os.path.exists(b)][0]\n"}
+,{"stream_name":"stderr","time":48.8526185,"data":"        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^\n"}
+,{"stream_name":"stderr","time":48.852622741,"data":"IndexError: list index out of range\n"}
+,{"stream_name":"stderr","time":51.331835446,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":51.331880646,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":51.574029802,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":51.57405503,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":56.953812901,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":58.303785113,"data":"[NbConvertApp] Writing 286638 bytes to __results__.html\n"}
+]
