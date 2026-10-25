@@ -29,7 +29,8 @@ jobs:
           os.chdir('/kaggle/working')
           t=time.time()
           sh('git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp')
-          sh('cd stable-diffusion.cpp && cmake -B build -DCMAKE_BUILD_TYPE=Release -DSD_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES="60;75" && cmake --build build --config Release -j4')
+          sh('mkdir -p /tmp/stubs; L=$(find / -name "libcuda.so*" -not -path "/proc/*" 2>/dev/null | head -1); echo libcuda=$L; ln -sf $L /tmp/stubs/libcuda.so; ln -sf $L /tmp/stubs/libcuda.so.1')
+          sh('export LIBRARY_PATH=/tmp/stubs:$LIBRARY_PATH; cd stable-diffusion.cpp && cmake -B build -DCMAKE_BUILD_TYPE=Release -DSD_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES="75" -DCMAKE_LIBRARY_PATH=/tmp/stubs -DCMAKE_EXE_LINKER_FLAGS="-L/tmp/stubs -Wl,-rpath-link,/tmp/stubs" && cmake --build build --config Release -j4')
           print('BUILD SECONDS', int(time.time()-t), flush=True)
           from huggingface_hub import list_repo_files, hf_hub_download
           gg = list_repo_files('leejet/FLUX.2-klein-4B-GGUF')
