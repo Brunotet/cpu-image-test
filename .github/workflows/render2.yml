@@ -1,0 +1,86 @@
+name: Kaggle multi-character test
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - name: Write kernel
+        run: |
+          mkdir k
+          cat > k/kernel-metadata.json <<'JSON'
+          {"id":"simoncreaty/multi-char","title":"multi char","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":false,"dataset_sources":["simoncreaty/sdcpp-cache"]}
+          JSON
+          cat > k/kernel.py <<'PY'
+          import os, subprocess, time, glob, shutil, threading
+          from PIL import Image
+          src = os.path.dirname(glob.glob('/kaggle/input/**/sd-cli', recursive=True)[0])
+          print('SRC', src, flush=True)
+          W = '/kaggle/working'
+          shutil.copy(src+'/sd-cli', W+'/sd-cli'); os.chmod(W+'/sd-cli', 0o755)
+          os.makedirs(W+'/out', exist_ok=True)
+          env0 = dict(os.environ, LD_LIBRARY_PATH='/usr/local/cuda/lib64:'+os.environ.get('LD_LIBRARY_PATH',''))
+          subprocess.run('nvidia-smi -L; ldd %s/sd-cli | grep -i "not found"' % W, shell=True)
+          D, V, L = src+'/diff.gguf', src+'/vae.safetensors', src+'/llm.gguf'
+          A = src+'/charA.jpg'; B = W+'/out/charB.png'
+          WOMAN = 'young Black woman scientist with short curly black hair, round gold-rimmed glasses, mustard yellow cardigan over a white shirt, dark green trousers'
+          MAN = 'middle-aged East Asian man with short gray hair, black rectangular glasses, navy blue bomber jacket over a gray hoodie, beige chinos, white sneakers'
+          ST = 'semi-realistic illustration, soft even lighting'
+          def run(gpu, name, prompt, refs, w=768, h=768):
+              t = time.time()
+              r = ' '.join('-r "%s"' % x for x in refs)
+              cmd = '%s/sd-cli --diffusion-model "%s" --vae "%s" --llm "%s" %s -p "%s" --cfg-scale 1.0 --steps 4 --sampling-method euler -H %d -W %d -o %s/out/%s.png 2>&1 | tail -n 3' % (W, D, V, L, r, prompt, h, w, W, name)
+              subprocess.run(cmd, shell=True, env=dict(env0, CUDA_VISIBLE_DEVICES=str(gpu)))
+              print('RENDER', name, 'gpu', gpu, int(time.time()-t), 'seconds', flush=True)
+          def a(p): return 'The same woman from the reference image, %s, same mustard cardigan, round gold-rimmed glasses and dark green trousers, %s' % (p, ST)
+          def b(p): return 'The same man from the reference image, %s, same navy bomber jacket, gray hoodie, black rectangular glasses and beige chinos, %s' % (p, ST)
+          def duo(p): return 'The woman from the first reference image and the man from the second reference image together, %s, both keep exactly their outfits and faces from the references, %s' % (p, ST)
+          q0 = [
+            lambda: run(0,'A1',a('pointing at a whiteboard while teaching in a classroom'),[A]),
+            lambda: run(0,'A2',a('riding a bicycle along a tree-lined path'),[A]),
+            lambda: run(0,'A3',a('leaning on a kitchen counter drinking coffee, morning light'),[A]),
+            lambda: run(0,'D1',duo('standing side by side smiling at the camera in a park'),[A,B],1024,768),
+            lambda: run(0,'D2',duo('sitting across a cafe table talking over coffee'),[A,B],1024,768),
+          ]
+          q1 = [
+            lambda: run(1,'charB','A full body portrait of an original character: a %s, calm smile, standing front view, plain light gray studio background, %s' % (MAN, ST),[]),
+            lambda: run(1,'B1',b('sitting on a park bench eating an apple'),[B]),
+            lambda: run(1,'B2',b('jumping with joy, arms raised, on a sunny hill'),[B]),
+            lambda: run(1,'B3',b('typing on a laptop at a wooden desk'),[B]),
+            lambda: run(1,'D3',duo('walking together down a sunny city street'),[A,B],1024,768),
+            lambda: run(1,'D4',duo('high-fiving each other in a bright laboratory'),[A,B],1024,768),
+          ]
+          T0 = time.time()
+          ts = [threading.Thread(target=lambda q=q: [f() for f in q]) for q in (q0, q1)]
+          [t.start() for t in ts]; [t.join() for t in ts]
+          print('TOTAL', int(time.time()-T0), 'seconds', flush=True)
+          for f in glob.glob(W+'/out/*.png'):
+              Image.open(f).convert('RGB').save(f[:-4]+'.jpg', quality=90); os.remove(f)
+          os.remove(W+'/sd-cli')
+          subprocess.run('ls -la %s/out' % W, shell=True)
+          PY
+      - name: Push kernel and wait
+        run: |
+          kaggle kernels push -p k
+          for i in $(seq 1 100); do
+            s=$(kaggle kernels status simoncreaty/multi-char 2>&1 | tail -1); echo "$s"
+            case "$s" in *COMPLETE*|*ERROR*|*CANCEL*) break;; esac
+            sleep 30
+          done
+          mkdir -p kout && kaggle kernels output simoncreaty/multi-char -p kout || true
+          ls -la kout
+      - name: Commit results
+        run: |
+          mkdir -p kaggle-test2
+          cp kout/*.jpg kaggle-test2/ 2>/dev/null || cp kout/out/*.jpg kaggle-test2/ 2>/dev/null || true
+          cp kout/*.log kaggle-test2/ 2>/dev/null || true
+          git config user.name "github-actions"; git config user.email "a@b.c"
+          git add kaggle-test2; git commit -m "Kaggle multi-character results" || true
+          git push || true
