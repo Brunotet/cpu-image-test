@@ -1,0 +1,62 @@
+name: Build Kaggle cache v2
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 240
+    container: nvidia/cuda:12.8.0-devel-ubuntu22.04
+    steps:
+      - run: apt-get update && DEBIAN_FRONTEND=noninteractive apt-get install -y git cmake python3-pip curl
+      - uses: actions/checkout@v4
+      - name: Build CUDA renderer
+        run: |
+          git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp
+          cd stable-diffusion.cpp
+          cmake -B build -DCMAKE_BUILD_TYPE=Release -DSD_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=75
+          cmake --build build --config Release -j$(nproc)
+          ls build/bin; ldd build/bin/sd-cli | head -20
+      - name: Download models and publish dataset
+        run: |
+          pip install -q huggingface_hub
+          mkdir -p ds
+          cp stable-diffusion.cpp/build/bin/sd-cli ds/
+          cp kaggle-test/char.jpg ds/charA.jpg
+          python3 - <<'PY'
+          import shutil
+          from huggingface_hub import list_repo_files, hf_hub_download
+          gg = list_repo_files('leejet/FLUX.2-klein-4B-GGUF')
+          pick = None
+          for pref in ['Q4_K','Q4_0','Q5','Q8']:
+              c=[f for f in gg if f.endswith('.gguf') and pref in f and 'base' not in f.lower()]
+              if c: pick=sorted(c)[0]; break
+          shutil.copy(hf_hub_download('leejet/FLUX.2-klein-4B-GGUF', pick), 'ds/diff.gguf')
+          cf = list_repo_files('Comfy-Org/flux2-klein-4B')
+          vf=[f for f in cf if 'vae' in f.lower() and f.endswith('.safetensors')][0]
+          shutil.copy(hf_hub_download('Comfy-Org/flux2-klein-4B', vf), 'ds/vae.safetensors')
+          qf = list_repo_files('unsloth/Qwen3-4B-GGUF')
+          shutil.copy(hf_hub_download('unsloth/Qwen3-4B-GGUF', [f for f in qf if f.endswith('Q4_K_M.gguf')][0]), 'ds/llm.gguf')
+          PY
+          ls -la ds
+      - uses: actions/upload-artifact@v4
+        with:
+          name: ds
+          path: ds
+          compression-level: 0
+          retention-days: 3
+  publish:
+    needs: build
+    runs-on: ubuntu-latest
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: ds
+          path: ds
+      - run: |
+          pip install -q kaggle
+          chmod +x ds/sd-cli
+          echo '{"title":"sdcpp-cache","id":"simoncreaty/sdcpp-cache","licenses":[{"name":"other"}]}' > ds/dataset-metadata.json
+          ls -la ds
+          kaggle datasets create -p ds --dir-mode zip || kaggle datasets version -p ds -m update --dir-mode zip
