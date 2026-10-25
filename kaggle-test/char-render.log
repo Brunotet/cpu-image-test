@@ -1,249 +1,848 @@
-[{"stream_name":"stdout","time":0.590820763,"data":"$ nvidia-smi; nvcc --version | tail -2; nproc; free -h | head -2\n"}
-,{"stream_name":"stdout","time":0.627751459,"data":"Sun Oct 25 11:52:43 2026       \n"}
-,{"stream_name":"stdout","time":0.627779509,"data":"+-----------------------------------------------------------------------------------------+\n"}
-,{"stream_name":"stdout","time":0.627783029,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
-,{"stream_name":"stdout","time":0.627785785,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
-,{"stream_name":"stdout","time":0.627788183,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
-,{"stream_name":"stdout","time":0.627790469,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
-,{"stream_name":"stdout","time":0.627792705,"data":"|                                         |                        |               MIG M. |\n"}
-,{"stream_name":"stdout","time":0.627794958,"data":"|=========================================+========================+======================|\n"}
-,{"stream_name":"stdout","time":0.67155813,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
-,{"stream_name":"stdout","time":0.6715783,"data":"| N/A   44C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
-,{"stream_name":"stdout","time":0.671583758,"data":"|                                         |                        |                  N/A |\n"}
-,{"stream_name":"stdout","time":0.671587288,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
-,{"stream_name":"stdout","time":0.671590893,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
-,{"stream_name":"stdout","time":0.671594233,"data":"| N/A   45C    P8              9W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
-,{"stream_name":"stdout","time":0.671597643,"data":"|                                         |                        |                  N/A |\n"}
-,{"stream_name":"stdout","time":0.67160104,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
-,{"stream_name":"stdout","time":0.672152088,"data":"\n"}
-,{"stream_name":"stdout","time":0.672162929,"data":"+-----------------------------------------------------------------------------------------+\n"}
-,{"stream_name":"stdout","time":0.672167183,"data":"| Processes:                                                                              |\n"}
-,{"stream_name":"stdout","time":0.672170606,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
-,{"stream_name":"stdout","time":0.672174034,"data":"|        ID   ID                                                               Usage      |\n"}
-,{"stream_name":"stdout","time":0.672177444,"data":"|=========================================================================================|\n"}
-,{"stream_name":"stdout","time":0.673902611,"data":"|  No running processes found                                                             |\n"}
-,{"stream_name":"stdout","time":0.673915307,"data":"+-----------------------------------------------------------------------------------------+\n"}
-,{"stream_name":"stdout","time":1.009617011,"data":"Cuda compilation tools, release 12.8, V12.8.93\n"}
-,{"stream_name":"stdout","time":1.009646911,"data":"Build cuda_12.8.r12.8/compiler.35583870_0\n"}
-,{"stream_name":"stdout","time":1.012125135,"data":"4\n"}
-,{"stream_name":"stdout","time":1.02813798,"data":"               total        used        free      shared  buff/cache   available\n"}
-,{"stream_name":"stdout","time":1.028154297,"data":"Mem:            31Gi       1.1Gi        26Gi       1.2Mi       4.5Gi        30Gi\n"}
-,{"stream_name":"stdout","time":1.029420717,"data":"$ pip install -q huggingface_hub pillow\n"}
-,{"stream_name":"stdout","time":4.182288703,"data":"$ git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp\n"}
-,{"stream_name":"stderr","time":4.202558834,"data":"Cloning into 'stable-diffusion.cpp'...\n"}
-,{"stream_name":"stderr","time":12.111512528,"data":"Updating files:  92% (629/680)\rUpdating files:  93% (633/680)\rUpdating files:  94% (640/680)\rUpdating files:  95% (646/680)\rUpdating files:  96% (653/680)\rUpdating files:  97% (660/680)\rUpdating files:  98% (667/680)\rUpdating files:  99% (674/680)\rUpdating files: 100% (680/680)\rUpdating files: 100% (680/680), done.\n"}
-,{"stream_name":"stderr","time":12.155878851,"data":"Submodule 'examples/server/frontend' (https://github.com/leejet/sdcpp-webui.git) registered for path 'examples/server/frontend'\n"}
-,{"stream_name":"stderr","time":12.156208506,"data":"Submodule 'ggml' (https://github.com/leejet/ggml.git) registered for path 'ggml'\n"}
-,{"stream_name":"stderr","time":12.156487539,"data":"Submodule 'thirdparty/libwebm' (https://github.com/webmproject/libwebm.git) registered for path 'thirdparty/libwebm'\n"}
-,{"stream_name":"stderr","time":12.156776873,"data":"Submodule 'thirdparty/libwebp' (https://github.com/webmproject/libwebp.git) registered for path 'thirdparty/libwebp'\n"}
-,{"stream_name":"stderr","time":12.16026107,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/examples/server/frontend'...\n"}
-,{"stream_name":"stderr","time":12.830939928,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/ggml'...\n"}
-,{"stream_name":"stderr","time":20.719709752,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/thirdparty/libwebm'...\n"}
-,{"stream_name":"stderr","time":21.692426223,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/thirdparty/libwebp'...\n"}
-,{"stream_name":"stdout","time":23.734471918,"data":"Submodule path 'examples/server/frontend': checked out '9157320a3bdd6a345f370868a32f730c77749cb5'\n"}
-,{"stream_name":"stderr","time":25.079981427,"data":"From https://github.com/leejet/ggml\n"}
-,{"stream_name":"stderr","time":25.080030286,"data":" * branch              a5915eb0e47adef21c3f25b889a008925ea838c2 -\u003e FETCH_HEAD\n"}
-,{"stream_name":"stdout","time":25.264580246,"data":"Submodule path 'ggml': checked out 'a5915eb0e47adef21c3f25b889a008925ea838c2'\n"}
-,{"stream_name":"stdout","time":25.312486685,"data":"Submodule path 'thirdparty/libwebm': checked out '5bf12267eea773a32fcf4949de52b0add158a8d5'\n"}
-,{"stream_name":"stdout","time":25.375145021,"data":"Submodule path 'thirdparty/libwebp': checked out '0c9546f7efc61eac7f79ae115c3f99c91c21c443'\n"}
-,{"stream_name":"stdout","time":25.386416684,"data":"$ cd stable-diffusion.cpp \u0026\u0026 cmake -B build -DCMAKE_BUILD_TYPE=Release -DSD_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=\"60;75\" \u0026\u0026 cmake --build build --config Release -j4\n"}
-,{"stream_name":"stdout","time":25.896928797,"data":"-- The C compiler identification is GNU 13.3.0\n"}
-,{"stream_name":"stdout","time":26.107573338,"data":"-- The CXX compiler identification is GNU 13.3.0\n"}
-,{"stream_name":"stdout","time":26.126983962,"data":"-- Detecting C compiler ABI info\n"}
-,{"stream_name":"stdout","time":26.226523022,"data":"-- Detecting C compiler ABI info - done\n"}
-,{"stream_name":"stdout","time":26.248114351,"data":"-- Check for working C compiler: /usr/bin/cc - skipped\n"}
-,{"stream_name":"stdout","time":26.249019692,"data":"-- Detecting C compile features\n"}
-,{"stream_name":"stdout","time":26.250000881,"data":"-- Detecting C compile features - done\n"}
-,{"stream_name":"stdout","time":26.269670182,"data":"-- Detecting CXX compiler ABI info\n"}
-,{"stream_name":"stdout","time":26.357945587,"data":"-- Detecting CXX compiler ABI info - done\n"}
-,{"stream_name":"stdout","time":26.380373014,"data":"-- Check for working CXX compiler: /usr/bin/c++ - skipped\n"}
-,{"stream_name":"stdout","time":26.380938096,"data":"-- Detecting CXX compile features\n"}
-,{"stream_name":"stdout","time":26.382360868,"data":"-- Detecting CXX compile features - done\n"}
-,{"stream_name":"stderr","time":26.393432784,"data":"-- Use CUDA as backend stable-diffusion\n"}
-,{"stream_name":"stdout","time":26.399957469,"data":"-- stable-diffusion.cpp version unknown\n"}
-,{"stream_name":"stdout","time":26.399973023,"data":"-- stable-diffusion.cpp commit 012c7f8\n"}
-,{"stream_name":"stderr","time":26.400010271,"data":"-- Build static library\n"}
-,{"stream_name":"stdout","time":26.410773825,"data":"-- The ASM compiler identification is GNU\n"}
-,{"stream_name":"stdout","time":26.414373781,"data":"-- Found assembler: /usr/bin/cc\n"}
-,{"stream_name":"stdout","time":26.561086263,"data":"-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n"}
-,{"stream_name":"stdout","time":26.663508739,"data":"-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n"}
-,{"stream_name":"stdout","time":26.665609309,"data":"-- Found Threads: TRUE\n"}
-,{"stream_name":"stdout","time":26.673538439,"data":"-- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF\n"}
-,{"stream_name":"stdout","time":26.695896194,"data":"-- CMAKE_SYSTEM_PROCESSOR: x86_64\n"}
-,{"stream_name":"stdout","time":26.696045779,"data":"-- GGML_SYSTEM_ARCH: x86\n"}
-,{"stream_name":"stdout","time":26.974073469,"data":"-- Found OpenMP_C: -fopenmp (found version \"4.5\")\n"}
-,{"stream_name":"stdout","time":27.066399498,"data":"-- Found OpenMP_CXX: -fopenmp (found version \"4.5\")\n"}
-,{"stream_name":"stdout","time":27.066874903,"data":"-- Found OpenMP: TRUE (found version \"4.5\")\n"}
-,{"stream_name":"stdout","time":27.070733182,"data":"-- Including CPU backend\n"}
-,{"stream_name":"stdout","time":27.071312512,"data":"-- x86 detected\n"}
-,{"stream_name":"stdout","time":27.071366923,"data":"-- Adding CPU backend variant ggml-cpu: -march=native \n"}
-,{"stream_name":"stdout","time":27.095797924,"data":"-- Found CUDAToolkit: /usr/local/cuda/targets/x86_64-linux/include (found version \"12.8.93\")\n"}
-,{"stream_name":"stdout","time":27.17294343,"data":"-- CUDA Toolkit found\n"}
-,{"stream_name":"stdout","time":29.013382926,"data":"-- The CUDA compiler identification is NVIDIA 12.8.93 with host compiler GNU 13.3.0\n"}
-,{"stream_name":"stdout","time":29.031072441,"data":"-- Detecting CUDA compiler ABI info\n"}
-,{"stream_name":"stdout","time":30.55495425,"data":"-- Detecting CUDA compiler ABI info - done\n"}
-,{"stream_name":"stdout","time":30.631796702,"data":"-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped\n"}
-,{"stream_name":"stdout","time":30.995612741,"data":"-- Detecting CUDA compile features\n"}
-,{"stream_name":"stdout","time":30.996433912,"data":"-- Detecting CUDA compile features - done\n"}
-,{"stream_name":"stdout","time":31.007794864,"data":"-- Using CMAKE_CUDA_ARCHITECTURES=60;75 CMAKE_CUDA_ARCHITECTURES_NATIVE=75-real\n"}
-,{"stream_name":"stdout","time":31.009594235,"data":"-- FlashAttention K-V type combinations: f16-f16;q4_0-q4_0;q8_0-q8_0;bf16-bf16\n"}
-,{"stream_name":"stdout","time":31.015954165,"data":"-- Found NCCL: /usr/lib/x86_64-linux-gnu/libnccl.so\n"}
-,{"stream_name":"stdout","time":31.055018566,"data":"-- CUDA host compiler is GNU 13.3.0\n"}
-,{"stream_name":"stdout","time":31.055408934,"data":"-- Including CUDA backend\n"}
-,{"stream_name":"stdout","time":31.065151683,"data":"-- ggml version: 0.27.0\n"}
-,{"stream_name":"stdout","time":31.065166249,"data":"-- ggml commit:  a5915eb0\n"}
-,{"stream_name":"stdout","time":31.07119097,"data":"-- Looking for include file alloca.h\n"}
-,{"stream_name":"stdout","time":31.141274933,"data":"-- Looking for include file alloca.h - found\n"}
-,{"stream_name":"stdout","time":31.1416477,"data":"-- Looking for include file stdint.h\n"}
-,{"stream_name":"stdout","time":31.215272242,"data":"-- Looking for include file stdint.h - found\n"}
-,{"stream_name":"stdout","time":31.215690438,"data":"-- Looking for include file sys/times.h\n"}
-,{"stream_name":"stdout","time":31.286481221,"data":"-- Looking for include file sys/times.h - found\n"}
-,{"stream_name":"stdout","time":31.286865944,"data":"-- Looking for include file sys/time.h\n"}
-,{"stream_name":"stdout","time":31.356973429,"data":"-- Looking for include file sys/time.h - found\n"}
-,{"stream_name":"stdout","time":31.357298326,"data":"-- Looking for include file sys/types.h\n"}
-,{"stream_name":"stdout","time":31.428457982,"data":"-- Looking for include file sys/types.h - found\n"}
-,{"stream_name":"stdout","time":31.428741934,"data":"-- Looking for include file unistd.h\n"}
-,{"stream_name":"stdout","time":31.504316924,"data":"-- Looking for include file unistd.h - found\n"}
-,{"stream_name":"stdout","time":31.504686796,"data":"-- Looking for include file inttypes.h\n"}
-,{"stream_name":"stdout","time":31.575684953,"data":"-- Looking for include file inttypes.h - found\n"}
-,{"stream_name":"stdout","time":31.576753681,"data":"-- Looking for stddef.h\n"}
-,{"stream_name":"stdout","time":31.659241605,"data":"-- Looking for stddef.h - found\n"}
-,{"stream_name":"stdout","time":31.659499362,"data":"-- Check size of int\n"}
-,{"stream_name":"stdout","time":31.740568965,"data":"-- Check size of int - done\n"}
-,{"stream_name":"stdout","time":31.74110295,"data":"-- Check size of long\n"}
-,{"stream_name":"stdout","time":31.815231312,"data":"-- Check size of long - done\n"}
-,{"stream_name":"stdout","time":31.815696529,"data":"-- Check size of long long\n"}
-,{"stream_name":"stdout","time":31.911404293,"data":"-- Check size of long long - done\n"}
-,{"stream_name":"stdout","time":31.912008666,"data":"-- Check size of void*\n"}
-,{"stream_name":"stdout","time":32.007791406,"data":"-- Check size of void* - done\n"}
-,{"stream_name":"stdout","time":32.008310048,"data":"-- Looking for alloca\n"}
-,{"stream_name":"stdout","time":32.077250867,"data":"-- Looking for alloca - found\n"}
-,{"stream_name":"stdout","time":32.082688446,"data":"-- Performing Test HAVE_BUILTIN_BSWAP16\n"}
-,{"stream_name":"stdout","time":32.150669535,"data":"-- Performing Test HAVE_BUILTIN_BSWAP16 - Success\n"}
-,{"stream_name":"stdout","time":32.150884724,"data":"-- Performing Test HAVE_BUILTIN_BSWAP32\n"}
-,{"stream_name":"stdout","time":32.21980513,"data":"-- Performing Test HAVE_BUILTIN_BSWAP32 - Success\n"}
-,{"stream_name":"stdout","time":32.220087506,"data":"-- Performing Test HAVE_BUILTIN_BSWAP64\n"}
-,{"stream_name":"stdout","time":32.300032438,"data":"-- Performing Test HAVE_BUILTIN_BSWAP64 - Success\n"}
-,{"stream_name":"stdout","time":32.331890961,"data":"-- Could NOT find OpenGL (missing: OPENGL_opengl_LIBRARY OPENGL_glx_LIBRARY OPENGL_INCLUDE_DIR) \n"}
-,{"stream_name":"stdout","time":32.334028037,"data":"-- Performing Test HAVE_MATH_LIBRARY\n"}
-,{"stream_name":"stdout","time":32.425035094,"data":"-- Performing Test HAVE_MATH_LIBRARY - Failed\n"}
-,{"stream_name":"stdout","time":32.425091083,"data":"-- Adding -lm flag.\n"}
-,{"stream_name":"stdout","time":32.425740461,"data":"-- Looking for include file GLUT/glut.h\n"}
-,{"stream_name":"stdout","time":32.458941223,"data":"-- Looking for include file GLUT/glut.h - not found\n"}
-,{"stream_name":"stdout","time":32.459284596,"data":"-- Looking for include file GL/glut.h\n"}
-,{"stream_name":"stdout","time":32.489510326,"data":"-- Looking for include file GL/glut.h - not found\n"}
-,{"stream_name":"stdout","time":32.489846105,"data":"-- Looking for include file OpenGL/glut.h\n"}
-,{"stream_name":"stdout","time":32.520954101,"data":"-- Looking for include file OpenGL/glut.h - not found\n"}
-,{"stream_name":"stdout","time":32.521319401,"data":"-- Looking for include file shlwapi.h\n"}
-,{"stream_name":"stdout","time":32.553276676,"data":"-- Looking for include file shlwapi.h - not found\n"}
-,{"stream_name":"stdout","time":32.553672912,"data":"-- Looking for include file unistd.h\n"}
-,{"stream_name":"stdout","time":32.628378909,"data":"-- Looking for include file unistd.h - found\n"}
-,{"stream_name":"stdout","time":32.628738012,"data":"-- Looking for include file wincodec.h\n"}
-,{"stream_name":"stdout","time":32.659992792,"data":"-- Looking for include file wincodec.h - not found\n"}
-,{"stream_name":"stdout","time":32.660379882,"data":"-- Looking for include file windows.h\n"}
-,{"stream_name":"stdout","time":32.690873127,"data":"-- Looking for include file windows.h - not found\n"}
-,{"stream_name":"stdout","time":32.692661709,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2\n"}
-,{"stream_name":"stdout","time":32.733485837,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2 - Failed\n"}
-,{"stream_name":"stdout","time":32.734042486,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2\n"}
-,{"stream_name":"stdout","time":32.811074195,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2 - Success\n"}
-,{"stream_name":"stdout","time":32.811937513,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41\n"}
-,{"stream_name":"stdout","time":32.850770896,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41 - Failed\n"}
-,{"stream_name":"stdout","time":32.851395334,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41\n"}
-,{"stream_name":"stdout","time":32.926681285,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41 - Success\n"}
-,{"stream_name":"stdout","time":32.927597001,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE2\n"}
-,{"stream_name":"stdout","time":33.000941782,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE2 - Success\n"}
-,{"stream_name":"stdout","time":33.001798697,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32\n"}
-,{"stream_name":"stdout","time":33.038652122,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32 - Failed\n"}
-,{"stream_name":"stdout","time":33.039285002,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32\n"}
-,{"stream_name":"stdout","time":33.064165701,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32 - Failed\n"}
-,{"stream_name":"stdout","time":33.066185429,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2\n"}
-,{"stream_name":"stdout","time":33.103789364,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2 - Failed\n"}
-,{"stream_name":"stdout","time":33.104394658,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2\n"}
-,{"stream_name":"stdout","time":33.129243101,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2 - Failed\n"}
-,{"stream_name":"stdout","time":33.130732796,"data":"-- Performing Test HAS_COMPILE_FLAG\n"}
-,{"stream_name":"stdout","time":33.156712923,"data":"-- Performing Test HAS_COMPILE_FLAG - Failed\n"}
-,{"stream_name":"stdout","time":33.157402772,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON\n"}
-,{"stream_name":"stdout","time":33.195383676,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON - Failed\n"}
-,{"stream_name":"stdout","time":33.195912029,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON\n"}
-,{"stream_name":"stdout","time":33.224217753,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON - Failed\n"}
-,{"stream_name":"stdout","time":33.225321952,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA\n"}
-,{"stream_name":"stdout","time":33.267192346,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA - Failed\n"}
-,{"stream_name":"stdout","time":33.267757021,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA\n"}
-,{"stream_name":"stdout","time":33.294979619,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA - Failed\n"}
-,{"stream_name":"stdout","time":33.304767931,"data":"-- Performing Test HAS_COMPILE_FLAG\n"}
-,{"stream_name":"stdout","time":33.333586765,"data":"-- Performing Test HAS_COMPILE_FLAG - Failed\n"}
-,{"stream_name":"stderr","time":33.35921059,"data":"Checking CXX compiler flag support for: -std=c++11\n"}
-,{"stream_name":"stdout","time":33.36030337,"data":"-- Performing Test LIBWEBM_HAVE_CXX_FLAG\n"}
-,{"stream_name":"stdout","time":33.444644954,"data":"-- Performing Test LIBWEBM_HAVE_CXX_FLAG - Success\n"}
-,{"stream_name":"stderr","time":33.445221885,"data":"Checking CXX compiler flag support for: -Wall\n"}
-,{"stream_name":"stdout","time":33.446347527,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
-,{"stream_name":"stdout","time":33.533491002,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
-,{"stream_name":"stderr","time":33.533941079,"data":"Checking CXX compiler flag support for: -Wc++14-compat\n"}
-,{"stream_name":"stdout","time":33.535116738,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
-,{"stream_name":"stdout","time":33.620971087,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
-,{"stream_name":"stderr","time":33.621329701,"data":"Checking CXX compiler flag support for: -Wc++17-compat\n"}
-,{"stream_name":"stdout","time":33.622450859,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
-,{"stream_name":"stdout","time":33.705341812,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
-,{"stream_name":"stderr","time":33.705680452,"data":"Checking CXX compiler flag support for: -Wc++20-compat\n"}
-,{"stream_name":"stdout","time":33.706958995,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
-,{"stream_name":"stdout","time":33.793450335,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
-,{"stream_name":"stderr","time":33.793777082,"data":"Checking CXX compiler flag support for: -Wextra\n"}
-,{"stream_name":"stdout","time":33.794996818,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
-,{"stream_name":"stdout","time":33.88281908,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
-,{"stream_name":"stderr","time":33.883248067,"data":"Checking CXX compiler flag support for: -Wnarrowing\n"}
-,{"stream_name":"stdout","time":33.884436103,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
-,{"stream_name":"stdout","time":33.972678824,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
-,{"stream_name":"stderr","time":33.973060689,"data":"Checking CXX compiler flag support for: -Wno-deprecated\n"}
-,{"stream_name":"stdout","time":33.974239737,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
-,{"stream_name":"stdout","time":34.063110017,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
-,{"stream_name":"stderr","time":34.063517253,"data":"Checking CXX compiler flag support for: -Wshorten-64-to-32\n"}
-,{"stream_name":"stdout","time":34.064667813,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
-,{"stream_name":"stdout","time":34.103638828,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Failed\n"}
-,{"stream_name":"stderr","time":34.158414152,"data":"CMake Warning at examples/server/CMakeLists.txt:58 (message):\n"}
-,{"stream_name":"stderr","time":34.158432342,"data":"  pnpm not found; frontend build disabled.\n"}
-,{"stream_name":"stderr","time":34.158436717,"data":"\n"}
-,{"stream_name":"stderr","time":34.158440462,"data":"\n"}
-,{"stream_name":"stdout","time":34.158712423,"data":"-- HAVE_INDEX_HTML disabled\n"}
-,{"stream_name":"stdout","time":34.168784999,"data":"-- Configuring done (8.5s)\n"}
-,{"stream_name":"stderr","time":34.368236414,"data":"CMake Error at CMakeLists.txt:344 (target_link_libraries):\n"}
-,{"stream_name":"stderr","time":34.368263874,"data":"  Target \"stable-diffusion\" links to:\n"}
-,{"stream_name":"stderr","time":34.368269317,"data":"\n"}
-,{"stream_name":"stderr","time":34.36827309,"data":"    CUDA::cuda_driver\n"}
-,{"stream_name":"stderr","time":34.368276657,"data":"\n"}
-,{"stream_name":"stderr","time":34.368280244,"data":"  but the target was not found.  Possible reasons include:\n"}
-,{"stream_name":"stderr","time":34.368284236,"data":"\n"}
-,{"stream_name":"stderr","time":34.368289957,"data":"    * There is a typo in the target name.\n"}
-,{"stream_name":"stderr","time":34.368297584,"data":"    * A find_package call is missing for an IMPORTED target.\n"}
-,{"stream_name":"stderr","time":34.368300245,"data":"    * An ALIAS target is missing.\n"}
-,{"stream_name":"stderr","time":34.36830276,"data":"\n"}
-,{"stream_name":"stderr","time":34.368305135,"data":"\n"}
-,{"stream_name":"stderr","time":34.368307512,"data":"\n"}
-,{"stream_name":"stderr","time":34.368309986,"data":"CMake Error at ggml/src/ggml-cuda/CMakeLists.txt:188 (target_link_libraries):\n"}
-,{"stream_name":"stderr","time":34.368312614,"data":"  Target \"ggml-cuda\" links to:\n"}
-,{"stream_name":"stderr","time":34.368315138,"data":"\n"}
-,{"stream_name":"stderr","time":34.368317493,"data":"    CUDA::cuda_driver\n"}
-,{"stream_name":"stderr","time":34.368320023,"data":"\n"}
-,{"stream_name":"stderr","time":34.368322406,"data":"  but the target was not found.  Possible reasons include:\n"}
-,{"stream_name":"stderr","time":34.368324924,"data":"\n"}
-,{"stream_name":"stderr","time":34.368327289,"data":"    * There is a typo in the target name.\n"}
-,{"stream_name":"stderr","time":34.368329873,"data":"    * A find_package call is missing for an IMPORTED target.\n"}
-,{"stream_name":"stderr","time":34.368332973,"data":"    * An ALIAS target is missing.\n"}
-,{"stream_name":"stderr","time":34.368335597,"data":"\n"}
-,{"stream_name":"stderr","time":34.368337994,"data":"\n"}
-,{"stream_name":"stderr","time":34.368340365,"data":"\n"}
-,{"stream_name":"stdout","time":34.373438689,"data":"-- Generating done (0.2s)\n"}
-,{"stream_name":"stderr","time":34.373473134,"data":"CMake Generate step failed.  Build files cannot be regenerated correctly.\n"}
-,{"stream_name":"stdout","time":34.38946828,"data":"BUILD SECONDS 30\n"}
-,{"stream_name":"stderr","time":35.743103007,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
-,{"stream_name":"stderr","time":48.852252127,"data":"Traceback (most recent call last):\n"}
-,{"stream_name":"stderr","time":48.852563852,"data":"  File \"/kaggle/src/script.py\", line 25, in \u003cmodule\u003e\n"}
-,{"stream_name":"stderr","time":48.852611822,"data":"    BIN=[b for b in ['stable-diffusion.cpp/build/bin/sd-cli','stable-diffusion.cpp/build/bin/sd'] if os.path.exists(b)][0]\n"}
-,{"stream_name":"stderr","time":48.8526185,"data":"        ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^\n"}
-,{"stream_name":"stderr","time":48.852622741,"data":"IndexError: list index out of range\n"}
-,{"stream_name":"stderr","time":51.331835446,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
-,{"stream_name":"stderr","time":51.331880646,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
-,{"stream_name":"stderr","time":51.574029802,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
-,{"stream_name":"stderr","time":51.57405503,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
-,{"stream_name":"stderr","time":56.953812901,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
-,{"stream_name":"stderr","time":58.303785113,"data":"[NbConvertApp] Writing 286638 bytes to __results__.html\n"}
+[{"stream_name":"stdout","time":0.686982774,"data":"$ nvidia-smi; nvcc --version | tail -2; nproc; free -h | head -2\n"}
+,{"stream_name":"stdout","time":0.723183915,"data":"Sun Oct 25 12:17:44 2026       \n"}
+,{"stream_name":"stdout","time":0.723205305,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":0.723210139,"data":"| NVIDIA-SMI 580.178.04             Driver Version: 580.178.04     CUDA Version: 13.0     |\n"}
+,{"stream_name":"stdout","time":0.723213888,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.723217469,"data":"| GPU  Name                 Persistence-M | Bus-Id          Disp.A | Volatile Uncorr. ECC |\n"}
+,{"stream_name":"stdout","time":0.723221015,"data":"| Fan  Temp   Perf          Pwr:Usage/Cap |           Memory-Usage | GPU-Util  Compute M. |\n"}
+,{"stream_name":"stdout","time":0.723224506,"data":"|                                         |                        |               MIG M. |\n"}
+,{"stream_name":"stdout","time":0.723229575,"data":"|=========================================+========================+======================|\n"}
+,{"stream_name":"stdout","time":0.770187385,"data":"|   0  Tesla T4                       Off |   00000000:00:04.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":0.770207958,"data":"| N/A   61C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":0.770214125,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":0.770219465,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.77022476,"data":"|   1  Tesla T4                       Off |   00000000:00:05.0 Off |                    0 |\n"}
+,{"stream_name":"stdout","time":0.770230119,"data":"| N/A   56C    P8             10W /   70W |       0MiB /  15360MiB |      0%      Default |\n"}
+,{"stream_name":"stdout","time":0.770235489,"data":"|                                         |                        |                  N/A |\n"}
+,{"stream_name":"stdout","time":0.770240853,"data":"+-----------------------------------------+------------------------+----------------------+\n"}
+,{"stream_name":"stdout","time":0.771017417,"data":"\n"}
+,{"stream_name":"stdout","time":0.771032043,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":0.771037087,"data":"| Processes:                                                                              |\n"}
+,{"stream_name":"stdout","time":0.771042383,"data":"|  GPU   GI   CI              PID   Type   Process name                        GPU Memory |\n"}
+,{"stream_name":"stdout","time":0.771047927,"data":"|        ID   ID                                                               Usage      |\n"}
+,{"stream_name":"stdout","time":0.771063895,"data":"|=========================================================================================|\n"}
+,{"stream_name":"stdout","time":0.77262346,"data":"|  No running processes found                                                             |\n"}
+,{"stream_name":"stdout","time":0.772638017,"data":"+-----------------------------------------------------------------------------------------+\n"}
+,{"stream_name":"stdout","time":1.117759297,"data":"Cuda compilation tools, release 12.8, V12.8.93\n"}
+,{"stream_name":"stdout","time":1.117779328,"data":"Build cuda_12.8.r12.8/compiler.35583870_0\n"}
+,{"stream_name":"stdout","time":1.120336682,"data":"4\n"}
+,{"stream_name":"stdout","time":1.140974965,"data":"               total        used        free      shared  buff/cache   available\n"}
+,{"stream_name":"stdout","time":1.141004559,"data":"Mem:            31Gi       1.0Gi        26Gi       1.2Mi       4.5Gi        30Gi\n"}
+,{"stream_name":"stdout","time":1.142262436,"data":"$ pip install -q huggingface_hub pillow\n"}
+,{"stream_name":"stdout","time":4.501063673,"data":"$ git clone --depth 1 --recursive https://github.com/leejet/stable-diffusion.cpp\n"}
+,{"stream_name":"stderr","time":4.522579304,"data":"Cloning into 'stable-diffusion.cpp'...\n"}
+,{"stream_name":"stderr","time":12.264652128,"data":"Updating files:  92% (629/680)\rUpdating files:  93% (633/680)\rUpdating files:  94% (640/680)\rUpdating files:  95% (646/680)\rUpdating files:  96% (653/680)\rUpdating files:  97% (660/680)\rUpdating files:  98% (667/680)\rUpdating files:  99% (674/680)\rUpdating files: 100% (680/680)\rUpdating files: 100% (680/680), done.\n"}
+,{"stream_name":"stderr","time":12.312093812,"data":"Submodule 'examples/server/frontend' (https://github.com/leejet/sdcpp-webui.git) registered for path 'examples/server/frontend'\n"}
+,{"stream_name":"stderr","time":12.312370843,"data":"Submodule 'ggml' (https://github.com/leejet/ggml.git) registered for path 'ggml'\n"}
+,{"stream_name":"stderr","time":12.312645736,"data":"Submodule 'thirdparty/libwebm' (https://github.com/webmproject/libwebm.git) registered for path 'thirdparty/libwebm'\n"}
+,{"stream_name":"stderr","time":12.312928604,"data":"Submodule 'thirdparty/libwebp' (https://github.com/webmproject/libwebp.git) registered for path 'thirdparty/libwebp'\n"}
+,{"stream_name":"stderr","time":12.316351903,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/examples/server/frontend'...\n"}
+,{"stream_name":"stderr","time":12.882907896,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/ggml'...\n"}
+,{"stream_name":"stderr","time":20.502979498,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/thirdparty/libwebm'...\n"}
+,{"stream_name":"stderr","time":21.449797334,"data":"Cloning into '/kaggle/working/stable-diffusion.cpp/thirdparty/libwebp'...\n"}
+,{"stream_name":"stdout","time":23.466181715,"data":"Submodule path 'examples/server/frontend': checked out '9157320a3bdd6a345f370868a32f730c77749cb5'\n"}
+,{"stream_name":"stderr","time":24.760857507,"data":"From https://github.com/leejet/ggml\n"}
+,{"stream_name":"stderr","time":24.760898526,"data":" * branch              a5915eb0e47adef21c3f25b889a008925ea838c2 -\u003e FETCH_HEAD\n"}
+,{"stream_name":"stdout","time":24.947641757,"data":"Submodule path 'ggml': checked out 'a5915eb0e47adef21c3f25b889a008925ea838c2'\n"}
+,{"stream_name":"stdout","time":24.996843471,"data":"Submodule path 'thirdparty/libwebm': checked out '5bf12267eea773a32fcf4949de52b0add158a8d5'\n"}
+,{"stream_name":"stdout","time":25.060263019,"data":"Submodule path 'thirdparty/libwebp': checked out '0c9546f7efc61eac7f79ae115c3f99c91c21c443'\n"}
+,{"stream_name":"stdout","time":25.072161204,"data":"$ mkdir -p /tmp/stubs; L=$(find / -name \"libcuda.so*\" -not -path \"/proc/*\" 2\u003e/dev/null | head -1); echo libcuda=$L; ln -sf $L /tmp/stubs/libcuda.so; ln -sf $L /tmp/stubs/libcuda.so.1\n"}
+,{"stream_name":"stdout","time":50.861276405,"data":"libcuda=/root/.julia/artifacts/89df8823e2dffe926bfbe09b177903259b2fe484/lib/libcuda.so.1\n"}
+,{"stream_name":"stdout","time":50.865835822,"data":"$ export LIBRARY_PATH=/tmp/stubs:$LIBRARY_PATH; cd stable-diffusion.cpp \u0026\u0026 cmake -B build -DCMAKE_BUILD_TYPE=Release -DSD_CUDA=ON -DCMAKE_CUDA_ARCHITECTURES=\"75\" -DCMAKE_LIBRARY_PATH=/tmp/stubs -DCMAKE_EXE_LINKER_FLAGS=\"-L/tmp/stubs -Wl,-rpath-link,/tmp/stubs\" \u0026\u0026 cmake --build build --config Release -j4\n"}
+,{"stream_name":"stdout","time":51.531245261,"data":"-- The C compiler identification is GNU 13.3.0\n"}
+,{"stream_name":"stdout","time":51.776580528,"data":"-- The CXX compiler identification is GNU 13.3.0\n"}
+,{"stream_name":"stdout","time":51.799493265,"data":"-- Detecting C compiler ABI info\n"}
+,{"stream_name":"stdout","time":51.927327675,"data":"-- Detecting C compiler ABI info - done\n"}
+,{"stream_name":"stdout","time":51.951154138,"data":"-- Check for working C compiler: /usr/bin/cc - skipped\n"}
+,{"stream_name":"stdout","time":51.952078722,"data":"-- Detecting C compile features\n"}
+,{"stream_name":"stdout","time":51.953170316,"data":"-- Detecting C compile features - done\n"}
+,{"stream_name":"stdout","time":51.975249243,"data":"-- Detecting CXX compiler ABI info\n"}
+,{"stream_name":"stdout","time":52.064096754,"data":"-- Detecting CXX compiler ABI info - done\n"}
+,{"stream_name":"stdout","time":52.086483514,"data":"-- Check for working CXX compiler: /usr/bin/c++ - skipped\n"}
+,{"stream_name":"stdout","time":52.087095672,"data":"-- Detecting CXX compile features\n"}
+,{"stream_name":"stdout","time":52.088115172,"data":"-- Detecting CXX compile features - done\n"}
+,{"stream_name":"stderr","time":52.098432148,"data":"-- Use CUDA as backend stable-diffusion\n"}
+,{"stream_name":"stdout","time":52.104983809,"data":"-- stable-diffusion.cpp version unknown\n"}
+,{"stream_name":"stdout","time":52.105001163,"data":"-- stable-diffusion.cpp commit 012c7f8\n"}
+,{"stream_name":"stderr","time":52.105010703,"data":"-- Build static library\n"}
+,{"stream_name":"stdout","time":52.116132371,"data":"-- The ASM compiler identification is GNU\n"}
+,{"stream_name":"stdout","time":52.119632337,"data":"-- Found assembler: /usr/bin/cc\n"}
+,{"stream_name":"stdout","time":52.282345631,"data":"-- Performing Test CMAKE_HAVE_LIBC_PTHREAD\n"}
+,{"stream_name":"stdout","time":52.392444431,"data":"-- Performing Test CMAKE_HAVE_LIBC_PTHREAD - Success\n"}
+,{"stream_name":"stdout","time":52.395729242,"data":"-- Found Threads: TRUE\n"}
+,{"stream_name":"stdout","time":52.404733463,"data":"-- Warning: ccache not found - consider installing it for faster compilation or disable this warning with GGML_CCACHE=OFF\n"}
+,{"stream_name":"stdout","time":52.427629918,"data":"-- CMAKE_SYSTEM_PROCESSOR: x86_64\n"}
+,{"stream_name":"stdout","time":52.427762775,"data":"-- GGML_SYSTEM_ARCH: x86\n"}
+,{"stream_name":"stdout","time":52.703382012,"data":"-- Found OpenMP_C: -fopenmp (found version \"4.5\")\n"}
+,{"stream_name":"stdout","time":52.795677147,"data":"-- Found OpenMP_CXX: -fopenmp (found version \"4.5\")\n"}
+,{"stream_name":"stdout","time":52.796172487,"data":"-- Found OpenMP: TRUE (found version \"4.5\")\n"}
+,{"stream_name":"stdout","time":52.798263103,"data":"-- Including CPU backend\n"}
+,{"stream_name":"stdout","time":52.798822513,"data":"-- x86 detected\n"}
+,{"stream_name":"stdout","time":52.798951823,"data":"-- Adding CPU backend variant ggml-cpu: -march=native \n"}
+,{"stream_name":"stdout","time":52.823844049,"data":"-- Found CUDAToolkit: /usr/local/cuda/targets/x86_64-linux/include (found version \"12.8.93\")\n"}
+,{"stream_name":"stdout","time":52.897196255,"data":"-- CUDA Toolkit found\n"}
+,{"stream_name":"stdout","time":54.887211697,"data":"-- The CUDA compiler identification is NVIDIA 12.8.93 with host compiler GNU 13.3.0\n"}
+,{"stream_name":"stdout","time":54.905125476,"data":"-- Detecting CUDA compiler ABI info\n"}
+,{"stream_name":"stdout","time":56.051638776,"data":"-- Detecting CUDA compiler ABI info - done\n"}
+,{"stream_name":"stdout","time":56.118994563,"data":"-- Check for working CUDA compiler: /usr/local/cuda/bin/nvcc - skipped\n"}
+,{"stream_name":"stdout","time":56.48142225,"data":"-- Detecting CUDA compile features\n"}
+,{"stream_name":"stdout","time":56.482334586,"data":"-- Detecting CUDA compile features - done\n"}
+,{"stream_name":"stdout","time":56.495680278,"data":"-- Using CMAKE_CUDA_ARCHITECTURES=75 CMAKE_CUDA_ARCHITECTURES_NATIVE=75-real\n"}
+,{"stream_name":"stdout","time":56.497833778,"data":"-- FlashAttention K-V type combinations: f16-f16;q4_0-q4_0;q8_0-q8_0;bf16-bf16\n"}
+,{"stream_name":"stdout","time":56.504734118,"data":"-- Found NCCL: /usr/lib/x86_64-linux-gnu/libnccl.so\n"}
+,{"stream_name":"stdout","time":56.546452976,"data":"-- CUDA host compiler is GNU 13.3.0\n"}
+,{"stream_name":"stdout","time":56.546907278,"data":"-- Including CUDA backend\n"}
+,{"stream_name":"stdout","time":56.557372475,"data":"-- ggml version: 0.27.0\n"}
+,{"stream_name":"stdout","time":56.557389112,"data":"-- ggml commit:  a5915eb0\n"}
+,{"stream_name":"stdout","time":56.564518392,"data":"-- Looking for include file alloca.h\n"}
+,{"stream_name":"stdout","time":56.642456276,"data":"-- Looking for include file alloca.h - found\n"}
+,{"stream_name":"stdout","time":56.642830663,"data":"-- Looking for include file stdint.h\n"}
+,{"stream_name":"stdout","time":56.719360094,"data":"-- Looking for include file stdint.h - found\n"}
+,{"stream_name":"stdout","time":56.719776536,"data":"-- Looking for include file sys/times.h\n"}
+,{"stream_name":"stdout","time":56.793004248,"data":"-- Looking for include file sys/times.h - found\n"}
+,{"stream_name":"stdout","time":56.793368277,"data":"-- Looking for include file sys/time.h\n"}
+,{"stream_name":"stdout","time":56.864527693,"data":"-- Looking for include file sys/time.h - found\n"}
+,{"stream_name":"stdout","time":56.864876259,"data":"-- Looking for include file sys/types.h\n"}
+,{"stream_name":"stdout","time":56.934457,"data":"-- Looking for include file sys/types.h - found\n"}
+,{"stream_name":"stdout","time":56.934836795,"data":"-- Looking for include file unistd.h\n"}
+,{"stream_name":"stdout","time":57.008719798,"data":"-- Looking for include file unistd.h - found\n"}
+,{"stream_name":"stdout","time":57.009074185,"data":"-- Looking for include file inttypes.h\n"}
+,{"stream_name":"stdout","time":57.076931412,"data":"-- Looking for include file inttypes.h - found\n"}
+,{"stream_name":"stdout","time":57.077990818,"data":"-- Looking for stddef.h\n"}
+,{"stream_name":"stdout","time":57.144525212,"data":"-- Looking for stddef.h - found\n"}
+,{"stream_name":"stdout","time":57.144759559,"data":"-- Check size of int\n"}
+,{"stream_name":"stdout","time":57.215881727,"data":"-- Check size of int - done\n"}
+,{"stream_name":"stdout","time":57.216332101,"data":"-- Check size of long\n"}
+,{"stream_name":"stdout","time":57.287425605,"data":"-- Check size of long - done\n"}
+,{"stream_name":"stdout","time":57.287918191,"data":"-- Check size of long long\n"}
+,{"stream_name":"stdout","time":57.359771851,"data":"-- Check size of long long - done\n"}
+,{"stream_name":"stdout","time":57.360390629,"data":"-- Check size of void*\n"}
+,{"stream_name":"stdout","time":57.4333258,"data":"-- Check size of void* - done\n"}
+,{"stream_name":"stdout","time":57.433734957,"data":"-- Looking for alloca\n"}
+,{"stream_name":"stdout","time":57.504373588,"data":"-- Looking for alloca - found\n"}
+,{"stream_name":"stdout","time":57.510084174,"data":"-- Performing Test HAVE_BUILTIN_BSWAP16\n"}
+,{"stream_name":"stdout","time":57.577203491,"data":"-- Performing Test HAVE_BUILTIN_BSWAP16 - Success\n"}
+,{"stream_name":"stdout","time":57.577438477,"data":"-- Performing Test HAVE_BUILTIN_BSWAP32\n"}
+,{"stream_name":"stdout","time":57.64413877,"data":"-- Performing Test HAVE_BUILTIN_BSWAP32 - Success\n"}
+,{"stream_name":"stdout","time":57.64435069,"data":"-- Performing Test HAVE_BUILTIN_BSWAP64\n"}
+,{"stream_name":"stdout","time":57.711012995,"data":"-- Performing Test HAVE_BUILTIN_BSWAP64 - Success\n"}
+,{"stream_name":"stdout","time":57.730560644,"data":"-- Could NOT find OpenGL (missing: OPENGL_opengl_LIBRARY OPENGL_glx_LIBRARY OPENGL_INCLUDE_DIR) \n"}
+,{"stream_name":"stdout","time":57.7309039,"data":"-- Performing Test HAVE_MATH_LIBRARY\n"}
+,{"stream_name":"stdout","time":57.813342643,"data":"-- Performing Test HAVE_MATH_LIBRARY - Failed\n"}
+,{"stream_name":"stdout","time":57.813464613,"data":"-- Adding -lm flag.\n"}
+,{"stream_name":"stdout","time":57.814123964,"data":"-- Looking for include file GLUT/glut.h\n"}
+,{"stream_name":"stdout","time":57.845342355,"data":"-- Looking for include file GLUT/glut.h - not found\n"}
+,{"stream_name":"stdout","time":57.845666295,"data":"-- Looking for include file GL/glut.h\n"}
+,{"stream_name":"stdout","time":57.8751788,"data":"-- Looking for include file GL/glut.h - not found\n"}
+,{"stream_name":"stdout","time":57.875598997,"data":"-- Looking for include file OpenGL/glut.h\n"}
+,{"stream_name":"stdout","time":57.906605419,"data":"-- Looking for include file OpenGL/glut.h - not found\n"}
+,{"stream_name":"stdout","time":57.906989369,"data":"-- Looking for include file shlwapi.h\n"}
+,{"stream_name":"stdout","time":57.936659011,"data":"-- Looking for include file shlwapi.h - not found\n"}
+,{"stream_name":"stdout","time":57.93700988,"data":"-- Looking for include file unistd.h\n"}
+,{"stream_name":"stdout","time":58.00593673,"data":"-- Looking for include file unistd.h - found\n"}
+,{"stream_name":"stdout","time":58.006284593,"data":"-- Looking for include file wincodec.h\n"}
+,{"stream_name":"stdout","time":58.035760788,"data":"-- Looking for include file wincodec.h - not found\n"}
+,{"stream_name":"stdout","time":58.036117096,"data":"-- Looking for include file windows.h\n"}
+,{"stream_name":"stdout","time":58.066741137,"data":"-- Looking for include file windows.h - not found\n"}
+,{"stream_name":"stdout","time":58.068470737,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2\n"}
+,{"stream_name":"stdout","time":58.104752811,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2 - Failed\n"}
+,{"stream_name":"stdout","time":58.105280994,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2\n"}
+,{"stream_name":"stdout","time":58.178432311,"data":"-- Performing Test WEBP_HAVE_FLAG_AVX2 - Success\n"}
+,{"stream_name":"stdout","time":58.17923928,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41\n"}
+,{"stream_name":"stdout","time":58.215806355,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41 - Failed\n"}
+,{"stream_name":"stdout","time":58.216359458,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41\n"}
+,{"stream_name":"stdout","time":58.289348357,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE41 - Success\n"}
+,{"stream_name":"stdout","time":58.290203366,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE2\n"}
+,{"stream_name":"stdout","time":58.361880351,"data":"-- Performing Test WEBP_HAVE_FLAG_SSE2 - Success\n"}
+,{"stream_name":"stdout","time":58.362757982,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32\n"}
+,{"stream_name":"stdout","time":58.399554788,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32 - Failed\n"}
+,{"stream_name":"stdout","time":58.400044032,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32\n"}
+,{"stream_name":"stdout","time":58.426724653,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS32 - Failed\n"}
+,{"stream_name":"stdout","time":58.428641996,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2\n"}
+,{"stream_name":"stdout","time":58.466609154,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2 - Failed\n"}
+,{"stream_name":"stdout","time":58.46710303,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2\n"}
+,{"stream_name":"stdout","time":58.492336883,"data":"-- Performing Test WEBP_HAVE_FLAG_MIPS_DSP_R2 - Failed\n"}
+,{"stream_name":"stdout","time":58.49397823,"data":"-- Performing Test HAS_COMPILE_FLAG\n"}
+,{"stream_name":"stdout","time":58.520505499,"data":"-- Performing Test HAS_COMPILE_FLAG - Failed\n"}
+,{"stream_name":"stdout","time":58.521125436,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON\n"}
+,{"stream_name":"stdout","time":58.55721646,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON - Failed\n"}
+,{"stream_name":"stdout","time":58.557746615,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON\n"}
+,{"stream_name":"stdout","time":58.584919286,"data":"-- Performing Test WEBP_HAVE_FLAG_NEON - Failed\n"}
+,{"stream_name":"stdout","time":58.585967103,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA\n"}
+,{"stream_name":"stdout","time":58.623760842,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA - Failed\n"}
+,{"stream_name":"stdout","time":58.624381811,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA\n"}
+,{"stream_name":"stdout","time":58.648141235,"data":"-- Performing Test WEBP_HAVE_FLAG_MSA - Failed\n"}
+,{"stream_name":"stdout","time":58.649727352,"data":"-- Performing Test HAS_COMPILE_FLAG\n"}
+,{"stream_name":"stdout","time":58.674991564,"data":"-- Performing Test HAS_COMPILE_FLAG - Failed\n"}
+,{"stream_name":"stderr","time":58.697264669,"data":"Checking CXX compiler flag support for: -std=c++11\n"}
+,{"stream_name":"stdout","time":58.698158891,"data":"-- Performing Test LIBWEBM_HAVE_CXX_FLAG\n"}
+,{"stream_name":"stdout","time":58.779251127,"data":"-- Performing Test LIBWEBM_HAVE_CXX_FLAG - Success\n"}
+,{"stream_name":"stderr","time":58.779857263,"data":"Checking CXX compiler flag support for: -Wall\n"}
+,{"stream_name":"stdout","time":58.781363838,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":58.863238553,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":58.863556802,"data":"Checking CXX compiler flag support for: -Wc++14-compat\n"}
+,{"stream_name":"stdout","time":58.86459971,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":58.945299009,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":58.945610433,"data":"Checking CXX compiler flag support for: -Wc++17-compat\n"}
+,{"stream_name":"stdout","time":58.94661702,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":59.025114068,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":59.025451185,"data":"Checking CXX compiler flag support for: -Wc++20-compat\n"}
+,{"stream_name":"stdout","time":59.026425673,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":59.105700822,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":59.105987655,"data":"Checking CXX compiler flag support for: -Wextra\n"}
+,{"stream_name":"stdout","time":59.106994649,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":59.185454476,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":59.185753448,"data":"Checking CXX compiler flag support for: -Wnarrowing\n"}
+,{"stream_name":"stdout","time":59.18676198,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":59.266253154,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":59.266574114,"data":"Checking CXX compiler flag support for: -Wno-deprecated\n"}
+,{"stream_name":"stdout","time":59.267549809,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":59.346895504,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Success\n"}
+,{"stream_name":"stderr","time":59.347210946,"data":"Checking CXX compiler flag support for: -Wshorten-64-to-32\n"}
+,{"stream_name":"stdout","time":59.348223991,"data":"-- Performing Test CXX_FLAG_SUPPORTED\n"}
+,{"stream_name":"stdout","time":59.383767301,"data":"-- Performing Test CXX_FLAG_SUPPORTED - Failed\n"}
+,{"stream_name":"stderr","time":59.432949719,"data":"CMake Warning at examples/server/CMakeLists.txt:58 (message):\n"}
+,{"stream_name":"stderr","time":59.432965446,"data":"  pnpm not found; frontend build disabled.\n"}
+,{"stream_name":"stderr","time":59.432970033,"data":"\n"}
+,{"stream_name":"stderr","time":59.432973392,"data":"\n"}
+,{"stream_name":"stdout","time":59.433181143,"data":"-- HAVE_INDEX_HTML disabled\n"}
+,{"stream_name":"stdout","time":59.441716199,"data":"-- Configuring done (8.3s)\n"}
+,{"stream_name":"stdout","time":59.618748889,"data":"-- Generating done (0.2s)\n"}
+,{"stream_name":"stdout","time":59.619578523,"data":"-- Build files have been written to: /kaggle/working/stable-diffusion.cpp/build\n"}
+,{"stream_name":"stdout","time":59.837396243,"data":"[  1%] Building C object thirdparty/CMakeFiles/zip.dir/zip.c.o\n"}
+,{"stream_name":"stdout","time":59.837732497,"data":"[  1%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml.c.o\n"}
+,{"stream_name":"stdout","time":59.838719392,"data":"[  1%] Building C object thirdparty/CMakeFiles/sd-utf8proc.dir/utf8proc/utf8proc.c.o\n"}
+,{"stream_name":"stdout","time":59.840731259,"data":"[  1%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/ascii.c.o\n"}
+,{"stream_name":"stderr","time":59.929722293,"data":"In file included from /kaggle/working/stable-diffusion.cpp/thirdparty/zip.c:40:\n"}
+,{"stream_name":"stderr","time":59.929748811,"data":"/kaggle/working/stable-diffusion.cpp/thirdparty/miniz.h:4988:9: note: ‘#pragma message: Using fopen, ftello, fseeko, stat() etc. path for file I/O - this path may not support large files.’\n"}
+,{"stream_name":"stderr","time":59.929783892,"data":" 4988 | #pragma message(                                                               \\\n"}
+,{"stream_name":"stderr","time":59.929788176,"data":"      |         ^~~~~~~\n"}
+,{"stream_name":"stdout","time":59.955848652,"data":"[  1%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/regcomp.c.o\n"}
+,{"stream_name":"stdout","time":61.049333181,"data":"[  1%] Built target sd-utf8proc\n"}
+,{"stream_name":"stdout","time":61.054279911,"data":"[  1%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/regenc.c.o\n"}
+,{"stream_name":"stdout","time":61.406843548,"data":"[  2%] Building CXX object thirdparty/libwebm/CMakeFiles/mkvparser.dir/mkvparser/mkvparser.cc.o\n"}
+,{"stream_name":"stdout","time":63.432874237,"data":"[  3%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/regerror.c.o\n"}
+,{"stream_name":"stdout","time":63.665731027,"data":"[  3%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/regexec.c.o\n"}
+,{"stream_name":"stdout","time":65.047048834,"data":"[  3%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml.cpp.o\n"}
+,{"stream_name":"stdout","time":65.617553843,"data":"[  4%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-alloc.c.o\n"}
+,{"stream_name":"stdout","time":65.983212966,"data":"[  4%] Built target zip\n"}
+,{"stream_name":"stdout","time":65.988627266,"data":"[  4%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-backend.cpp.o\n"}
+,{"stream_name":"stdout","time":66.517188855,"data":"[  4%] Building CXX object thirdparty/libwebm/CMakeFiles/mkvparser.dir/mkvparser/mkvreader.cc.o\n"}
+,{"stream_name":"stdout","time":66.539879454,"data":"[  4%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/regparse.c.o\n"}
+,{"stream_name":"stdout","time":66.643607451,"data":"[  4%] Built target mkvparser\n"}
+,{"stream_name":"stdout","time":66.649435741,"data":"[  4%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-backend-meta.cpp.o\n"}
+,{"stream_name":"stdout","time":66.651356159,"data":"[  4%] Building CXX object thirdparty/libwebm/CMakeFiles/mkvmuxer.dir/mkvmuxer/mkvmuxer.cc.o\n"}
+,{"stream_name":"stdout","time":69.227858755,"data":"[  4%] Building C object thirdparty/libwebp/CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_sse2.c.o\n"}
+,{"stream_name":"stdout","time":69.694422195,"data":"[  4%] Building C object thirdparty/libwebp/CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_neon.c.o\n"}
+,{"stream_name":"stdout","time":69.745246048,"data":"[  5%] Building C object thirdparty/libwebp/CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_cpu.c.o\n"}
+,{"stream_name":"stdout","time":69.818414871,"data":"[  5%] Building C object thirdparty/libwebp/CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_csp.c.o\n"}
+,{"stream_name":"stdout","time":69.904367922,"data":"[  5%] Building C object thirdparty/libwebp/CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_dsp.c.o\n"}
+,{"stream_name":"stdout","time":70.108534145,"data":"[  5%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/st.c.o\n"}
+,{"stream_name":"stdout","time":70.155457208,"data":"[  5%] Building C object thirdparty/libwebp/CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv_gamma.c.o\n"}
+,{"stream_name":"stdout","time":70.341987203,"data":"[  5%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/unicode.c.o\n"}
+,{"stream_name":"stdout","time":70.354951092,"data":"[  5%] Building C object thirdparty/libwebp/CMakeFiles/sharpyuv.dir/sharpyuv/sharpyuv.c.o\n"}
+,{"stream_name":"stdout","time":70.38435578,"data":"[  5%] Building CXX object thirdparty/libwebm/CMakeFiles/mkvmuxer.dir/mkvmuxer/mkvmuxerutil.cc.o\n"}
+,{"stream_name":"stdout","time":71.331469447,"data":"[  5%] Building CXX object thirdparty/libwebm/CMakeFiles/mkvmuxer.dir/mkvmuxer/mkvwriter.cc.o\n"}
+,{"stream_name":"stdout","time":71.342509567,"data":"[  6%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/unicode_fold1_key.c.o\n"}
+,{"stream_name":"stdout","time":71.35879995,"data":"[  7%] Linking C static library libsharpyuv.a\n"}
+,{"stream_name":"stdout","time":71.390519436,"data":"[  7%] Built target sharpyuv\n"}
+,{"stream_name":"stdout","time":71.395381953,"data":"[  7%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-opt.cpp.o\n"}
+,{"stream_name":"stdout","time":71.422121473,"data":"[  7%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/unicode_fold2_key.c.o\n"}
+,{"stream_name":"stdout","time":71.49364893,"data":"[  7%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/unicode_fold3_key.c.o\n"}
+,{"stream_name":"stdout","time":71.564542367,"data":"[  7%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/unicode_unfold_key.c.o\n"}
+,{"stream_name":"stdout","time":71.705420649,"data":"[  7%] Built target mkvmuxer\n"}
+,{"stream_name":"stdout","time":71.705942547,"data":"[  7%] Building C object thirdparty/CMakeFiles/onig.dir/oniguruma/utf8.c.o\n"}
+,{"stream_name":"stdout","time":71.710709744,"data":"[  7%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/ggml-threading.cpp.o\n"}
+,{"stream_name":"stdout","time":71.798194287,"data":"[  7%] Built target onig\n"}
+,{"stream_name":"stdout","time":71.80315649,"data":"[  8%] Building C object ggml/src/CMakeFiles/ggml-base.dir/ggml-quants.c.o\n"}
+,{"stream_name":"stdout","time":72.019371358,"data":"[  9%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/bit_reader_utils.c.o\n"}
+,{"stream_name":"stdout","time":72.211782624,"data":"[  9%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/color_cache_utils.c.o\n"}
+,{"stream_name":"stdout","time":72.304583286,"data":"[  9%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/filters_utils.c.o\n"}
+,{"stream_name":"stdout","time":72.427256313,"data":"[  9%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/huffman_utils.c.o\n"}
+,{"stream_name":"stdout","time":72.774568321,"data":"[  9%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/palette.c.o\n"}
+,{"stream_name":"stdout","time":73.140056023,"data":"[ 10%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/quant_levels_dec_utils.c.o\n"}
+,{"stream_name":"stdout","time":73.409059772,"data":"[ 10%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/rescaler_utils.c.o\n"}
+,{"stream_name":"stdout","time":73.532990319,"data":"[ 10%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/random_utils.c.o\n"}
+,{"stream_name":"stdout","time":73.589396855,"data":"[ 10%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/thread_utils.c.o\n"}
+,{"stream_name":"stdout","time":73.696076898,"data":"[ 10%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/utils.c.o\n"}
+,{"stream_name":"stdout","time":73.773063159,"data":"[ 11%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/bit_writer_utils.c.o\n"}
+,{"stream_name":"stdout","time":73.86184784,"data":"[ 11%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/huffman_encode_utils.c.o\n"}
+,{"stream_name":"stdout","time":74.076364594,"data":"[ 11%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing.c.o\n"}
+,{"stream_name":"stdout","time":74.193243686,"data":"[ 11%] Building C object thirdparty/libwebp/CMakeFiles/webputils.dir/src/utils/quant_levels_utils.c.o\n"}
+,{"stream_name":"stdout","time":74.33343379,"data":"[ 11%] Built target webputils\n"}
+,{"stream_name":"stdout","time":74.338495517,"data":"[ 11%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/cpu.c.o\n"}
+,{"stream_name":"stdout","time":74.409557546,"data":"[ 11%] Building CXX object ggml/src/CMakeFiles/ggml-base.dir/gguf.cpp.o\n"}
+,{"stream_name":"stdout","time":74.465610331,"data":"[ 12%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/dec.c.o\n"}
+,{"stream_name":"stdout","time":74.980837157,"data":"[ 12%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/alpha_enc.c.o\n"}
+,{"stream_name":"stdout","time":75.222359154,"data":"[ 12%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/analysis_enc.c.o\n"}
+,{"stream_name":"stdout","time":75.570115904,"data":"[ 12%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/dec_clip_tables.c.o\n"}
+,{"stream_name":"stdout","time":75.630858314,"data":"[ 12%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/filters.c.o\n"}
+,{"stream_name":"stdout","time":75.638917249,"data":"[ 12%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/backward_references_cost_enc.c.o\n"}
+,{"stream_name":"stdout","time":75.942467903,"data":"[ 12%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/lossless.c.o\n"}
+,{"stream_name":"stdout","time":76.276625032,"data":"[ 13%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/backward_references_enc.c.o\n"}
+,{"stream_name":"stdout","time":76.78257661,"data":"[ 13%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/rescaler.c.o\n"}
+,{"stream_name":"stdout","time":77.023440202,"data":"[ 13%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/config_enc.c.o\n"}
+,{"stream_name":"stdout","time":77.104737444,"data":"[ 13%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/cost_enc.c.o\n"}
+,{"stream_name":"stdout","time":77.260712205,"data":"[ 14%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/upsampling.c.o\n"}
+,{"stream_name":"stdout","time":77.467845717,"data":"[ 14%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/filter_enc.c.o\n"}
+,{"stream_name":"stdout","time":77.617624506,"data":"[ 14%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/frame_enc.c.o\n"}
+,{"stream_name":"stdout","time":78.255283564,"data":"[ 15%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/histogram_enc.c.o\n"}
+,{"stream_name":"stdout","time":79.20049842,"data":"[ 15%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/iterator_enc.c.o\n"}
+,{"stream_name":"stdout","time":79.799599658,"data":"[ 15%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/near_lossless_enc.c.o\n"}
+,{"stream_name":"stdout","time":79.996293399,"data":"[ 15%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/picture_enc.c.o\n"}
+,{"stream_name":"stdout","time":80.096514318,"data":"[ 15%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/yuv.c.o\n"}
+,{"stream_name":"stdout","time":80.174786455,"data":"[ 15%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/picture_csp_enc.c.o\n"}
+,{"stream_name":"stdout","time":80.85271702,"data":"[ 16%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/picture_psnr_enc.c.o\n"}
+,{"stream_name":"stdout","time":81.084631931,"data":"[ 16%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/picture_rescale_enc.c.o\n"}
+,{"stream_name":"stdout","time":81.29617631,"data":"[ 16%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/picture_tools_enc.c.o\n"}
+,{"stream_name":"stdout","time":81.698366965,"data":"[ 16%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/predictor_enc.c.o\n"}
+,{"stream_name":"stdout","time":82.495371807,"data":"[ 16%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/alpha_processing.c.o\n"}
+,{"stream_name":"stdout","time":82.665214016,"data":"[ 16%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/quant_enc.c.o\n"}
+,{"stream_name":"stdout","time":82.896973818,"data":"[ 16%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/cpu.c.o\n"}
+,{"stream_name":"stdout","time":82.988911095,"data":"[ 17%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/dec.c.o\n"}
+,{"stream_name":"stdout","time":83.185580101,"data":"[ 17%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/lossless_avx2.c.o\n"}
+,{"stream_name":"stdout","time":84.166997964,"data":"[ 17%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_sse41.c.o\n"}
+,{"stream_name":"stdout","time":84.167633316,"data":"[ 17%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/dec_clip_tables.c.o\n"}
+,{"stream_name":"stdout","time":84.225960976,"data":"[ 17%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/filters.c.o\n"}
+,{"stream_name":"stdout","time":84.309910928,"data":"[ 17%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/dec_sse41.c.o\n"}
+,{"stream_name":"stdout","time":84.417237896,"data":"[ 18%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/lossless_sse41.c.o\n"}
+,{"stream_name":"stdout","time":84.533564277,"data":"[ 18%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless.c.o\n"}
+,{"stream_name":"stdout","time":84.551144894,"data":"[ 18%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_sse41.c.o\n"}
+,{"stream_name":"stdout","time":84.609397917,"data":"[ 19%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/syntax_enc.c.o\n"}
+,{"stream_name":"stdout","time":84.805360898,"data":"[ 19%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/token_enc.c.o\n"}
+,{"stream_name":"stdout","time":84.947775242,"data":"[ 19%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/yuv_sse41.c.o\n"}
+,{"stream_name":"stdout","time":85.165451731,"data":"[ 19%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/tree_enc.c.o\n"}
+,{"stream_name":"stdout","time":85.297461981,"data":"[ 19%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/vp8l_enc.c.o\n"}
+,{"stream_name":"stdout","time":85.360431006,"data":"[ 19%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/rescaler.c.o\n"}
+,{"stream_name":"stdout","time":85.676818779,"data":"[ 19%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_sse2.c.o\n"}
+,{"stream_name":"stdout","time":85.814112903,"data":"[ 20%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/upsampling.c.o\n"}
+,{"stream_name":"stdout","time":86.108206627,"data":"[ 20%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/dec_sse2.c.o\n"}
+,{"stream_name":"stdout","time":86.397130608,"data":"[ 20%] Linking CXX static library libggml-base.a\n"}
+,{"stream_name":"stdout","time":86.432788362,"data":"[ 20%] Built target ggml-base\n"}
+,{"stream_name":"stdout","time":86.437683044,"data":"[ 20%] Building C object thirdparty/libwebp/CMakeFiles/webpencode.dir/src/enc/webp_enc.c.o\n"}
+,{"stream_name":"stdout","time":86.483268992,"data":"[ 20%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/yuv.c.o\n"}
+,{"stream_name":"stdout","time":86.666823283,"data":"[ 20%] Built target webpencode\n"}
+,{"stream_name":"stdout","time":86.672487491,"data":"[ 21%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/filters_sse2.c.o\n"}
+,{"stream_name":"stdout","time":87.091460206,"data":"[ 21%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_avx2.c.o\n"}
+,{"stream_name":"stdout","time":87.25745691,"data":"[ 21%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/lossless_sse2.c.o\n"}
+,{"stream_name":"stdout","time":87.770285987,"data":"[ 21%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_sse2.c.o\n"}
+,{"stream_name":"stdout","time":88.019770079,"data":"[ 22%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/acc.cu.o\n"}
+,{"stream_name":"stdout","time":88.100532019,"data":"[ 22%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_sse2.c.o\n"}
+,{"stream_name":"stdout","time":88.695661849,"data":"[ 22%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.c.o\n"}
+,{"stream_name":"stdout","time":89.192031566,"data":"[ 22%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/yuv_sse2.c.o\n"}
+,{"stream_name":"stderr","time":89.243181336,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cpu/ggml-cpu.c: In function ‘ggml_compute_forward’:\n"}
+,{"stream_name":"stderr","time":89.243713692,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cpu/ggml-cpu.c:1907:5: warning: enumeration value ‘GGML_OP_SAGE_ATTN’ not handled in switch [-Wswitch]\n"}
+,{"stream_name":"stderr","time":89.243732784,"data":" 1907 |     switch (tensor-\u003eop) {\n"}
+,{"stream_name":"stderr","time":89.2437379,"data":"      |     ^~~~~~\n"}
+,{"stream_name":"stderr","time":89.243750474,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cpu/ggml-cpu.c:1907:5: warning: enumeration value ‘GGML_OP_SOL_ATTN’ not handled in switch [-Wswitch]\n"}
+,{"stream_name":"stdout","time":89.456321491,"data":"[ 22%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_sse41.c.o\n"}
+,{"stream_name":"stdout","time":89.601181399,"data":"[ 22%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/dec_sse41.c.o\n"}
+,{"stream_name":"stdout","time":89.707879034,"data":"[ 23%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_sse41.c.o\n"}
+,{"stream_name":"stdout","time":89.844354961,"data":"[ 23%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/upsampling_sse41.c.o\n"}
+,{"stream_name":"stdout","time":90.232862745,"data":"[ 23%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/yuv_sse41.c.o\n"}
+,{"stream_name":"stdout","time":90.26294759,"data":"[ 24%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_neon.c.o\n"}
+,{"stream_name":"stdout","time":90.319520701,"data":"[ 24%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/dec_neon.c.o\n"}
+,{"stream_name":"stdout","time":90.376285149,"data":"[ 24%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/filters_neon.c.o\n"}
+,{"stream_name":"stdout","time":90.43838054,"data":"[ 24%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/lossless_neon.c.o\n"}
+,{"stream_name":"stdout","time":90.494374113,"data":"[ 24%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_neon.c.o\n"}
+,{"stream_name":"stdout","time":90.549570113,"data":"[ 25%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_neon.c.o\n"}
+,{"stream_name":"stdout","time":90.607485007,"data":"[ 25%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/yuv_neon.c.o\n"}
+,{"stream_name":"stdout","time":90.661881521,"data":"[ 25%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/dec_msa.c.o\n"}
+,{"stream_name":"stdout","time":90.714622574,"data":"[ 25%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/filters_msa.c.o\n"}
+,{"stream_name":"stdout","time":90.766845071,"data":"[ 25%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/lossless_msa.c.o\n"}
+,{"stream_name":"stdout","time":90.825106171,"data":"[ 26%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_msa.c.o\n"}
+,{"stream_name":"stdout","time":90.880447289,"data":"[ 26%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_msa.c.o\n"}
+,{"stream_name":"stdout","time":90.935603253,"data":"[ 26%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/dec_mips32.c.o\n"}
+,{"stream_name":"stdout","time":90.972942562,"data":"[ 26%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_sse2.c.o\n"}
+,{"stream_name":"stdout","time":90.986617115,"data":"[ 26%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_mips32.c.o\n"}
+,{"stream_name":"stdout","time":91.038285183,"data":"[ 26%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/yuv_mips32.c.o\n"}
+,{"stream_name":"stdout","time":91.066175773,"data":"[ 26%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ggml-cpu.cpp.o\n"}
+,{"stream_name":"stdout","time":91.086505646,"data":"[ 27%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/alpha_processing_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":91.13691007,"data":"[ 27%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/dec_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":91.189021413,"data":"[ 27%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/filters_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":91.241061047,"data":"[ 27%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/lossless_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":91.298265409,"data":"[ 27%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/rescaler_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":91.352725003,"data":"[ 28%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/upsampling_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":91.40942412,"data":"[ 28%] Building C object thirdparty/libwebp/CMakeFiles/webpdspdecode.dir/src/dsp/yuv_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":91.424758732,"data":"[ 28%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/dec_sse2.c.o\n"}
+,{"stream_name":"stdout","time":91.464469038,"data":"[ 28%] Built target webpdspdecode\n"}
+,{"stream_name":"stdout","time":91.469771788,"data":"[ 29%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/repack.cpp.o\n"}
+,{"stream_name":"stdout","time":92.519718734,"data":"[ 30%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/filters_sse2.c.o\n"}
+,{"stream_name":"stdout","time":93.10760348,"data":"[ 30%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_sse2.c.o\n"}
+,{"stream_name":"stdout","time":93.233592662,"data":"[ 30%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/add-id.cu.o\n"}
+,{"stream_name":"stdout","time":93.710420145,"data":"[ 30%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/rescaler_sse2.c.o\n"}
+,{"stream_name":"stdout","time":94.079254262,"data":"[ 30%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/upsampling_sse2.c.o\n"}
+,{"stream_name":"stdout","time":95.221558559,"data":"[ 30%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/yuv_sse2.c.o\n"}
+,{"stream_name":"stdout","time":95.362588825,"data":"[ 30%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/allreduce.cu.o\n"}
+,{"stream_name":"stdout","time":96.246449861,"data":"[ 31%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_neon.c.o\n"}
+,{"stream_name":"stdout","time":96.300962963,"data":"[ 31%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/dec_neon.c.o\n"}
+,{"stream_name":"stdout","time":96.355869201,"data":"[ 31%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/filters_neon.c.o\n"}
+,{"stream_name":"stdout","time":96.409237708,"data":"[ 31%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_neon.c.o\n"}
+,{"stream_name":"stdout","time":96.462905619,"data":"[ 31%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/rescaler_neon.c.o\n"}
+,{"stream_name":"stdout","time":96.516075012,"data":"[ 32%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/upsampling_neon.c.o\n"}
+,{"stream_name":"stdout","time":96.570143499,"data":"[ 32%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/yuv_neon.c.o\n"}
+,{"stream_name":"stdout","time":96.62666192,"data":"[ 32%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/dec_msa.c.o\n"}
+,{"stream_name":"stdout","time":96.681218664,"data":"[ 32%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/filters_msa.c.o\n"}
+,{"stream_name":"stdout","time":96.735059499,"data":"[ 32%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_msa.c.o\n"}
+,{"stream_name":"stdout","time":96.789904972,"data":"[ 34%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/rescaler_msa.c.o\n"}
+,{"stream_name":"stdout","time":96.843022904,"data":"[ 34%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/upsampling_msa.c.o\n"}
+,{"stream_name":"stdout","time":96.896194135,"data":"[ 34%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/dec_mips32.c.o\n"}
+,{"stream_name":"stdout","time":96.952623991,"data":"[ 34%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/rescaler_mips32.c.o\n"}
+,{"stream_name":"stdout","time":97.007218662,"data":"[ 34%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/yuv_mips32.c.o\n"}
+,{"stream_name":"stdout","time":97.062589918,"data":"[ 35%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/alpha_processing_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":97.11876239,"data":"[ 35%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/dec_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":97.173122212,"data":"[ 35%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/filters_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":97.226021695,"data":"[ 35%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":97.279169648,"data":"[ 35%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/rescaler_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":97.335719856,"data":"[ 36%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/upsampling_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":97.392884233,"data":"[ 36%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/yuv_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":97.445655675,"data":"[ 36%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/cost.c.o\n"}
+,{"stream_name":"stdout","time":97.571252555,"data":"[ 36%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/enc.c.o\n"}
+,{"stream_name":"stdout","time":98.702707533,"data":"[ 36%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_enc.c.o\n"}
+,{"stream_name":"stdout","time":99.302412106,"data":"[ 37%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/ssim.c.o\n"}
+,{"stream_name":"stdout","time":99.536989213,"data":"[ 37%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/cost_sse2.c.o\n"}
+,{"stream_name":"stdout","time":99.696442664,"data":"[ 37%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/enc_sse2.c.o\n"}
+,{"stream_name":"stdout","time":100.1743782,"data":"[ 38%] Building CXX object thirdparty/libwebm/CMakeFiles/webm.dir/common/file_util.cc.o\n"}
+,{"stream_name":"stdout","time":100.655383802,"data":"[ 38%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_sse2.c.o\n"}
+,{"stream_name":"stdout","time":100.93562925,"data":"[ 38%] Building CXX object thirdparty/libwebm/CMakeFiles/webm.dir/common/hdr_util.cc.o\n"}
+,{"stream_name":"stdout","time":101.201484631,"data":"[ 38%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/ssim_sse2.c.o\n"}
+,{"stream_name":"stdout","time":101.397474213,"data":"[ 39%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/enc_sse41.c.o\n"}
+,{"stream_name":"stdout","time":101.496313377,"data":"[ 39%] Linking CXX static library libwebm.a\n"}
+,{"stream_name":"stdout","time":101.526762083,"data":"[ 39%] Built target webm\n"}
+,{"stream_name":"stdout","time":101.531696791,"data":"[ 39%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/hbm.cpp.o\n"}
+,{"stream_name":"stdout","time":101.559473374,"data":"[ 39%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/arange.cu.o\n"}
+,{"stream_name":"stdout","time":101.697024645,"data":"[ 39%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_sse41.c.o\n"}
+,{"stream_name":"stdout","time":101.905456832,"data":"[ 39%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_avx2.c.o\n"}
+,{"stream_name":"stdout","time":103.185489129,"data":"[ 39%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/cost_neon.c.o\n"}
+,{"stream_name":"stdout","time":103.241520203,"data":"[ 39%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/enc_neon.c.o\n"}
+,{"stream_name":"stdout","time":103.298072195,"data":"[ 40%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_neon.c.o\n"}
+,{"stream_name":"stdout","time":103.371615658,"data":"[ 40%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/enc_msa.c.o\n"}
+,{"stream_name":"stdout","time":103.454603989,"data":"[ 40%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_msa.c.o\n"}
+,{"stream_name":"stdout","time":103.5139454,"data":"[ 40%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/cost_mips32.c.o\n"}
+,{"stream_name":"stdout","time":103.567842355,"data":"[ 40%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/enc_mips32.c.o\n"}
+,{"stream_name":"stdout","time":103.621796357,"data":"[ 40%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_mips32.c.o\n"}
+,{"stream_name":"stdout","time":103.681243439,"data":"[ 41%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/cost_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":103.736283648,"data":"[ 41%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/enc_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":103.798355124,"data":"[ 41%] Building C object thirdparty/libwebp/CMakeFiles/webpdsp.dir/src/dsp/lossless_enc_mips_dsp_r2.c.o\n"}
+,{"stream_name":"stdout","time":103.853538823,"data":"[ 41%] Built target webpdsp\n"}
+,{"stream_name":"stdout","time":103.858615764,"data":"[ 41%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/argmax.cu.o\n"}
+,{"stream_name":"stdout","time":104.227068319,"data":"[ 41%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/quants.c.o\n"}
+,{"stream_name":"stdout","time":106.433331687,"data":"[ 42%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/argsort.cu.o\n"}
+,{"stream_name":"stdout","time":107.011339076,"data":"[ 42%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/traits.cpp.o\n"}
+,{"stream_name":"stdout","time":108.163017936,"data":"[ 42%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/amx.cpp.o\n"}
+,{"stream_name":"stdout","time":108.541687162,"data":"[ 42%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/alpha_dec.c.o\n"}
+,{"stream_name":"stdout","time":108.663166297,"data":"[ 43%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/buffer_dec.c.o\n"}
+,{"stream_name":"stdout","time":108.86705888,"data":"[ 43%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/frame_dec.c.o\n"}
+,{"stream_name":"stdout","time":109.511586489,"data":"[ 43%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/idec_dec.c.o\n"}
+,{"stream_name":"stdout","time":109.55109679,"data":"[ 44%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/amx/mmq.cpp.o\n"}
+,{"stream_name":"stdout","time":109.917389119,"data":"[ 44%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/io_dec.c.o\n"}
+,{"stream_name":"stdout","time":110.380398492,"data":"[ 44%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/quant_dec.c.o\n"}
+,{"stream_name":"stdout","time":110.505436669,"data":"[ 45%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/tree_dec.c.o\n"}
+,{"stream_name":"stdout","time":110.776403949,"data":"[ 45%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/tiled/tiled.cpp.o\n"}
+,{"stream_name":"stdout","time":110.792283391,"data":"[ 45%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/vp8_dec.c.o\n"}
+,{"stream_name":"stdout","time":110.999974578,"data":"[ 45%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/binbcast.cu.o\n"}
+,{"stream_name":"stdout","time":111.350417414,"data":"[ 45%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/vp8l_dec.c.o\n"}
+,{"stream_name":"stdout","time":112.566001552,"data":"[ 45%] Building C object thirdparty/libwebp/CMakeFiles/webpdecode.dir/src/dec/webp_dec.c.o\n"}
+,{"stream_name":"stdout","time":113.006828338,"data":"[ 45%] Built target webpdecode\n"}
+,{"stream_name":"stdout","time":113.01786629,"data":"[ 45%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/tiled/tiled-kernel.cpp.o\n"}
+,{"stream_name":"stdout","time":115.192168702,"data":"[ 45%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/clamp.cu.o\n"}
+,{"stream_name":"stdout","time":119.675887905,"data":"[ 45%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/binary-ops.cpp.o\n"}
+,{"stream_name":"stdout","time":122.351435391,"data":"[ 45%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/unary-ops.cpp.o\n"}
+,{"stream_name":"stdout","time":123.433253463,"data":"[ 45%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/col2im-1d.cu.o\n"}
+,{"stream_name":"stdout","time":127.664783958,"data":"[ 46%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/vec.cpp.o\n"}
+,{"stream_name":"stdout","time":129.004101103,"data":"[ 46%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/ops.cpp.o\n"}
+,{"stream_name":"stdout","time":130.201016658,"data":"[ 46%] Linking C static library libwebp.a\n"}
+,{"stream_name":"stdout","time":130.295323938,"data":"[ 46%] Built target webp\n"}
+,{"stream_name":"stderr","time":130.296055449,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cpu/ops.cpp: In function ‘void ggml_compute_forward_clamp(const ggml_compute_params*, ggml_tensor*)’:\n"}
+,{"stream_name":"stderr","time":130.296072007,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cpu/ops.cpp:6240:12: warning: enumeration value ‘GGML_TYPE_F8_E4M3’ not handled in switch [-Wswitch]\n"}
+,{"stream_name":"stderr","time":130.296077792,"data":" 6240 |     switch (src0-\u003etype) {\n"}
+,{"stream_name":"stderr","time":130.296083042,"data":"      |            ^\n"}
+,{"stream_name":"stderr","time":130.296180726,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cpu/ops.cpp:6240:12: warning: enumeration value ‘GGML_TYPE_F8_E5M2’ not handled in switch [-Wswitch]\n"}
+,{"stream_name":"stdout","time":130.300373439,"data":"[ 46%] Building C object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/quants.c.o\n"}
+,{"stream_name":"stdout","time":132.322358014,"data":"[ 46%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/concat.cu.o\n"}
+,{"stream_name":"stdout","time":142.28204215,"data":"[ 46%] Building C object thirdparty/libwebp/CMakeFiles/libwebpmux.dir/src/mux/anim_encode.c.o\n"}
+,{"stream_name":"stdout","time":143.052069587,"data":"[ 46%] Building C object thirdparty/libwebp/CMakeFiles/libwebpmux.dir/src/mux/muxedit.c.o\n"}
+,{"stream_name":"stdout","time":143.359707853,"data":"[ 46%] Building C object thirdparty/libwebp/CMakeFiles/libwebpmux.dir/src/mux/muxinternal.c.o\n"}
+,{"stream_name":"stdout","time":143.688129323,"data":"[ 47%] Building C object thirdparty/libwebp/CMakeFiles/libwebpmux.dir/src/mux/muxread.c.o\n"}
+,{"stream_name":"stdout","time":143.995018124,"data":"[ 47%] Linking C static library libwebpmux.a\n"}
+,{"stream_name":"stdout","time":144.023866059,"data":"[ 47%] Built target libwebpmux\n"}
+,{"stream_name":"stdout","time":144.028789785,"data":"[ 47%] Building CXX object ggml/src/CMakeFiles/ggml-cpu.dir/ggml-cpu/arch/x86/repack.cpp.o\n"}
+,{"stream_name":"stdout","time":148.153013119,"data":"[ 48%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv-transpose-1d.cu.o\n"}
+,{"stream_name":"stdout","time":153.803717398,"data":"[ 48%] Linking CXX static library libggml-cpu.a\n"}
+,{"stream_name":"stdout","time":153.845650929,"data":"[ 48%] Built target ggml-cpu\n"}
+,{"stream_name":"stdout","time":153.85089982,"data":"[ 48%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv2d-dw.cu.o\n"}
+,{"stream_name":"stdout","time":154.988583241,"data":"[ 48%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv2d-transpose.cu.o\n"}
+,{"stream_name":"stdout","time":161.00252209,"data":"[ 48%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv2d.cu.o\n"}
+,{"stream_name":"stdout","time":161.692699452,"data":"[ 48%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/conv3d.cu.o\n"}
+,{"stream_name":"stdout","time":171.517970295,"data":"[ 49%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/convert.cu.o\n"}
+,{"stream_name":"stdout","time":175.992727725,"data":"[ 49%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/count-equal.cu.o\n"}
+,{"stream_name":"stdout","time":182.737001239,"data":"[ 49%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/cpy.cu.o\n"}
+,{"stream_name":"stdout","time":185.767704857,"data":"[ 49%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/cross-entropy-loss.cu.o\n"}
+,{"stream_name":"stdout","time":187.977050733,"data":"[ 49%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/cumsum.cu.o\n"}
+,{"stream_name":"stdout","time":188.530856261,"data":"[ 50%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/diag.cu.o\n"}
+,{"stream_name":"stdout","time":193.341930087,"data":"[ 50%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/diagmask.cu.o\n"}
+,{"stream_name":"stdout","time":195.641639195,"data":"[ 50%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/dsv4-hc.cu.o\n"}
+,{"stream_name":"stdout","time":196.192863153,"data":"[ 50%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/fattn-tile.cu.o\n"}
+,{"stream_name":"stdout","time":200.157339871,"data":"[ 50%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/fattn.cu.o\n"}
+,{"stream_name":"stdout","time":203.24997325,"data":"[ 51%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/fill.cu.o\n"}
+,{"stream_name":"stdout","time":203.517724194,"data":"[ 51%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/fwht.cu.o\n"}
+,{"stream_name":"stdout","time":204.133088174,"data":"[ 51%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/gated-delta-net-mma.cu.o\n"}
+,{"stream_name":"stdout","time":210.060193083,"data":"[ 51%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/gated_delta_net.cu.o\n"}
+,{"stream_name":"stdout","time":211.210271038,"data":"[ 51%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/getrows.cu.o\n"}
+,{"stream_name":"stdout","time":213.959693093,"data":"[ 52%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/ggml-cuda.cu.o\n"}
+,{"stream_name":"stdout","time":220.170397227,"data":"[ 52%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/gla.cu.o\n"}
+,{"stream_name":"stdout","time":227.551296719,"data":"[ 52%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/im2col.cu.o\n"}
+,{"stream_name":"stdout","time":231.333829983,"data":"[ 52%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/lightning-indexer.cu.o\n"}
+,{"stream_name":"stdout","time":233.058891926,"data":"[ 52%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mean.cu.o\n"}
+,{"stream_name":"stdout","time":235.085108254,"data":"[ 53%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmf.cu.o\n"}
+,{"stream_name":"stdout","time":242.52377187,"data":"[ 53%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmid.cu.o\n"}
+,{"stream_name":"stdout","time":249.420498499,"data":"[ 53%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmq.cu.o\n"}
+,{"stream_name":"stdout","time":249.663192116,"data":"[ 53%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmvf.cu.o\n"}
+,{"stream_name":"stdout","time":250.791710978,"data":"[ 53%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/mmvq.cu.o\n"}
+,{"stream_name":"stdout","time":252.062486839,"data":"[ 54%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/moe-weighted-reduction.cu.o\n"}
+,{"stream_name":"stdout","time":258.909407308,"data":"[ 54%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/norm.cu.o\n"}
+,{"stream_name":"stdout","time":267.199464836,"data":"[ 54%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/opt-step-adamw.cu.o\n"}
+,{"stream_name":"stdout","time":268.433822123,"data":"[ 54%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/opt-step-sgd.cu.o\n"}
+,{"stream_name":"stdout","time":273.938646558,"data":"[ 54%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/out-prod.cu.o\n"}
+,{"stream_name":"stdout","time":275.115505748,"data":"[ 55%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/pad.cu.o\n"}
+,{"stream_name":"stdout","time":280.882199336,"data":"[ 55%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/pad_reflect_1d.cu.o\n"}
+,{"stream_name":"stdout","time":281.892698127,"data":"[ 55%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/pool1d.cu.o\n"}
+,{"stream_name":"stdout","time":287.565268401,"data":"[ 55%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/pool2d.cu.o\n"}
+,{"stream_name":"stdout","time":288.656179989,"data":"[ 55%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/quantize.cu.o\n"}
+,{"stream_name":"stdout","time":294.529194509,"data":"[ 56%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/roll.cu.o\n"}
+,{"stream_name":"stdout","time":299.035019436,"data":"[ 56%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/rope.cu.o\n"}
+,{"stream_name":"stdout","time":301.304624497,"data":"[ 56%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/sage-attn.cu.o\n"}
+,{"stream_name":"stderr","time":304.153454997,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sageattention/attn_utils.cuh(196): warning #174-D: expression has no effect\n"}
+,{"stream_name":"stderr","time":304.153491191,"data":"      offset_Q = smem_Q.advance_offset_by_column\u003c2\u003e(offset_Q - (num_tiles_q * 16 * stride), iter);\n"}
+,{"stream_name":"stderr","time":304.153497311,"data":"                                                    ^\n"}
+,{"stream_name":"stderr","time":304.153501274,"data":"\n"}
+,{"stream_name":"stderr","time":304.153504466,"data":"Remark: The warnings can be suppressed with \"-diag-suppress \u003cwarning-number\u003e\"\n"}
+,{"stream_name":"stderr","time":304.153508543,"data":"\n"}
+,{"stream_name":"stderr","time":304.154616976,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sageattention/attn_utils.cuh(219): warning #174-D: expression has no effect\n"}
+,{"stream_name":"stderr","time":304.154639018,"data":"      offset_K = smem_K.advance_offset_by_column\u003c2\u003e(offset_K - (num_tiles_k * 16 * stride), iter);\n"}
+,{"stream_name":"stderr","time":304.154643958,"data":"                                                    ^\n"}
+,{"stream_name":"stderr","time":304.154647781,"data":"\n"}
+,{"stream_name":"stderr","time":304.155684926,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sageattention/attn_utils.cuh(233): warning #174-D: expression has no effect\n"}
+,{"stream_name":"stderr","time":304.155700508,"data":"      offset_Q = smem_Q.advance_offset_by_column\u003c2\u003e(offset_Q - (num_tiles_q * 16 * stride), iter);\n"}
+,{"stream_name":"stderr","time":304.155704925,"data":"                                                    ^\n"}
+,{"stream_name":"stderr","time":304.155708255,"data":"\n"}
+,{"stream_name":"stderr","time":304.156827592,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sageattention/attn_utils.cuh(256): warning #174-D: expression has no effect\n"}
+,{"stream_name":"stderr","time":304.156842517,"data":"      offset_K = smem_K.advance_offset_by_column\u003c2\u003e(offset_K - (num_tiles_k * 16 * stride), iter);\n"}
+,{"stream_name":"stderr","time":304.156847182,"data":"                                                    ^\n"}
+,{"stream_name":"stderr","time":304.156850847,"data":"\n"}
+,{"stream_name":"stderr","time":304.165569848,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sageattention/attn_utils.cuh(637): warning #174-D: expression has no effect\n"}
+,{"stream_name":"stderr","time":304.165585172,"data":"        offset_V = smem_V.advance_offset_by_column\u003c2\u003e(offset_V, fv);\n"}
+,{"stream_name":"stderr","time":304.165589642,"data":"                                                      ^\n"}
+,{"stream_name":"stderr","time":304.165593499,"data":"\n"}
+,{"stream_name":"stderr","time":304.167302912,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sageattention/attn_utils.cuh(674): warning #174-D: expression has no effect\n"}
+,{"stream_name":"stderr","time":304.167333463,"data":"        offset_V = smem_V.advance_offset_by_column\u003c2\u003e(offset_V, fv);\n"}
+,{"stream_name":"stderr","time":304.16733813,"data":"                                                      ^\n"}
+,{"stream_name":"stderr","time":304.167341654,"data":"\n"}
+,{"stream_name":"stderr","time":304.168588286,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sageattention/attn_utils.cuh(696): warning #174-D: expression has no effect\n"}
+,{"stream_name":"stderr","time":304.168603276,"data":"        offset_V = smem_V.advance_offset_by_column\u003c2\u003e(offset_V, fv);\n"}
+,{"stream_name":"stderr","time":304.168620158,"data":"                                                      ^\n"}
+,{"stream_name":"stderr","time":304.16862408,"data":"\n"}
+,{"stream_name":"stderr","time":309.794231052,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sage-attn.cu: In function ‘void ggml_cuda_sage_attn(ggml_backend_cuda_context\u0026, ggml_tensor*)’:\n"}
+,{"stream_name":"stderr","time":309.794262462,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sage-attn.cu:340:6: warning: function might be candidate for attribute ‘noreturn’ [-Wsuggest-attribute=noreturn]\n"}
+,{"stream_name":"stderr","time":309.794285197,"data":"  340 | void ggml_cuda_sage_attn(ggml_backend_cuda_context\u0026 ctx, ggml_tensor* dst) {\n"}
+,{"stream_name":"stderr","time":309.794289892,"data":"      |      ^~~~~~~~~~~~~~~~~~~\n"}
+,{"stream_name":"stdout","time":310.112450489,"data":"[ 56%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/scale.cu.o\n"}
+,{"stream_name":"stdout","time":312.745277349,"data":"[ 56%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/set-rows.cu.o\n"}
+,{"stream_name":"stdout","time":317.023022247,"data":"[ 57%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/set.cu.o\n"}
+,{"stream_name":"stdout","time":323.564646981,"data":"[ 57%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/snake.cu.o\n"}
+,{"stream_name":"stdout","time":323.83897218,"data":"[ 57%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/softcap.cu.o\n"}
+,{"stream_name":"stdout","time":330.075469971,"data":"[ 57%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/softmax.cu.o\n"}
+,{"stream_name":"stdout","time":330.662601402,"data":"[ 57%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/sol-attn.cu.o\n"}
+,{"stream_name":"stdout","time":333.50826118,"data":"[ 58%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/solve_tri.cu.o\n"}
+,{"stream_name":"stderr","time":335.371477948,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sol-attn.cu(113): warning #177-D: function \"sol_scores\" was declared but never referenced\n"}
+,{"stream_name":"stderr","time":335.372958748,"data":"                                   void sol_scores(const SolQTile (\u0026q)[8], const nv_bfloat16* k, SolTile (\u0026scores)[8], float scale) {\n"}
+,{"stream_name":"stderr","time":335.372974993,"data":"                                        ^\n"}
+,{"stream_name":"stderr","time":335.37297982,"data":"\n"}
+,{"stream_name":"stderr","time":335.372988988,"data":"Remark: The warnings can be suppressed with \"-diag-suppress \u003cwarning-number\u003e\"\n"}
+,{"stream_name":"stderr","time":335.372993429,"data":"\n"}
+,{"stream_name":"stderr","time":337.77384489,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sol-attn.cu: In function ‘void ggml_cuda_sol_attn(ggml_backend_cuda_context\u0026, ggml_tensor*)’:\n"}
+,{"stream_name":"stderr","time":337.773880397,"data":"/kaggle/working/stable-diffusion.cpp/ggml/src/ggml-cuda/sol-attn.cu:307:6: warning: function might be candidate for attribute ‘noreturn’ [-Wsuggest-attribute=noreturn]\n"}
+,{"stream_name":"stderr","time":337.773887609,"data":"  307 | void ggml_cuda_sol_attn(ggml_backend_cuda_context\u0026 ctx, ggml_tensor* dst) {\n"}
+,{"stream_name":"stderr","time":337.773892912,"data":"      |      ^~~~~~~~~~~~~~~~~~\n"}
+,{"stream_name":"stdout","time":337.910468812,"data":"[ 58%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/ssm-conv.cu.o\n"}
+,{"stream_name":"stdout","time":342.000322982,"data":"[ 58%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/ssm-scan.cu.o\n"}
+,{"stream_name":"stdout","time":346.872419592,"data":"[ 58%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/sum.cu.o\n"}
+,{"stream_name":"stdout","time":349.161351807,"data":"[ 58%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/sumrows.cu.o\n"}
+,{"stream_name":"stdout","time":356.384069765,"data":"[ 59%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/top-k.cu.o\n"}
+,{"stream_name":"stdout","time":361.970360634,"data":"[ 59%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/topk-moe.cu.o\n"}
+,{"stream_name":"stdout","time":362.935089727,"data":"[ 59%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/tri.cu.o\n"}
+,{"stream_name":"stdout","time":365.387020101,"data":"[ 59%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/tsembd.cu.o\n"}
+,{"stream_name":"stdout","time":370.72856134,"data":"[ 59%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/unary.cu.o\n"}
+,{"stream_name":"stdout","time":370.967237309,"data":"[ 60%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/upscale.cu.o\n"}
+,{"stream_name":"stdout","time":372.171429571,"data":"[ 60%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/wkv.cu.o\n"}
+,{"stream_name":"stdout","time":375.514584002,"data":"[ 60%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq112-dv112.cu.o\n"}
+,{"stream_name":"stdout","time":378.485981833,"data":"[ 60%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq128-dv128.cu.o\n"}
+,{"stream_name":"stdout","time":381.323340046,"data":"[ 60%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq192-dv128.cu.o\n"}
+,{"stream_name":"stdout","time":389.199501648,"data":"[ 60%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq256-dv256.cu.o\n"}
+,{"stream_name":"stdout","time":412.846133786,"data":"[ 61%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq320-dv256.cu.o\n"}
+,{"stream_name":"stdout","time":425.464473215,"data":"[ 61%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq40-dv40.cu.o\n"}
+,{"stream_name":"stdout","time":426.55640771,"data":"[ 61%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq512-dv512.cu.o\n"}
+,{"stream_name":"stdout","time":446.319931301,"data":"[ 61%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq576-dv512.cu.o\n"}
+,{"stream_name":"stdout","time":463.712595355,"data":"[ 61%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq64-dv64.cu.o\n"}
+,{"stream_name":"stdout","time":494.10319088,"data":"[ 62%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq72-dv72.cu.o\n"}
+,{"stream_name":"stdout","time":501.277096922,"data":"[ 62%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq80-dv80.cu.o\n"}
+,{"stream_name":"stdout","time":504.769778764,"data":"[ 62%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-tile-instance-dkq96-dv96.cu.o\n"}
+,{"stream_name":"stdout","time":505.149931137,"data":"[ 62%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_1-ncols2_16.cu.o\n"}
+,{"stream_name":"stdout","time":535.793008252,"data":"[ 62%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_1-ncols2_32.cu.o\n"}
+,{"stream_name":"stdout","time":547.103675912,"data":"[ 63%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_1-ncols2_8.cu.o\n"}
+,{"stream_name":"stdout","time":547.145200188,"data":"[ 63%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_16-ncols2_1.cu.o\n"}
+,{"stream_name":"stdout","time":553.26627567,"data":"[ 63%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_16-ncols2_2.cu.o\n"}
+,{"stream_name":"stdout","time":559.240704735,"data":"[ 63%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_16-ncols2_4.cu.o\n"}
+,{"stream_name":"stdout","time":575.419231016,"data":"[ 63%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_2-ncols2_16.cu.o\n"}
+,{"stream_name":"stdout","time":597.289946143,"data":"[ 64%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_2-ncols2_32.cu.o\n"}
+,{"stream_name":"stdout","time":607.497160508,"data":"[ 64%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_2-ncols2_4.cu.o\n"}
+,{"stream_name":"stdout","time":610.317039898,"data":"[ 64%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_2-ncols2_8.cu.o\n"}
+,{"stream_name":"stdout","time":631.191216051,"data":"[ 64%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_32-ncols2_1.cu.o\n"}
+,{"stream_name":"stdout","time":642.978806956,"data":"[ 64%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_32-ncols2_2.cu.o\n"}
+,{"stream_name":"stdout","time":658.616419838,"data":"[ 65%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_4-ncols2_16.cu.o\n"}
+,{"stream_name":"stdout","time":668.435387797,"data":"[ 65%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_4-ncols2_2.cu.o\n"}
+,{"stream_name":"stdout","time":681.597336372,"data":"[ 65%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_4-ncols2_4.cu.o\n"}
+,{"stream_name":"stdout","time":684.998149849,"data":"[ 65%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_4-ncols2_8.cu.o\n"}
+,{"stream_name":"stdout","time":708.593245539,"data":"[ 65%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_64-ncols2_1.cu.o\n"}
+,{"stream_name":"stdout","time":723.893755857,"data":"[ 67%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_8-ncols2_1.cu.o\n"}
+,{"stream_name":"stdout","time":735.292868507,"data":"[ 67%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_8-ncols2_2.cu.o\n"}
+,{"stream_name":"stdout","time":763.156224743,"data":"[ 67%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_8-ncols2_4.cu.o\n"}
+,{"stream_name":"stdout","time":764.377186741,"data":"[ 67%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-mma-f16-instance-ncols1_8-ncols2_8.cu.o\n"}
+,{"stream_name":"stdout","time":780.754896454,"data":"[ 67%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq1_s.cu.o\n"}
+,{"stream_name":"stdout","time":797.440073056,"data":"[ 68%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq2_s.cu.o\n"}
+,{"stream_name":"stdout","time":806.644227704,"data":"[ 68%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq2_xs.cu.o\n"}
+,{"stream_name":"stdout","time":847.805823728,"data":"[ 68%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq2_xxs.cu.o\n"}
+,{"stream_name":"stdout","time":848.400834876,"data":"[ 68%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq3_s.cu.o\n"}
+,{"stream_name":"stdout","time":872.885866806,"data":"[ 68%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq3_xxs.cu.o\n"}
+,{"stream_name":"stdout","time":882.375504558,"data":"[ 69%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq4_nl.cu.o\n"}
+,{"stream_name":"stdout","time":912.842982616,"data":"[ 69%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-iq4_xs.cu.o\n"}
+,{"stream_name":"stdout","time":916.515236764,"data":"[ 69%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-mxfp4.cu.o\n"}
+,{"stream_name":"stdout","time":939.888897042,"data":"[ 69%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-nvfp4.cu.o\n"}
+,{"stream_name":"stdout","time":947.83932837,"data":"[ 69%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q1_0.cu.o\n"}
+,{"stream_name":"stdout","time":976.909324898,"data":"[ 70%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q2_0.cu.o\n"}
+,{"stream_name":"stdout","time":1010.569008798,"data":"[ 70%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q2_k.cu.o\n"}
+,{"stream_name":"stdout","time":1036.892996354,"data":"[ 70%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q3_k.cu.o\n"}
+,{"stream_name":"stdout","time":1039.937489022,"data":"[ 70%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q4_0.cu.o\n"}
+,{"stream_name":"stdout","time":1080.703978934,"data":"[ 70%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q4_1.cu.o\n"}
+,{"stream_name":"stdout","time":1103.578012729,"data":"[ 71%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q4_k.cu.o\n"}
+,{"stream_name":"stdout","time":1103.583073259,"data":"[ 71%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q5_0.cu.o\n"}
+,{"stream_name":"stdout","time":1110.208909786,"data":"[ 71%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q5_1.cu.o\n"}
+,{"stream_name":"stdout","time":1147.284685984,"data":"[ 71%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q5_k.cu.o\n"}
+,{"stream_name":"stdout","time":1171.889414796,"data":"[ 71%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q6_k.cu.o\n"}
+,{"stream_name":"stdout","time":1172.994372698,"data":"[ 72%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmq-instance-q8_0.cu.o\n"}
+,{"stream_name":"stdout","time":1182.267784889,"data":"[ 72%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_1.cu.o\n"}
+,{"stream_name":"stdout","time":1207.716044466,"data":"[ 72%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_10.cu.o\n"}
+,{"stream_name":"stdout","time":1217.813597594,"data":"[ 72%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_11.cu.o\n"}
+,{"stream_name":"stdout","time":1236.318957142,"data":"[ 72%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_12.cu.o\n"}
+,{"stream_name":"stdout","time":1240.044601713,"data":"[ 73%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_13.cu.o\n"}
+,{"stream_name":"stdout","time":1245.84579417,"data":"[ 73%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_14.cu.o\n"}
+,{"stream_name":"stdout","time":1250.484651231,"data":"[ 73%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_15.cu.o\n"}
+,{"stream_name":"stdout","time":1269.685031957,"data":"[ 73%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_16.cu.o\n"}
+,{"stream_name":"stdout","time":1274.145369136,"data":"[ 73%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_2.cu.o\n"}
+,{"stream_name":"stdout","time":1279.308455749,"data":"[ 74%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_3.cu.o\n"}
+,{"stream_name":"stdout","time":1284.482506781,"data":"[ 74%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_4.cu.o\n"}
+,{"stream_name":"stdout","time":1300.731474876,"data":"[ 74%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_5.cu.o\n"}
+,{"stream_name":"stdout","time":1303.774079354,"data":"[ 74%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_6.cu.o\n"}
+,{"stream_name":"stdout","time":1306.82523567,"data":"[ 74%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_7.cu.o\n"}
+,{"stream_name":"stdout","time":1312.634257315,"data":"[ 75%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_8.cu.o\n"}
+,{"stream_name":"stdout","time":1329.267617228,"data":"[ 75%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/mmf-instance-ncols_9.cu.o\n"}
+,{"stream_name":"stdout","time":1333.078396486,"data":"[ 75%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-vec-instance-f16-f16.cu.o\n"}
+,{"stream_name":"stdout","time":1336.553436651,"data":"[ 75%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-vec-instance-q4_0-q4_0.cu.o\n"}
+,{"stream_name":"stdout","time":1343.170791069,"data":"[ 75%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-vec-instance-q8_0-q8_0.cu.o\n"}
+,{"stream_name":"stdout","time":1356.183075301,"data":"[ 76%] Building CUDA object ggml/src/ggml-cuda/CMakeFiles/ggml-cuda.dir/template-instances/fattn-vec-instance-bf16-bf16.cu.o\n"}
+,{"stream_name":"stdout","time":1374.141659834,"data":"[ 76%] Linking CXX static library libggml-cuda.a\n"}
+,{"stream_name":"stdout","time":1374.505272342,"data":"[ 76%] Built target ggml-cuda\n"}
+,{"stream_name":"stdout","time":1374.516326716,"data":"[ 76%] Building CXX object ggml/src/CMakeFiles/ggml.dir/ggml-backend-dl.cpp.o\n"}
+,{"stream_name":"stdout","time":1374.516895342,"data":"[ 76%] Building CXX object ggml/src/CMakeFiles/ggml.dir/ggml-backend-reg.cpp.o\n"}
+,{"stream_name":"stdout","time":1376.084263863,"data":"[ 76%] Linking CXX static library libggml.a\n"}
+,{"stream_name":"stdout","time":1376.102602927,"data":"[ 76%] Built target ggml\n"}
+,{"stream_name":"stdout","time":1376.119173023,"data":"[ 76%] Building CXX object CMakeFiles/stable-diffusion.dir/src/conditioning/wan_audio.cpp.o\n"}
+,{"stream_name":"stdout","time":1376.119262869,"data":"[ 76%] Building CXX object CMakeFiles/stable-diffusion.dir/src/convert.cpp.o\n"}
+,{"stream_name":"stdout","time":1376.119415914,"data":"[ 76%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/backend_fit.cpp.o\n"}
+,{"stream_name":"stdout","time":1376.120741314,"data":"[ 76%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/compute_workspace.cpp.o\n"}
+,{"stream_name":"stdout","time":1376.756977972,"data":"[ 77%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/ggml_extend.cpp.o\n"}
+,{"stream_name":"stdout","time":1378.367128305,"data":"[ 77%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/ggml_extend_backend.cpp.o\n"}
+,{"stream_name":"stdout","time":1378.941260514,"data":"[ 77%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/ggml_graph_cut.cpp.o\n"}
+,{"stream_name":"stdout","time":1380.935725777,"data":"[ 77%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/ggml_runner.cpp.o\n"}
+,{"stream_name":"stdout","time":1383.85821441,"data":"[ 77%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/ggml_tensor_utils.cpp.o\n"}
+,{"stream_name":"stdout","time":1386.159812874,"data":"[ 78%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/layer_split_partition.cpp.o\n"}
+,{"stream_name":"stdout","time":1386.613383849,"data":"[ 78%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/parallel.cpp.o\n"}
+,{"stream_name":"stdout","time":1387.470251939,"data":"[ 78%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/pe_cache.cpp.o\n"}
+,{"stream_name":"stdout","time":1387.679439352,"data":"[ 78%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/probe/backend_probe.cpp.o\n"}
+,{"stream_name":"stdout","time":1387.940724266,"data":"[ 78%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/probe/conv_direct.cpp.o\n"}
+,{"stream_name":"stdout","time":1388.85433012,"data":"[ 79%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/probe/flash_attn.cpp.o\n"}
+,{"stream_name":"stdout","time":1389.261688232,"data":"[ 79%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/regex.cpp.o\n"}
+,{"stream_name":"stdout","time":1389.551023261,"data":"[ 79%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/runner_cache.cpp.o\n"}
+,{"stream_name":"stdout","time":1389.735292453,"data":"[ 79%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/segment_graph_bindings.cpp.o\n"}
+,{"stream_name":"stdout","time":1390.15409383,"data":"[ 79%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/segment_weight_pipeline.cpp.o\n"}
+,{"stream_name":"stdout","time":1390.574657694,"data":"[ 80%] Building CXX object CMakeFiles/stable-diffusion.dir/src/core/util.cpp.o\n"}
+,{"stream_name":"stdout","time":1391.817436593,"data":"[ 80%] Building CXX object CMakeFiles/stable-diffusion.dir/src/detailer.cpp.o\n"}
+,{"stream_name":"stdout","time":1392.120327443,"data":"[ 80%] Building CXX object CMakeFiles/stable-diffusion.dir/src/extensions/photomaker_extension.cpp.o\n"}
+,{"stream_name":"stdout","time":1392.291859843,"data":"[ 80%] Building CXX object CMakeFiles/stable-diffusion.dir/src/extensions/pulid_extension.cpp.o\n"}
+,{"stream_name":"stdout","time":1400.020572797,"data":"[ 80%] Building CXX object CMakeFiles/stable-diffusion.dir/src/generation_info.cpp.o\n"}
+,{"stream_name":"stdout","time":1404.342918113,"data":"[ 81%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/adapter/lora_ops.cpp.o\n"}
+,{"stream_name":"stdout","time":1406.374242929,"data":"[ 81%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/anima.cpp.o\n"}
+,{"stream_name":"stdout","time":1406.933473373,"data":"[ 81%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/boogu_image.cpp.o\n"}
+,{"stream_name":"stdout","time":1409.398268447,"data":"[ 81%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/ernie_image.cpp.o\n"}
+,{"stream_name":"stdout","time":1409.401806967,"data":"[ 81%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/fibo2.cpp.o\n"}
+,{"stream_name":"stdout","time":1428.095821516,"data":"[ 82%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/flux.cpp.o\n"}
+,{"stream_name":"stdout","time":1437.148170782,"data":"[ 82%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/flux2.cpp.o\n"}
+,{"stream_name":"stdout","time":1437.927240596,"data":"[ 82%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/flux3.cpp.o\n"}
+,{"stream_name":"stdout","time":1445.108969128,"data":"[ 82%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/hidream_o1.cpp.o\n"}
+,{"stream_name":"stdout","time":1462.471971278,"data":"[ 82%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/hunyuan_video.cpp.o\n"}
+,{"stream_name":"stdout","time":1465.38527517,"data":"[ 83%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/ideogram4.cpp.o\n"}
+,{"stream_name":"stdout","time":1466.206535286,"data":"[ 83%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/iris.cpp.o\n"}
+,{"stream_name":"stdout","time":1468.820451305,"data":"[ 83%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/krea2.cpp.o\n"}
+,{"stream_name":"stdout","time":1492.578558819,"data":"[ 83%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/lens.cpp.o\n"}
+,{"stream_name":"stdout","time":1492.966562805,"data":"[ 83%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/lingbot_video.cpp.o\n"}
+,{"stream_name":"stdout","time":1495.829092303,"data":"[ 84%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/llada_image.cpp.o\n"}
+,{"stream_name":"stdout","time":1498.615760657,"data":"[ 84%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/longcat.cpp.o\n"}
+,{"stream_name":"stdout","time":1521.303257454,"data":"[ 84%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/ltxav.cpp.o\n"}
+,{"stream_name":"stdout","time":1521.907287704,"data":"[ 84%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/mage_flow.cpp.o\n"}
+,{"stream_name":"stdout","time":1522.004430828,"data":"[ 84%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/ming_image.cpp.o\n"}
+,{"stream_name":"stdout","time":1529.899691184,"data":"[ 85%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/minimax_h3.cpp.o\n"}
+,{"stream_name":"stdout","time":1541.260598451,"data":"[ 85%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/minit2i.cpp.o\n"}
+,{"stream_name":"stdout","time":1545.45825573,"data":"[ 85%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/moss_image.cpp.o\n"}
+,{"stream_name":"stdout","time":1551.028634304,"data":"[ 85%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/pid.cpp.o\n"}
+,{"stream_name":"stdout","time":1556.044415408,"data":"[ 85%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/pixart.cpp.o\n"}
+,{"stream_name":"stdout","time":1558.514124999,"data":"[ 86%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/qwen_image.cpp.o\n"}
+,{"stream_name":"stdout","time":1571.930237509,"data":"[ 86%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/sd.cpp.o\n"}
+,{"stream_name":"stdout","time":1572.328937133,"data":"[ 86%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/sd3.cpp.o\n"}
+,{"stream_name":"stdout","time":1580.667358822,"data":"[ 86%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/sensenova_u1.cpp.o\n"}
+,{"stream_name":"stdout","time":1589.502159179,"data":"[ 86%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/wan.cpp.o\n"}
+,{"stream_name":"stdout","time":1591.244294763,"data":"[ 87%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/z_image.cpp.o\n"}
+,{"stream_name":"stdout","time":1591.755122623,"data":"[ 87%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model/integrations/z_image_l2p.cpp.o\n"}
+,{"stream_name":"stdout","time":1593.366281561,"data":"[ 87%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_io/gguf_io.cpp.o\n"}
+,{"stream_name":"stdout","time":1596.448462287,"data":"[ 87%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_io/pickle_io.cpp.o\n"}
+,{"stream_name":"stdout","time":1602.308375182,"data":"[ 87%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_io/safetensors_io.cpp.o\n"}
+,{"stream_name":"stdout","time":1611.88135001,"data":"[ 88%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_io/torch_legacy_io.cpp.o\n"}
+,{"stream_name":"stdout","time":1614.882629485,"data":"[ 88%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_io/torch_zip_io.cpp.o\n"}
+,{"stream_name":"stdout","time":1615.644737191,"data":"[ 88%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_loader.cpp.o\n"}
+,{"stream_name":"stdout","time":1616.399023289,"data":"[ 88%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_loader_files.cpp.o\n"}
+,{"stream_name":"stdout","time":1620.975872889,"data":"[ 88%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_manager.cpp.o\n"}
+,{"stream_name":"stdout","time":1620.981886938,"data":"[ 89%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_manager_files.cpp.o\n"}
+,{"stream_name":"stdout","time":1623.148128551,"data":"[ 89%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_manager_prefetch.cpp.o\n"}
+,{"stream_name":"stdout","time":1625.973979412,"data":"[ 89%] Building CXX object CMakeFiles/stable-diffusion.dir/src/model_registry.cpp.o\n"}
+,{"stream_name":"stdout","time":1626.995927198,"data":"[ 89%] Building CXX object CMakeFiles/stable-diffusion.dir/src/name_conversion.cpp.o\n"}
+,{"stream_name":"stdout","time":1627.543518201,"data":"[ 89%] Building CXX object CMakeFiles/stable-diffusion.dir/src/pipeline/diffusion_engine.cpp.o\n"}
+,{"stream_name":"stdout","time":1632.998192753,"data":"[ 90%] Building CXX object CMakeFiles/stable-diffusion.dir/src/pipeline/image.cpp.o\n"}
+,{"stream_name":"stdout","time":1635.809329203,"data":"[ 90%] Building CXX object CMakeFiles/stable-diffusion.dir/src/pipeline/model_builders.cpp.o\n"}
+,{"stream_name":"stdout","time":1637.205441234,"data":"[ 90%] Building CXX object CMakeFiles/stable-diffusion.dir/src/pipeline/request.cpp.o\n"}
+,{"stream_name":"stdout","time":1649.89902368,"data":"[ 90%] Building CXX object CMakeFiles/stable-diffusion.dir/src/pipeline/video.cpp.o\n"}
+,{"stream_name":"stdout","time":1652.256518346,"data":"[ 90%] Building CXX object CMakeFiles/stable-diffusion.dir/src/runtime/audio_processing.cpp.o\n"}
+,{"stream_name":"stdout","time":1652.958736145,"data":"[ 90%] Building CXX object CMakeFiles/stable-diffusion.dir/src/runtime/guidance.cpp.o\n"}
+,{"stream_name":"stdout","time":1657.973158835,"data":"[ 91%] Building CXX object CMakeFiles/stable-diffusion.dir/src/runtime/image_preprocess.cpp.o\n"}
+,{"stream_name":"stdout","time":1663.552897719,"data":"[ 91%] Building CXX object CMakeFiles/stable-diffusion.dir/src/runtime/imatrix.cpp.o\n"}
+,{"stream_name":"stdout","time":1666.672878308,"data":"[ 91%] Building CXX object CMakeFiles/stable-diffusion.dir/src/runtime/sample-cache.cpp.o\n"}
+,{"stream_name":"stdout","time":1672.989675859,"data":"[ 91%] Building CXX object CMakeFiles/stable-diffusion.dir/src/runtime/tiling.cpp.o\n"}
+,{"stream_name":"stdout","time":1674.899142612,"data":"[ 91%] Building CXX object CMakeFiles/stable-diffusion.dir/src/stable-diffusion.cpp.o\n"}
+,{"stream_name":"stdout","time":1676.250733385,"data":"[ 92%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/bpe_tokenizer.cpp.o\n"}
+,{"stream_name":"stdout","time":1679.589190833,"data":"[ 92%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/clip_tokenizer.cpp.o\n"}
+,{"stream_name":"stdout","time":1681.055604595,"data":"[ 92%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/gemma_tokenizer.cpp.o\n"}
+,{"stream_name":"stdout","time":1683.018385348,"data":"[ 92%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/hf_tokenizer.cpp.o\n"}
+,{"stream_name":"stdout","time":1686.846450406,"data":"[ 92%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/mistral_tokenizer.cpp.o\n"}
+,{"stream_name":"stdout","time":1688.193050447,"data":"[ 93%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/qwen2_tokenizer.cpp.o\n"}
+,{"stream_name":"stdout","time":1688.670696091,"data":"[ 93%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/sensenova_u1_tokenizer.cpp.o\n"}
+,{"stream_name":"stdout","time":1689.909409315,"data":"[ 93%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/t5_unigram_tokenizer.cpp.o\n"}
+,{"stream_name":"stdout","time":1691.572865375,"data":"[ 93%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/tokenize_util.cpp.o\n"}
+,{"stream_name":"stdout","time":1692.272480475,"data":"[ 93%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/tokenizer.cpp.o\n"}
+,{"stream_name":"stdout","time":1694.186266143,"data":"[ 94%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/tokenizer_config.cpp.o\n"}
+,{"stream_name":"stdout","time":1695.764514751,"data":"[ 94%] Building CXX object CMakeFiles/stable-diffusion.dir/src/tokenizers/vocab/vocab.cpp.o\n"}
+,{"stream_name":"stdout","time":1697.011977992,"data":"[ 94%] Building CXX object CMakeFiles/stable-diffusion.dir/src/upscaler.cpp.o\n"}
+,{"stream_name":"stdout","time":1700.447550305,"data":"[ 94%] Building CXX object CMakeFiles/stable-diffusion.dir/src/version.cpp.o\n"}
+,{"stream_name":"stdout","time":1747.051026918,"data":"[ 94%] Linking CXX static library libstable-diffusion.a\n"}
+,{"stream_name":"stdout","time":1747.580704679,"data":"[ 94%] Built target stable-diffusion\n"}
+,{"stream_name":"stdout","time":1747.594270101,"data":"[ 95%] Building CXX object examples/cli/CMakeFiles/sd-cli.dir/__/common/common.cpp.o\n"}
+,{"stream_name":"stdout","time":1747.594290564,"data":"[ 95%] Building CXX object examples/cli/CMakeFiles/sd-cli.dir/__/common/generation_metadata.cpp.o\n"}
+,{"stream_name":"stdout","time":1747.595159449,"data":"[ 95%] Building CXX object examples/cli/CMakeFiles/sd-cli.dir/__/common/log.cpp.o\n"}
+,{"stream_name":"stdout","time":1747.59526093,"data":"[ 95%] Building CXX object examples/server/CMakeFiles/sd-server.dir/__/common/common.cpp.o\n"}
+,{"stream_name":"stdout","time":1748.277120765,"data":"[ 95%] Building CXX object examples/server/CMakeFiles/sd-server.dir/__/common/generation_metadata.cpp.o\n"}
+,{"stream_name":"stdout","time":1756.466052088,"data":"[ 95%] Building CXX object examples/server/CMakeFiles/sd-server.dir/__/common/log.cpp.o\n"}
+,{"stream_name":"stdout","time":1757.114891434,"data":"[ 95%] Building CXX object examples/cli/CMakeFiles/sd-cli.dir/__/common/media_io.cpp.o\n"}
+,{"stream_name":"stdout","time":1757.184283507,"data":"[ 95%] Building CXX object examples/cli/CMakeFiles/sd-cli.dir/__/common/media_metadata.cpp.o\n"}
+,{"stream_name":"stdout","time":1757.928715643,"data":"[ 96%] Building CXX object examples/server/CMakeFiles/sd-server.dir/__/common/media_io.cpp.o\n"}
+,{"stream_name":"stdout","time":1771.629782793,"data":"[ 96%] Building CXX object examples/cli/CMakeFiles/sd-cli.dir/image_metadata.cpp.o\n"}
+,{"stream_name":"stdout","time":1771.855360809,"data":"[ 96%] Building CXX object examples/server/CMakeFiles/sd-server.dir/__/common/media_metadata.cpp.o\n"}
+,{"stream_name":"stdout","time":1772.634413491,"data":"[ 96%] Building CXX object examples/server/CMakeFiles/sd-server.dir/main.cpp.o\n"}
+,{"stream_name":"stdout","time":1774.363822378,"data":"[ 96%] Building CXX object examples/server/CMakeFiles/sd-server.dir/runtime.cpp.o\n"}
+,{"stream_name":"stdout","time":1775.252951863,"data":"[ 97%] Building CXX object examples/cli/CMakeFiles/sd-cli.dir/main.cpp.o\n"}
+,{"stream_name":"stdout","time":1782.071202731,"data":"[ 97%] Building CXX object examples/server/CMakeFiles/sd-server.dir/model_catalog.cpp.o\n"}
+,{"stream_name":"stdout","time":1783.79427744,"data":"[ 98%] Building CXX object examples/server/CMakeFiles/sd-server.dir/routes_models.cpp.o\n"}
+,{"stream_name":"stdout","time":1786.523116529,"data":"[ 98%] Linking CXX executable ../../bin/sd-cli\n"}
+,{"stream_name":"stdout","time":1789.02275566,"data":"[ 98%] Built target sd-cli\n"}
+,{"stream_name":"stdout","time":1789.027476532,"data":"[ 98%] Building CXX object examples/server/CMakeFiles/sd-server.dir/async_jobs.cpp.o\n"}
+,{"stream_name":"stdout","time":1795.134968036,"data":"[ 98%] Building CXX object examples/server/CMakeFiles/sd-server.dir/routes_index.cpp.o\n"}
+,{"stream_name":"stdout","time":1798.160465451,"data":"[ 98%] Building CXX object examples/server/CMakeFiles/sd-server.dir/routes_openai.cpp.o\n"}
+,{"stream_name":"stdout","time":1800.338781177,"data":"[ 98%] Building CXX object examples/server/CMakeFiles/sd-server.dir/routes_sdapi.cpp.o\n"}
+,{"stream_name":"stdout","time":1812.027581258,"data":"[100%] Building CXX object examples/server/CMakeFiles/sd-server.dir/routes_sdcpp.cpp.o\n"}
+,{"stream_name":"stdout","time":1835.937681616,"data":"[100%] Linking CXX executable ../../bin/sd-server\n"}
+,{"stream_name":"stdout","time":1837.668958318,"data":"[100%] Built target sd-server\n"}
+,{"stream_name":"stdout","time":1837.67655338,"data":"BUILD SECONDS 1833\n"}
+,{"stream_name":"stderr","time":1845.236845732,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":1851.06652563,"data":"$ stable-diffusion.cpp/build/bin/sd-cli --diffusion-model \"/kaggle/working/models/flux-2-klein-4b-Q4_0.gguf\" --vae \"/kaggle/working/models/split_files/vae/flux2-vae.safetensors\" --llm \"/kaggle/working/models/Qwen3-4B-Q4_K_M.gguf\"  -p \"A full body portrait of an original character: a young Black woman scientist with short curly black hair, round gold-rimmed glasses, mustard yellow cardigan over a white shirt, dark green trousers, friendly smile, standing front view, semi-realistic illustration, plain light gray studio background, soft even lighting\" --cfg-scale 1.0 --steps 4 --sampling-method euler -H 768 -W 768 -o out/char.png 2\u003e\u00261 | tail -n 4\n"}
+,{"stream_name":"stdout","time":1865.598471115,"data":"[I] decode_first_stage completed, taking 1.25s --- image.cpp:675\n"}
+,{"stream_name":"stdout","time":1865.598509503,"data":"[I] generate_image completed in 8.93s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":1865.598516242,"data":"[I] save result image 0 to 'out/char.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":1865.59852242,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":1865.74723622,"data":"RENDER char 14 seconds\n"}
+,{"stream_name":"stdout","time":1865.747266545,"data":"$ stable-diffusion.cpp/build/bin/sd-cli --diffusion-model \"/kaggle/working/models/flux-2-klein-4b-Q4_0.gguf\" --vae \"/kaggle/working/models/split_files/vae/flux2-vae.safetensors\" --llm \"/kaggle/working/models/Qwen3-4B-Q4_K_M.gguf\" -r out/char.png -p \"The same woman from the reference image, sitting on a stool reading a book, same mustard cardigan, round gold-rimmed glasses and dark green trousers, semi-realistic illustration, plain light gray studio background, soft even lighting\" --cfg-scale 1.0 --steps 4 --sampling-method euler -H 768 -W 768 -o out/scene_1.png 2\u003e\u00261 | tail -n 4\n"}
+,{"stream_name":"stdout","time":1883.786595187,"data":"[I] decode_first_stage completed, taking 1.17s --- image.cpp:675\n"}
+,{"stream_name":"stdout","time":1883.786631673,"data":"[I] generate_image completed in 15.85s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":1883.786637848,"data":"[I] save result image 0 to 'out/scene_1.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":1883.786642779,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":1883.925995048,"data":"RENDER scene_1 18 seconds\n"}
+,{"stream_name":"stdout","time":1883.926019199,"data":"$ stable-diffusion.cpp/build/bin/sd-cli --diffusion-model \"/kaggle/working/models/flux-2-klein-4b-Q4_0.gguf\" --vae \"/kaggle/working/models/split_files/vae/flux2-vae.safetensors\" --llm \"/kaggle/working/models/Qwen3-4B-Q4_K_M.gguf\" -r out/char.png -p \"The same woman from the reference image, holding a glass flask up and smiling, same mustard cardigan, round gold-rimmed glasses and dark green trousers, semi-realistic illustration, plain light gray studio background, soft even lighting\" --cfg-scale 1.0 --steps 4 --sampling-method euler -H 768 -W 768 -o out/scene_2.png 2\u003e\u00261 | tail -n 4\n"}
+,{"stream_name":"stdout","time":1902.040609437,"data":"[I] decode_first_stage completed, taking 1.19s --- image.cpp:675\n"}
+,{"stream_name":"stdout","time":1902.04064446,"data":"[I] generate_image completed in 16.03s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":1902.040650699,"data":"[I] save result image 0 to 'out/scene_2.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":1902.040655863,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":1902.183525358,"data":"RENDER scene_2 18 seconds\n"}
+,{"stream_name":"stdout","time":1902.183554966,"data":"$ stable-diffusion.cpp/build/bin/sd-cli --diffusion-model \"/kaggle/working/models/flux-2-klein-4b-Q4_0.gguf\" --vae \"/kaggle/working/models/split_files/vae/flux2-vae.safetensors\" --llm \"/kaggle/working/models/Qwen3-4B-Q4_K_M.gguf\" -r out/char.png -p \"The same woman from the reference image, walking toward the camera mid-stride, same mustard cardigan, round gold-rimmed glasses and dark green trousers, semi-realistic illustration, plain light gray studio background, soft even lighting\" --cfg-scale 1.0 --steps 4 --sampling-method euler -H 768 -W 768 -o out/scene_3.png 2\u003e\u00261 | tail -n 4\n"}
+,{"stream_name":"stdout","time":1920.531930024,"data":"[I] decode_first_stage completed, taking 1.20s --- image.cpp:675\n"}
+,{"stream_name":"stdout","time":1920.531971118,"data":"[I] generate_image completed in 16.29s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":1920.532000982,"data":"[I] save result image 0 to 'out/scene_3.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":1920.532005537,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":1920.676362348,"data":"RENDER scene_3 18 seconds\n"}
+,{"stream_name":"stdout","time":1920.676398007,"data":"$ stable-diffusion.cpp/build/bin/sd-cli --diffusion-model \"/kaggle/working/models/flux-2-klein-4b-Q4_0.gguf\" --vae \"/kaggle/working/models/split_files/vae/flux2-vae.safetensors\" --llm \"/kaggle/working/models/Qwen3-4B-Q4_K_M.gguf\" -r out/char.png -p \"The same woman from the reference image, waving at the camera with one hand, same mustard cardigan, round gold-rimmed glasses and dark green trousers, semi-realistic illustration, plain light gray studio background, soft even lighting\" --cfg-scale 1.0 --steps 4 --sampling-method euler -H 768 -W 768 -o out/scene_4.png 2\u003e\u00261 | tail -n 4\n"}
+,{"stream_name":"stdout","time":1939.377522959,"data":"[I] decode_first_stage completed, taking 1.23s --- image.cpp:675\n"}
+,{"stream_name":"stdout","time":1939.3775625,"data":"[I] generate_image completed in 16.59s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":1939.377566324,"data":"[I] save result image 0 to 'out/scene_4.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":1939.377569554,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":1939.520149505,"data":"RENDER scene_4 18 seconds\n"}
+,{"stream_name":"stdout","time":1939.520179697,"data":"$ stable-diffusion.cpp/build/bin/sd-cli --diffusion-model \"/kaggle/working/models/flux-2-klein-4b-Q4_0.gguf\" --vae \"/kaggle/working/models/split_files/vae/flux2-vae.safetensors\" --llm \"/kaggle/working/models/Qwen3-4B-Q4_K_M.gguf\" -r out/char.png -p \"The same woman from the reference image, arms crossed, looking confident, three-quarter view, same mustard cardigan, round gold-rimmed glasses and dark green trousers, semi-realistic illustration, plain light gray studio background, soft even lighting\" --cfg-scale 1.0 --steps 4 --sampling-method euler -H 768 -W 768 -o out/scene_5.png 2\u003e\u00261 | tail -n 4\n"}
+,{"stream_name":"stdout","time":1958.454390959,"data":"[I] decode_first_stage completed, taking 1.24s --- image.cpp:675\n"}
+,{"stream_name":"stdout","time":1958.454428588,"data":"[I] generate_image completed in 16.84s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":1958.454434919,"data":"[I] save result image 0 to 'out/scene_5.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":1958.454440216,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":1958.601258391,"data":"RENDER scene_5 19 seconds\n"}
+,{"stream_name":"stdout","time":1958.6012877,"data":"$ stable-diffusion.cpp/build/bin/sd-cli --diffusion-model \"/kaggle/working/models/flux-2-klein-4b-Q4_0.gguf\" --vae \"/kaggle/working/models/split_files/vae/flux2-vae.safetensors\" --llm \"/kaggle/working/models/Qwen3-4B-Q4_K_M.gguf\" -r out/char.png -p \"The same woman from the reference image, crouching down looking at a small plant, same mustard cardigan, round gold-rimmed glasses and dark green trousers, semi-realistic illustration, plain light gray studio background, soft even lighting\" --cfg-scale 1.0 --steps 4 --sampling-method euler -H 768 -W 768 -o out/scene_6.png 2\u003e\u00261 | tail -n 4\n"}
+,{"stream_name":"stdout","time":1977.835341158,"data":"[I] decode_first_stage completed, taking 1.27s --- image.cpp:675\n"}
+,{"stream_name":"stdout","time":1977.83537662,"data":"[I] generate_image completed in 17.14s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":1977.835382147,"data":"[I] save result image 0 to 'out/scene_6.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":1977.835386789,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":1977.976857208,"data":"RENDER scene_6 19 seconds\n"}
+,{"stream_name":"stdout","time":1978.206321322,"data":"$ rm -rf models stable-diffusion.cpp; ls -la out\n"}
+,{"stream_name":"stdout","time":1978.649508913,"data":"total 5196\n"}
+,{"stream_name":"stdout","time":1978.649535767,"data":"drwxr-xr-x 2 root root   4096 Oct 25 12:50 .\n"}
+,{"stream_name":"stdout","time":1978.649540094,"data":"drwxr-xr-x 3 root root   4096 Oct 25 12:50 ..\n"}
+,{"stream_name":"stdout","time":1978.649543824,"data":"-rw-r--r-- 1 root root  52701 Oct 25 12:50 char.jpg\n"}
+,{"stream_name":"stdout","time":1978.649547144,"data":"-rw-r--r-- 1 root root 678981 Oct 25 12:48 char.png\n"}
+,{"stream_name":"stdout","time":1978.649550819,"data":"-rw-r--r-- 1 root root  61511 Oct 25 12:50 scene_1.jpg\n"}
+,{"stream_name":"stdout","time":1978.64955405,"data":"-rw-r--r-- 1 root root 696962 Oct 25 12:49 scene_1.png\n"}
+,{"stream_name":"stdout","time":1978.6495573,"data":"-rw-r--r-- 1 root root  60151 Oct 25 12:50 scene_2.jpg\n"}
+,{"stream_name":"stdout","time":1978.649560384,"data":"-rw-r--r-- 1 root root 722975 Oct 25 12:49 scene_2.png\n"}
+,{"stream_name":"stdout","time":1978.649563779,"data":"-rw-r--r-- 1 root root  46840 Oct 25 12:50 scene_3.jpg\n"}
+,{"stream_name":"stdout","time":1978.649566756,"data":"-rw-r--r-- 1 root root 660181 Oct 25 12:49 scene_3.png\n"}
+,{"stream_name":"stdout","time":1978.649570785,"data":"-rw-r--r-- 1 root root  59260 Oct 25 12:50 scene_4.jpg\n"}
+,{"stream_name":"stdout","time":1978.649574127,"data":"-rw-r--r-- 1 root root 711963 Oct 25 12:50 scene_4.png\n"}
+,{"stream_name":"stdout","time":1978.649577255,"data":"-rw-r--r-- 1 root root  52321 Oct 25 12:50 scene_5.jpg\n"}
+,{"stream_name":"stdout","time":1978.649580933,"data":"-rw-r--r-- 1 root root 667826 Oct 25 12:50 scene_5.png\n"}
+,{"stream_name":"stdout","time":1978.649583968,"data":"-rw-r--r-- 1 root root  71010 Oct 25 12:50 scene_6.jpg\n"}
+,{"stream_name":"stdout","time":1978.649587383,"data":"-rw-r--r-- 1 root root 739512 Oct 25 12:50 scene_6.png\n"}
+,{"stream_name":"stderr","time":1980.697813957,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1980.69784198,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1980.919395745,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1980.919423921,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1981.77452473,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1982.675990862,"data":"[NbConvertApp] Writing 287063 bytes to __results__.html\n"}
 ]
