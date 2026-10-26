@@ -1,0 +1,68 @@
+name: Create character pack
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - name: Write kernel
+        run: |
+          mkdir k
+          cat > k/kernel-metadata.json <<'JSON'
+          {"id":"simoncreaty/chars-gen","title":"chars gen","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":false,"dataset_sources":["simoncreaty/sdcpp-cache"]}
+          JSON
+          cat > k/kernel.py <<'PY'
+          import os, subprocess, glob, shutil, threading
+          from PIL import Image
+          src = os.path.dirname(glob.glob('/kaggle/input/**/sd-cli', recursive=True)[0])
+          W = '/kaggle/working'
+          shutil.copy(src+'/sd-cli', W+'/sd-cli'); os.chmod(W+'/sd-cli', 0o755)
+          os.makedirs(W+'/out', exist_ok=True)
+          shutil.copy(src+'/charA.jpg', W+'/out/charA.jpg')
+          env0 = dict(os.environ, LD_LIBRARY_PATH='/usr/local/cuda/lib64:'+os.environ.get('LD_LIBRARY_PATH',''))
+          D, V, L = src+'/diff.gguf', src+'/vae.safetensors', src+'/llm.gguf'
+          ST = 'semi-realistic illustration, soft even lighting'
+          C = 'young South Asian man with a short trimmed beard, curly dark hair, olive green jacket over a white t-shirt, dark jeans, orange sneakers'
+          Dd = 'elderly white woman professor with silver hair in a neat bun, teal blazer over a cream blouse, gray skirt, small pearl earrings, kind eyes'
+          def run(gpu, name, desc):
+              p = 'A full body portrait of an original character: a %s, calm smile, standing front view, plain light gray studio background, %s' % (desc, ST)
+              cmd = '%s/sd-cli --diffusion-model "%s" --vae "%s" --llm "%s" -p "%s" --cfg-scale 1.0 --steps 4 --sampling-method euler -H 1024 -W 768 -o %s/out/%s.png 2>&1 | tail -n 2' % (W, D, V, L, p, W, name)
+              subprocess.run(cmd, shell=True, env=dict(env0, CUDA_VISIBLE_DEVICES=str(gpu)))
+          ts = [threading.Thread(target=run, args=(0,'charC',C)), threading.Thread(target=run, args=(1,'charD',Dd))]
+          [t.start() for t in ts]; [t.join() for t in ts]
+          for f in glob.glob(W+'/out/*.png'):
+              Image.open(f).convert('RGB').save(f[:-4]+'.jpg', quality=92); os.remove(f)
+          os.remove(W+'/sd-cli')
+          subprocess.run('ls -la %s/out' % W, shell=True)
+          PY
+      - name: Run kernel
+        run: |
+          kaggle kernels push -p k
+          for i in $(seq 1 100); do
+            s=$(kaggle kernels status simoncreaty/chars-gen 2>&1 | tail -1); echo "$s"
+            case "$s" in *COMPLETE*|*ERROR*|*CANCEL*) break;; esac
+            sleep 20
+          done
+          mkdir -p kout && kaggle kernels output simoncreaty/chars-gen -p kout || true
+          find kout -type f
+      - name: Build dataset and commit
+        run: |
+          mkdir -p pack chars
+          find kout -name '*.jpg' -exec cp {} pack/ \;
+          cp kaggle-test2/charB.jpg pack/charB.jpg
+          ls -la pack
+          cp pack/*.jpg chars/
+          cat > pack/dataset-metadata.json <<'JSON'
+          {"title":"chars","id":"simoncreaty/chars","licenses":[{"name":"CC0-1.0"}]}
+          JSON
+          kaggle datasets create -p pack || kaggle datasets version -p pack -m update
+          git config user.name "github-actions"; git config user.email "a@b.c"
+          git add chars; git commit -m "character pack" || true
+          git push || true
