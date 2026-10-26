@@ -1,0 +1,69 @@
+[{"stream_name":"stdout","time":0.731761366,"data":"SRC /kaggle/input/datasets/simoncreaty/sdcpp-cache\n"}
+,{"stream_name":"stdout","time":2.297428208,"data":"GPU 0: Tesla T4 (UUID: GPU-78166913-63e8-e991-ae8b-149d26074ec2)\n"}
+,{"stream_name":"stdout","time":2.297468041,"data":"GPU 1: Tesla T4 (UUID: GPU-274323ff-5fe8-6f51-fac0-5ed80eb97f70)\n"}
+,{"stream_name":"stdout","time":41.81336348,"data":"[I] generate_image completed in 34.74s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":41.813393399,"data":"[I] save result image 0 to '/kaggle/working/out/charB.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":41.813399423,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":41.866646767,"data":"RENDER charB gpu 1 39 seconds\n"}
+,{"stream_name":"stdout","time":43.954678642,"data":"[I] generate_image completed in 37.74s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":43.95471204,"data":"[I] save result image 0 to '/kaggle/working/out/A1.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":43.954717656,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":44.009309846,"data":"RENDER A1 gpu 0 41 seconds\n"}
+,{"stream_name":"stdout","time":60.856962452,"data":"[I] generate_image completed in 16.98s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":60.857000606,"data":"[I] save result image 0 to '/kaggle/working/out/B1.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":60.857006044,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":60.910925705,"data":"RENDER B1 gpu 1 19 seconds\n"}
+,{"stream_name":"stdout","time":63.794008649,"data":"[I] generate_image completed in 17.62s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":63.794633916,"data":"[I] save result image 0 to '/kaggle/working/out/A2.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":63.794659203,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":63.84850454,"data":"RENDER A2 gpu 0 19 seconds\n"}
+,{"stream_name":"stdout","time":80.771162764,"data":"[I] generate_image completed in 17.93s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":80.771203273,"data":"[I] save result image 0 to '/kaggle/working/out/B2.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":80.771208757,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":80.825528446,"data":"RENDER B2 gpu 1 19 seconds\n"}
+,{"stream_name":"stdout","time":83.829775763,"data":"[I] generate_image completed in 18.01s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":83.829810325,"data":"[I] save result image 0 to '/kaggle/working/out/A3.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":83.829816446,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":83.884504883,"data":"RENDER A3 gpu 0 20 seconds\n"}
+,{"stream_name":"stdout","time":101.420036051,"data":"[I] generate_image completed in 18.68s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":101.420107671,"data":"[I] save result image 0 to '/kaggle/working/out/B3.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":101.42011487,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":101.474078873,"data":"RENDER B3 gpu 1 20 seconds\n"}
+,{"stream_name":"stdout","time":125.862319012,"data":"[I] generate_image completed in 40.02s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":125.862361422,"data":"[I] save result image 0 to '/kaggle/working/out/D1.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":125.862367044,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":125.915391981,"data":"RENDER D1 gpu 0 42 seconds\n"}
+,{"stream_name":"stdout","time":142.593552879,"data":"[I] generate_image completed in 39.11s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":142.593589861,"data":"[I] save result image 0 to '/kaggle/working/out/D3.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":142.593594314,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":142.647720205,"data":"RENDER D3 gpu 1 41 seconds\n"}
+,{"stream_name":"stdout","time":166.128492184,"data":"[I] generate_image completed in 38.33s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":166.128534128,"data":"[I] save result image 0 to '/kaggle/working/out/D2.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":166.1285399,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":166.181889255,"data":"RENDER D2 gpu 0 40 seconds\n"}
+,{"stream_name":"stdout","time":183.158623436,"data":"[I] generate_image completed in 38.62s --- image.cpp:1140\n"}
+,{"stream_name":"stdout","time":183.158664773,"data":"[I] save result image 0 to '/kaggle/working/out/D4.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":183.158669454,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":183.216528141,"data":"RENDER D4 gpu 1 40 seconds\n"}
+,{"stream_name":"stdout","time":183.216601075,"data":"TOTAL 180 seconds\n"}
+,{"stream_name":"stdout","time":183.635898062,"data":"total 1408\n"}
+,{"stream_name":"stdout","time":183.635925934,"data":"drwxr-xr-x 2 root root   4096 Oct 26 05:16 .\n"}
+,{"stream_name":"stdout","time":183.635934678,"data":"drwxr-xr-x 3 root root   4096 Oct 26 05:16 ..\n"}
+,{"stream_name":"stdout","time":183.635939006,"data":"-rw-r--r-- 1 root root  87455 Oct 26 05:16 A1.jpg\n"}
+,{"stream_name":"stdout","time":183.635941955,"data":"-rw-r--r-- 1 root root 118134 Oct 26 05:16 A2.jpg\n"}
+,{"stream_name":"stdout","time":183.635944891,"data":"-rw-r--r-- 1 root root 101875 Oct 26 05:16 A3.jpg\n"}
+,{"stream_name":"stdout","time":183.635947733,"data":"-rw-r--r-- 1 root root 154462 Oct 26 05:16 B1.jpg\n"}
+,{"stream_name":"stdout","time":183.635950676,"data":"-rw-r--r-- 1 root root 112891 Oct 26 05:16 B2.jpg\n"}
+,{"stream_name":"stdout","time":183.635953815,"data":"-rw-r--r-- 1 root root  96402 Oct 26 05:16 B3.jpg\n"}
+,{"stream_name":"stdout","time":183.635956694,"data":"-rw-r--r-- 1 root root  50302 Oct 26 05:16 charB.jpg\n"}
+,{"stream_name":"stdout","time":183.635959518,"data":"-rw-r--r-- 1 root root 159381 Oct 26 05:16 D1.jpg\n"}
+,{"stream_name":"stdout","time":183.635962317,"data":"-rw-r--r-- 1 root root 164947 Oct 26 05:16 D2.jpg\n"}
+,{"stream_name":"stdout","time":183.635965123,"data":"-rw-r--r-- 1 root root 190591 Oct 26 05:16 D3.jpg\n"}
+,{"stream_name":"stdout","time":183.635967953,"data":"-rw-r--r-- 1 root root 176479 Oct 26 05:16 D4.jpg\n"}
+,{"stream_name":"stderr","time":185.790851637,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":185.790880686,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":186.075582649,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":186.075611249,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":187.479535895,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":188.396917769,"data":"[NbConvertApp] Writing 291749 bytes to __results__.html\n"}
+]
