@@ -47,6 +47,27 @@ jobs:
           os.makedirs(W+'/out', exist_ok=True)
           env0 = dict(os.environ, LD_LIBRARY_PATH='/usr/local/cuda/lib64:'+os.environ.get('LD_LIBRARY_PATH',''))
           D, V, L = src+'/diff.gguf', src+'/vae.safetensors', src+'/llm.gguf'
+          START = time.time()
+          LIMIT = 420 + 40 * len(SHOTS)
+          def watchdog():
+              while True:
+                  time.sleep(5)
+                  if time.time() - START > LIMIT:
+                      print('WATCHDOG: exceeded %d s, aborting to protect the GPU quota' % LIMIT, flush=True)
+                      os._exit(2)
+          threading.Thread(target=watchdog, daemon=True).start()
+          subprocess.run('nvidia-smi -L', shell=True)
+          for f_ in (D, V, L):
+              t_ = time.time(); n_ = 0
+              with open(f_, 'rb') as fh:
+                  while True:
+                      b_ = fh.read(64 << 20)
+                      if not b_: break
+                      n_ += len(b_)
+              print('READ %s %.2f GB in %.1f s' % (os.path.basename(f_), n_ / 1e9, time.time() - t_), flush=True)
+          if time.time() - START > 240:
+              print('ABORT: model files read too slowly (%.0f s)' % (time.time() - START), flush=True)
+              os._exit(3)
           ST = 'semi-realistic illustration, soft cinematic lighting, rich detail'
           CH = {
             'A': ('woman', 'young Black woman scientist', 'same mustard cardigan, round gold-rimmed glasses and dark green trousers'),
@@ -76,7 +97,7 @@ jobs:
                   w, h = int(s.get('w', 576)), int(s.get('h', 1024))
                   name = '%02d' % int(s['n'])
                   t = time.time()
-                  cmd = '%s/sd-cli --diffusion-model "%s" --vae "%s" --llm "%s" %s -p "%s" --cfg-scale 1.0 --steps 4 --sampling-method euler -H %d -W %d -o %s/out/%s.png 2>&1 | tail -n 2' % (W, D, V, L, r, prompt, h, w, W, name)
+                  cmd = '%s/sd-cli --diffusion-model "%s" --vae "%s" --llm "%s" %s -p "%s" --cfg-scale 1.0 --steps 4 --sampling-method euler -H %d -W %d -o %s/out/%s.png 2>&1 | grep -i -E "cuda|backend|vram|sampling|decode|total|error" | tail -n 8' % (W, D, V, L, r, prompt, h, w, W, name)
                   subprocess.run(cmd, shell=True, env=dict(env0, CUDA_VISIBLE_DEVICES=str(gpu)))
                   print('RENDER', name, 'gpu', gpu, int(time.time()-t), 's', flush=True)
           T0 = time.time()
@@ -97,7 +118,7 @@ jobs:
       - name: Run kernel
         run: |
           kaggle kernels push -p k
-          for i in $(seq 1 200); do
+          for i in $(seq 1 100); do
             s=$(kaggle kernels status simoncreaty/episode-images 2>&1 | tail -1); echo "$s"
             case "$s" in *COMPLETE*|*ERROR*|*CANCEL*) break;; esac
             sleep 20
