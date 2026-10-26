@@ -1,0 +1,17 @@
+[{"stream_name":"stdout","time":1166.058854104,"data":"[I] save result image 0 to '/kaggle/working/out/charC.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":1166.058959456,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":1166.063103648,"data":"[I] save result image 0 to '/kaggle/working/out/charD.png' (success) --- main.cpp:495\n"}
+,{"stream_name":"stdout","time":1166.063123319,"data":"[I] 1/1 images saved --- main.cpp:571\n"}
+,{"stream_name":"stdout","time":1166.384409698,"data":"total 192\n"}
+,{"stream_name":"stdout","time":1166.384445876,"data":"drwxr-xr-x 2 root root  4096 Oct 26 10:39 .\n"}
+,{"stream_name":"stdout","time":1166.384450512,"data":"drwxr-xr-x 3 root root  4096 Oct 26 10:39 ..\n"}
+,{"stream_name":"stdout","time":1166.38445417,"data":"-rw-rw-rw- 1 root root 52701 Oct 26 10:20 charA.jpg\n"}
+,{"stream_name":"stdout","time":1166.384460798,"data":"-rw-r--r-- 1 root root 72978 Oct 26 10:39 charC.jpg\n"}
+,{"stream_name":"stdout","time":1166.384463138,"data":"-rw-r--r-- 1 root root 60919 Oct 26 10:39 charD.jpg\n"}
+,{"stream_name":"stderr","time":1168.878669827,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":1168.878702105,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":1169.277324225,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":1169.277348087,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":1171.435777903,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":1172.494405148,"data":"[NbConvertApp] Writing 281969 bytes to __results__.html\n"}
+]

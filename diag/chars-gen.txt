@@ -1,0 +1,16 @@
+1166.1  [I] save result image 0 to '/kaggle/working/out/charC.png' (success) --- main.cpp:495
+1166.1  [I] 1/1 images saved --- main.cpp:571
+1166.1  [I] save result image 0 to '/kaggle/working/out/charD.png' (success) --- main.cpp:495
+1166.1  [I] 1/1 images saved --- main.cpp:571
+1166.4  total 192
+1166.4  drwxr-xr-x 2 root root  4096 Oct 26 10:39 .
+1166.4  drwxr-xr-x 3 root root  4096 Oct 26 10:39 ..
+1166.4  -rw-rw-rw- 1 root root 52701 Oct 26 10:20 charA.jpg
+1166.4  -rw-r--r-- 1 root root 72978 Oct 26 10:39 charC.jpg
+1166.4  -rw-r--r-- 1 root root 60919 Oct 26 10:39 charD.jpg
+1168.9  /usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\|'
+1168.9  cells[i][c] = re.sub('\\\\\|', '|', cell)
+1169.3  /usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\_'
+1169.3  text = re.sub(r'_', '\_', text) # Escape underscores in display text
+1171.4  [NbConvertApp] Converting notebook __script__.ipynb to html
+1172.5  [NbConvertApp] Writing 281969 bytes to __results__.html
