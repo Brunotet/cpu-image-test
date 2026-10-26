@@ -34,7 +34,7 @@ jobs:
         run: |
           mkdir k
           cat > k/kernel-metadata.json <<'JSON'
-          {"id":"simoncreaty/episode-images","title":"episode images","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":false,"dataset_sources":["simoncreaty/sdcpp-cache","simoncreaty/chars"]}
+          {"id":"simoncreaty/episode-images","title":"episode images","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":false,"dataset_sources":["simoncreaty/sdcpp-cache","simoncreaty/episode-chars"]}
           JSON
           cat > k/kernel.tpl <<'PY'
           import os, subprocess, time, glob, shutil, threading, queue, json, base64
