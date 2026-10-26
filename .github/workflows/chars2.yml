@@ -1,0 +1,27 @@
+name: Publish character pack
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - run: |
+          mkdir -p kout pack chars
+          kaggle kernels output simoncreaty/chars-gen -p kout
+          find kout -name '*.jpg' -exec cp {} pack/ \;
+          cp kaggle-test2/charB.jpg pack/charB.jpg
+          ls -la pack
+          cp pack/*.jpg chars/
+          cat > pack/dataset-metadata.json <<'JSON'
+          {"title":"episode characters","id":"simoncreaty/chars","licenses":[{"name":"CC0-1.0"}]}
+          JSON
+          kaggle datasets create -p pack
+          git config user.name "github-actions"; git config user.email "a@b.c"
+          git add chars; git commit -m "character pack" || true
+          git push || true
