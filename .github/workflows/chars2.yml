@@ -19,7 +19,7 @@ jobs:
           ls -la pack
           cp pack/*.jpg chars/
           cat > pack/dataset-metadata.json <<'JSON'
-          {"title":"episode characters","id":"simoncreaty/chars","licenses":[{"name":"CC0-1.0"}]}
+          {"title":"episode characters","id":"simoncreaty/episode-chars","licenses":[{"name":"CC0-1.0"}]}
           JSON
           kaggle datasets create -p pack
           git config user.name "github-actions"; git config user.email "a@b.c"
