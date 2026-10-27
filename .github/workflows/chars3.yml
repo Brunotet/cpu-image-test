@@ -1,0 +1,22 @@
+name: Update character pack
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - run: |
+          mkdir -p pack
+          cp chars/*.jpg pack/
+          cat > pack/dataset-metadata.json <<'JSON'
+          {"title":"episode characters","id":"simoncreaty/episode-chars","licenses":[{"name":"CC0-1.0"}]}
+          JSON
+          kaggle datasets version -p pack -m "host is the blue elf" --dir-mode skip
+          sleep 20
+          kaggle datasets status simoncreaty/episode-chars

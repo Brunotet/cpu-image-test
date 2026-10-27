@@ -68,10 +68,10 @@ jobs:
           if time.time() - START > 240:
               print('ABORT: model files read too slowly (%.0f s)' % (time.time() - START), flush=True)
               os._exit(3)
-          ST = 'semi-realistic illustration, soft cinematic lighting, rich detail'
+          ST = 'detailed painterly digital illustration, soft cinematic lighting, rich detail, 16:9 widescreen'
           CH = {
             'A': ('woman', 'young Black woman scientist', 'same mustard cardigan, round gold-rimmed glasses and dark green trousers'),
-            'B': ('man', 'middle-aged East Asian man', 'same navy bomber jacket, gray hoodie, black rectangular glasses and beige chinos'),
+            'B': ('man', 'blue-skinned elf man', 'same pointed ears, round glasses, crystal-studded dreadlocks, and black sleeveless top with glowing teal lines'),
             'C': ('man', 'young South Asian man with a short beard', 'same olive green jacket, white t-shirt and dark jeans'),
             'D': ('woman', 'elderly professor', 'same silver hair bun, teal blazer and cream blouse'),
           }
@@ -82,9 +82,9 @@ jobs:
                   return '%s, %s' % (p, ST), []
               if len(who) == 1:
                   g, d, o = CH[who]
-                  return 'The same %s from the reference image, %s, %s, %s' % (g, p, o, ST), [csrc+'/char%s.jpg' % who]
+                  return 'Waist-up medium shot of the same %s from the reference image, %s, %s, lower body out of frame, %s' % (d, p, o, ST), [csrc+'/char%s.jpg' % who]
               refs = [csrc+'/char%s.jpg' % c for c in who]
-              return 'The characters from the reference images together, %s, each keeps exactly their face and outfit from their reference, %s' % (p, ST), refs
+              return 'The characters from the reference images together in one widescreen frame, %s, each keeps exactly their face and outfit from their reference, %s' % (p, ST), refs
           Q = queue.Queue()
           for s in SHOTS: Q.put(s)
           def worker(gpu):
@@ -94,7 +94,7 @@ jobs:
                   prompt, refs = build(s)
                   prompt = prompt.replace('"', "'")
                   r = ' '.join('-r "%s"' % x for x in refs)
-                  w, h = int(s.get('w', 576)), int(s.get('h', 1024))
+                  w, h = int(s.get('w', 1024)), int(s.get('h', 576))
                   name = '%02d' % int(s['n'])
                   t = time.time()
                   cmd = '%s/sd-cli --diffusion-model "%s" --vae "%s" --llm "%s" %s -p "%s" --cfg-scale 1.0 --steps 4 --sampling-method euler -H %d -W %d -o %s/out/%s.png 2>&1 | grep -i -E "cuda|backend|vram|sampling|decode|total|error" | tail -n 8' % (W, D, V, L, r, prompt, h, w, W, name)
