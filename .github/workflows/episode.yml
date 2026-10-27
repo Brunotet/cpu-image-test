@@ -68,7 +68,7 @@ jobs:
           if time.time() - START > 240:
               print('ABORT: model files read too slowly (%.0f s)' % (time.time() - START), flush=True)
               os._exit(3)
-          ST = 'detailed painterly digital illustration, soft cinematic lighting, rich detail, 16:9 widescreen'
+          ST = 'detailed painterly digital illustration on a clean pure white page background, soft shadows, rich detail, 16:9 widescreen'
           CH = {
             'A': ('woman', 'young Black woman scientist', 'same mustard cardigan, round gold-rimmed glasses and dark green trousers'),
             'B': ('man', 'blue-skinned elf man', 'same pointed ears, round glasses, crystal-studded dreadlocks, and black sleeveless top with glowing teal lines'),
@@ -82,7 +82,7 @@ jobs:
                   return '%s, %s' % (p, ST), []
               if len(who) == 1:
                   g, d, o = CH[who]
-                  return 'Waist-up medium shot of the same %s from the reference image, %s, %s, lower body out of frame, %s' % (d, p, o, ST), [csrc+'/char%s.jpg' % who]
+                  return 'Waist-up medium shot of the same %s from the reference image, %s, %s, lower body out of frame, both hands fully visible with five fingers each, natural anatomy, %s' % (d, p, o, ST), [csrc+'/char%s.jpg' % who]
               refs = [csrc+'/char%s.jpg' % c for c in who]
               return 'The characters from the reference images together in one widescreen frame, %s, each keeps exactly their face and outfit from their reference, %s' % (p, ST), refs
           Q = queue.Queue()
