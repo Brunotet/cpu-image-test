@@ -1,0 +1,15 @@
+name: fetchvid
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - run: |
+          mkdir -p videos
+          curl -fsSL -o videos/test.mp4 https://pub-941fa42ead564a4a8ba3986bffb23cc3.r2.dev/psychology/psychology-1793056203392.mp4
+          ls -l videos
+          git config user.name bot; git config user.email bot@x
+          git add videos; git commit -m "test video"; git push
