@@ -1,0 +1,25 @@
+name: Kaggle diag3
+on: workflow_dispatch
+permissions:
+  contents: write
+jobs:
+  d:
+    runs-on: ubuntu-latest
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - run: |
+          mkdir -p diag kout
+          { kaggle kernels status simoncreaty/episode-images 2>&1; kaggle kernels output simoncreaty/episode-images -p kout 2>&1; find kout -type f | head -50; } > diag/info.txt || true
+          for f in kout/*.log; do python3 - "$f" >> diag/info.txt <<'PY' || true
+          import json,sys
+          ev=json.load(open(sys.argv[1]))
+          for e in ev:
+              d=e.get('data','').strip()
+              if d: print(round(e['time'],1), d[:220])
+          PY
+          done
+          git config user.name github-actions; git config user.email a@b.c
+          git add diag; git commit -m diag3 || true; git push || true
