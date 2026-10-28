@@ -1,4 +1,4 @@
-name: Kaggle diag
+name: Kaggle diag2
 on: workflow_dispatch
 permissions:
   contents: write
@@ -12,17 +12,17 @@ jobs:
       - run: pip install -q kaggle
       - run: |
           mkdir -p diag kout
-          kaggle kernels output simoncreaty/chars-gen -p kout || true
-          cp kout/*.log diag/chars-gen.log 2>/dev/null || true
+          kaggle kernels output simoncreaty/episode-images -p kout || true
+          cp kout/*.log diag/episode-images.log 2>/dev/null || true
           python3 - <<'PY'
           import json,re
           try:
-              t=open('diag/chars-gen.log').read()
+              t=open('diag/episode-images.log').read()
               ev=json.loads(t)
               rows=[(round(e['time'],1),e['data'].strip()[:200]) for e in ev if e.get('data','').strip()]
-              open('diag/chars-gen.txt','w').write('\n'.join('%s  %s'%r for r in rows))
+              open('diag/episode-images.txt','w').write('\n'.join('%s  %s'%r for r in rows))
           except Exception as ex:
-              open('diag/chars-gen.txt','w').write('parse fail %s'%ex)
+              open('diag/episode-images.txt','w').write('parse fail %s'%ex)
           PY
           git config user.name github-actions; git config user.email a@b.c
           git add diag; git commit -m diag || true; git push || true
