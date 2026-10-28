@@ -82,7 +82,7 @@ jobs:
                   return '%s, %s' % (p, ST), []
               if len(who) == 1:
                   g, d, o = CH[who]
-                  return 'Waist-up medium shot of the same %s from the reference image, %s, %s, lower body out of frame, both hands fully visible with five fingers each, natural anatomy, %s' % (d, p, o, ST), [csrc+'/char%s.jpg' % who]
+                  return 'Waist-up medium shot of the same %s from the reference image, %s, %s, lower body out of frame, full head and hair visible with white space above the head, both hands fully visible with five fingers each, natural anatomy, %s' % (d, p, o, ST), [csrc+'/char%s.jpg' % who]
               refs = [csrc+'/char%s.jpg' % c for c in who]
               return 'The characters from the reference images together in one widescreen frame, %s, each keeps exactly their face and outfit from their reference, %s' % (p, ST), refs
           Q = queue.Queue()
