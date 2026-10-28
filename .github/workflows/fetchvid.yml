@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4
       - run: |
           mkdir -p videos
-          curl -fsSL -o videos/test2.mp4 https://pub-941fa42ead564a4a8ba3986bffb23cc3.r2.dev/psychology/psychology-1793096976946.mp4
+          curl -fsSL -o videos/test3.mp4 https://pub-941fa42ead564a4a8ba3986bffb23cc3.r2.dev/psychology/psychology-1793164411205.mp4
           ls -l videos
           git config user.name bot; git config user.email bot@x
           git add videos; git commit -m "test video"; git push
