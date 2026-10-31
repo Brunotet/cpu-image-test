@@ -41,8 +41,7 @@ jobs:
           from PIL import Image
           SHOTS = json.loads(base64.b64decode('__SHOTS_B64__').decode())
           src = os.path.dirname(glob.glob('/kaggle/input/**/sd-cli', recursive=True)[0])
-          csrc = os.path.dirname(glob.glob('/kaggle/input/**/charB.jpg', recursive=True)[0])
-          W = '/kaggle/working'
+                    W = '/kaggle/working'
           shutil.copy(src+'/sd-cli', W+'/sd-cli'); os.chmod(W+'/sd-cli', 0o755)
           os.makedirs(W+'/out', exist_ok=True)
           env0 = dict(os.environ, LD_LIBRARY_PATH='/usr/local/cuda/lib64:'+os.environ.get('LD_LIBRARY_PATH',''))
@@ -68,23 +67,9 @@ jobs:
           if time.time() - START > 240:
               print('ABORT: model files read too slowly (%.0f s)' % (time.time() - START), flush=True)
               os._exit(3)
-          ST = 'detailed painterly digital illustration on a clean pure white page background, soft shadows, rich detail, 16:9 widescreen'
-          CH = {
-            'A': ('woman', 'young Black woman scientist', 'same mustard cardigan, round gold-rimmed glasses and dark green trousers'),
-            'B': ('man', 'blue-skinned elf man', 'same pointed ears, round glasses, crystal-studded dreadlocks, and black sleeveless top with glowing teal lines'),
-            'C': ('man', 'young South Asian man with a short beard', 'same olive green jacket, white t-shirt and dark jeans'),
-            'D': ('woman', 'elderly professor', 'same silver hair bun, teal blazer and cream blouse'),
-          }
+          ST = 'simple hand-drawn doodle illustration, minimalist black marker line art with a few flat bright colors, cute simple stick figure people with round heads and thin line limbs, clean pure white background, lots of empty white space, vector flat style, no text, no letters, no words'
           def build(s):
-              who = s.get('who', '') or ''
-              p = s['p']
-              if not who:
-                  return '%s, %s' % (p, ST), []
-              if len(who) == 1:
-                  g, d, o = CH[who]
-                  return 'Waist-up medium shot of the same %s from the reference image, %s, %s, lower body out of frame, full head and hair visible with white space above the head, both hands fully visible with five fingers each, natural anatomy, %s' % (d, p, o, ST), [csrc+'/char%s.jpg' % who]
-              refs = [csrc+'/char%s.jpg' % c for c in who]
-              return 'The characters from the reference images together in one widescreen frame, %s, each keeps exactly their face and outfit from their reference, %s' % (p, ST), refs
+              return '%s, %s' % (s['p'], ST), []
           Q = queue.Queue()
           for s in SHOTS: Q.put(s)
           def worker(gpu):
