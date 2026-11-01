@@ -41,7 +41,7 @@ jobs:
           from PIL import Image
           SHOTS = json.loads(base64.b64decode('__SHOTS_B64__').decode())
           src = os.path.dirname(glob.glob('/kaggle/input/**/sd-cli', recursive=True)[0])
-                    W = '/kaggle/working'
+          W = '/kaggle/working'
           shutil.copy(src+'/sd-cli', W+'/sd-cli'); os.chmod(W+'/sd-cli', 0o755)
           os.makedirs(W+'/out', exist_ok=True)
           env0 = dict(os.environ, LD_LIBRARY_PATH='/usr/local/cuda/lib64:'+os.environ.get('LD_LIBRARY_PATH',''))
