@@ -1,0 +1,49 @@
+{
+ "runs": [
+  {
+   "n": 1,
+   "size": "832x480",
+   "seconds": 58.6,
+   "ok": true,
+   "vram_peak_gb": 13.52
+  },
+  {
+   "n": 2,
+   "size": "832x480",
+   "seconds": 36.9,
+   "ok": true,
+   "vram_peak_gb": 13.52
+  },
+  {
+   "n": 3,
+   "size": "832x480",
+   "seconds": 36.2,
+   "ok": true,
+   "vram_peak_gb": 13.52
+  },
+  {
+   "n": 4,
+   "size": "1024x576",
+   "seconds": 45.5,
+   "ok": true,
+   "vram_peak_gb": 13.52
+  },
+  {
+   "n": 5,
+   "size": "1024x576",
+   "seconds": 46.5,
+   "ok": true,
+   "vram_peak_gb": 13.52
+  },
+  {
+   "n": 6,
+   "size": "1024x576",
+   "seconds": 46.1,
+   "ok": true,
+   "vram_peak_gb": 13.52
+  }
+ ],
+ "download_s": 134,
+ "load_s": 88,
+ "total_s": 525
+}
