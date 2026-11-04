@@ -1,0 +1,87 @@
+name: Wan 2.1 image benchmark (Kaggle)
+on:
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 180
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - name: Write kernel
+        run: |
+          mkdir k
+          cat > k/kernel-metadata.json <<'JSON'
+          {"id":"simoncreaty/wan-bench","title":"wan bench","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":true}
+          JSON
+          cat > k/kernel.py <<'PY'
+          import os, subprocess, time, json, glob
+          def sh(c):
+              print('$', c, flush=True)
+              return subprocess.run(c, shell=True, executable='/bin/bash').returncode
+          sh('nvidia-smi; free -h | head -2; df -h /kaggle/working | tail -1')
+          sh('pip install -q -U diffusers transformers accelerate sentencepiece ftfy huggingface_hub pillow')
+          os.chdir('/kaggle/working'); os.makedirs('out', exist_ok=True)
+          T0 = time.time(); R = {'runs': []}
+          import torch
+          from diffusers import AutoencoderKLWan, WanPipeline
+          MODEL = 'Wan-AI/Wan2.1-T2V-1.3B-Diffusers'
+          t = time.time()
+          from huggingface_hub import snapshot_download
+          snapshot_download(MODEL)
+          R['download_s'] = round(time.time() - t); print('DOWNLOAD SECONDS', R['download_s'], flush=True)
+          t = time.time()
+          vae = AutoencoderKLWan.from_pretrained(MODEL, subfolder='vae', torch_dtype=torch.float32)
+          pipe = WanPipeline.from_pretrained(MODEL, vae=vae, torch_dtype=torch.float16)
+          pipe.enable_model_cpu_offload()
+          R['load_s'] = round(time.time() - t); print('LOAD SECONDS', R['load_s'], flush=True)
+          STYLE = ', simple flat doodle illustration, clean black outlines, soft colors, white background'
+          prompts = [
+           'A glass bottle of mouthwash next to a toothbrush on a bathroom sink',
+           'A pile of gold coins growing next to an old ledger book on a wooden desk',
+           'A chemist in a period apron pouring clear liquid into a glass vial in a 19th century shop',
+          ]
+          neg = 'blurry, low quality, text, letters, watermark, deformed'
+          n = 0
+          for (w, h) in [(832, 480), (1024, 576)]:
+              for p in prompts:
+                  n += 1
+                  t = time.time()
+                  try:
+                      res = pipe(prompt=p + STYLE, negative_prompt=neg, height=h, width=w, num_frames=1,
+                                 num_inference_steps=25, guidance_scale=5.0, output_type='pil')
+                      img = res.frames[0][0]
+                      img.convert('RGB').save('out/wan_%dx%d_%d.jpg' % (w, h, n), quality=92)
+                      ok = True
+                  except Exception as e:
+                      print('FAILED', repr(e)[:400], flush=True); ok = False
+                  dt = round(time.time() - t, 1)
+                  R['runs'].append({'n': n, 'size': '%dx%d' % (w, h), 'seconds': dt, 'ok': ok,
+                                    'vram_peak_gb': round(torch.cuda.max_memory_allocated() / 1e9, 2)})
+                  print('RENDER', n, w, h, dt, 'seconds', flush=True)
+          R['total_s'] = round(time.time() - T0)
+          json.dump(R, open('out/bench.json', 'w'), indent=1)
+          print(json.dumps(R), flush=True)
+          sh('ls -la out')
+          PY
+      - name: Push kernel and wait
+        run: |
+          kaggle kernels push -p k
+          for i in $(seq 1 150); do
+            s=$(kaggle kernels status simoncreaty/wan-bench 2>&1 | tail -1); echo "$s"
+            case "$s" in *COMPLETE*|*ERROR*|*CANCEL*) break;; esac
+            sleep 60
+          done
+          mkdir -p kout && kaggle kernels output simoncreaty/wan-bench -p kout || true
+          ls -laR kout | head -40
+      - name: Commit results
+        run: |
+          mkdir -p kaggle-wan
+          cp kout/out/* kaggle-wan/ 2>/dev/null || cp kout/* kaggle-wan/ 2>/dev/null || true
+          git config user.name "github-actions"; git config user.email "a@b.c"
+          git add kaggle-wan; git commit -m "Wan 2.1 benchmark results" || true
+          git push || true
