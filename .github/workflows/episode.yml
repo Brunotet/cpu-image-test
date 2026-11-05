@@ -1,4 +1,4 @@
-name: Episode images (Kaggle 2xT4)
+name: Episode images (Kaggle 2xT4, Wan 2.1)
 on:
   workflow_dispatch:
     inputs:
@@ -34,20 +34,58 @@ jobs:
         run: |
           mkdir k
           cat > k/kernel-metadata.json <<'JSON'
-          {"id":"simoncreaty/episode-images","title":"episode images","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":false,"dataset_sources":["simoncreaty/sdcpp-cache","simoncreaty/episode-chars"]}
+          {"id":"simoncreaty/episode-images","title":"episode images","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":true,"kernel_sources":["simoncreaty/wan-weights"]}
           JSON
           cat > k/kernel.tpl <<'PY'
-          import os, subprocess, time, glob, shutil, threading, queue, json, base64
-          from PIL import Image
+          import os, sys, subprocess, time, glob, json, base64
           SHOTS = json.loads(base64.b64decode('__SHOTS_B64__').decode())
-          src = os.path.dirname(glob.glob('/kaggle/input/**/sd-cli', recursive=True)[0])
           W = '/kaggle/working'
-          shutil.copy(src+'/sd-cli', W+'/sd-cli'); os.chmod(W+'/sd-cli', 0o755)
-          os.makedirs(W+'/out', exist_ok=True)
-          env0 = dict(os.environ, LD_LIBRARY_PATH='/usr/local/cuda/lib64:'+os.environ.get('LD_LIBRARY_PATH',''))
-          D, V, L = src+'/diff.gguf', src+'/vae.safetensors', src+'/llm.gguf'
+          MODEL = os.path.dirname(glob.glob('/kaggle/input/**/model_index.json', recursive=True)[0])
+          STYLE = ', simple flat doodle illustration, clean black outlines, soft colors, white background, minimalist, no text'
+          NEG = 'blurry, low quality, text, letters, words, watermark, deformed, photo, realistic'
+          if len(sys.argv) > 1:
+              # ---- worker: one per GPU ----
+              g = int(sys.argv[1])
+              import torch, gc
+              from diffusers import AutoencoderKLWan, WanPipeline
+              from transformers import UMT5EncoderModel, AutoTokenizer
+              mine = SHOTS[g::2]
+              t0 = time.time()
+              te = UMT5EncoderModel.from_pretrained(MODEL, subfolder='text_encoder', torch_dtype=torch.float16, device_map='cuda')
+              tok = AutoTokenizer.from_pretrained(MODEL, subfolder='tokenizer')
+              vae = AutoencoderKLWan.from_pretrained(MODEL, subfolder='vae', torch_dtype=torch.float32)
+              pipe = WanPipeline.from_pretrained(MODEL, text_encoder=te, tokenizer=tok, vae=vae, torch_dtype=torch.float16)
+              # encode every prompt once, then drop the 11 GB text encoder so the transformer runs fully on the GPU
+              emb = {}
+              ne = None
+              with torch.no_grad():
+                  for s in mine:
+                      pe, ne = pipe.encode_prompt(prompt=s['p'] + STYLE, negative_prompt=NEG, do_classifier_free_guidance=True, device='cuda')
+                      emb[int(s['n'])] = pe.cpu()
+                  ne = ne.cpu() if ne is not None else None
+              pipe.text_encoder = None
+              del te; gc.collect(); torch.cuda.empty_cache()
+              pipe.transformer.to('cuda'); pipe.vae.to('cuda')
+              print('GPU%d READY %.0f s, %d shots' % (g, time.time() - t0, len(mine)), flush=True)
+              for s in mine:
+                  n = int(s['n']); t = time.time()
+                  w, h = int(s.get('w', 1024)), int(s.get('h', 576))
+                  ok = False
+                  for attempt in (1, 2):
+                      try:
+                          r = pipe(prompt_embeds=emb[n].to('cuda', torch.float16), negative_prompt_embeds=ne.to('cuda', torch.float16),
+                                   height=h, width=w, num_frames=1, num_inference_steps=25, guidance_scale=5.0,
+                                   generator=torch.Generator('cuda').manual_seed(1000 + n + attempt), output_type='pil')
+                          r.frames[0][0].convert('RGB').save('%s/out/%02d.jpg' % (W, n), quality=92)
+                          ok = True; break
+                      except Exception as e:
+                          print('FAILED', n, repr(e)[:300], flush=True)
+                  print('RENDER %02d gpu %d %.1f s ok=%s' % (n, g, time.time() - t, ok), flush=True)
+              sys.exit(0)
+          # ---- main ----
           START = time.time()
-          LIMIT = 420 + 40 * len(SHOTS)
+          import threading
+          LIMIT = 900 + 60 * len(SHOTS)
           def watchdog():
               while True:
                   time.sleep(5)
@@ -55,44 +93,16 @@ jobs:
                       print('WATCHDOG: exceeded %d s, aborting to protect the GPU quota' % LIMIT, flush=True)
                       os._exit(2)
           threading.Thread(target=watchdog, daemon=True).start()
+          os.makedirs(W + '/out', exist_ok=True)
           subprocess.run('nvidia-smi -L', shell=True)
-          for f_ in (D, V, L):
-              t_ = time.time(); n_ = 0
-              with open(f_, 'rb') as fh:
-                  while True:
-                      b_ = fh.read(64 << 20)
-                      if not b_: break
-                      n_ += len(b_)
-              print('READ %s %.2f GB in %.1f s' % (os.path.basename(f_), n_ / 1e9, time.time() - t_), flush=True)
-          if time.time() - START > 240:
-              print('ABORT: model files read too slowly (%.0f s)' % (time.time() - START), flush=True)
-              os._exit(3)
-          ST = 'simple hand-drawn doodle illustration, minimalist black marker line art with a few flat bright colors, cute simple stick figure people with round heads and thin line limbs, clean pure white background, lots of empty white space, vector flat style, no text, no letters, no words'
-          def build(s):
-              return '%s, %s' % (s['p'], ST), []
-          Q = queue.Queue()
-          for s in SHOTS: Q.put(s)
-          def worker(gpu):
-              while True:
-                  try: s = Q.get_nowait()
-                  except queue.Empty: return
-                  prompt, refs = build(s)
-                  prompt = prompt.replace('"', "'")
-                  r = ' '.join('-r "%s"' % x for x in refs)
-                  w, h = int(s.get('w', 1024)), int(s.get('h', 576))
-                  name = '%02d' % int(s['n'])
-                  t = time.time()
-                  cmd = '%s/sd-cli --diffusion-model "%s" --vae "%s" --llm "%s" %s -p "%s" --cfg-scale 1.0 --steps 4 --sampling-method euler -H %d -W %d -o %s/out/%s.png 2>&1 | grep -i -E "cuda|backend|vram|sampling|decode|total|error" | tail -n 8' % (W, D, V, L, r, prompt, h, w, W, name)
-                  subprocess.run(cmd, shell=True, env=dict(env0, CUDA_VISIBLE_DEVICES=str(gpu)))
-                  print('RENDER', name, 'gpu', gpu, int(time.time()-t), 's', flush=True)
-          T0 = time.time()
-          ts = [threading.Thread(target=worker, args=(g,)) for g in (0, 1)]
-          [t.start() for t in ts]; [t.join() for t in ts]
-          print('TOTAL', int(time.time()-T0), 's', flush=True)
-          for f in glob.glob(W+'/out/*.png'):
-              Image.open(f).convert('RGB').save(f[:-4]+'.jpg', quality=90); os.remove(f)
-          os.remove(W+'/sd-cli')
-          subprocess.run('ls -la %s/out' % W, shell=True)
+          t = time.time()
+          subprocess.run('pip install -q -U diffusers transformers accelerate sentencepiece ftfy', shell=True)
+          print('PIP SECONDS', int(time.time() - t), flush=True)
+          me = os.path.abspath(__file__)
+          ps = [subprocess.Popen([sys.executable, me, str(g)], env=dict(os.environ, CUDA_VISIBLE_DEVICES=str(g))) for g in (0, 1)]
+          for p in ps: p.wait()
+          print('TOTAL', int(time.time() - START), 's', flush=True)
+          subprocess.run('ls -la %s/out | head -60' % W, shell=True)
           PY
           python3 - <<'PY'
           import os
