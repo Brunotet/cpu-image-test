@@ -1,7 +1,2 @@
-simoncreaty/wan-weights has status "KernelWorkerStatus.ERROR"
-Not found
+simoncreaty/wan-weights has status "KernelWorkerStatus.COMPLETE"
 Kernel log downloaded to wout/wan-weights.log 
-total 20
-drwxr-xr-x  2 runner runner  4096 Nov  5 11:21 .
-drwxr-xr-x 15 runner runner  4096 Nov  5 11:21 ..
--rw-r--r--  1 runner runner 10165 Nov  5 11:21 wan-weights.log
