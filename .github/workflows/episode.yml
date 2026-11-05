@@ -135,6 +135,7 @@ jobs:
         run: |
           mkdir -p "episodes/$EP"
           find kout -name '*.jpg' -exec cp {} "episodes/$EP/" \;
+          cp kout/*.log "episodes/$EP/kernel.log" 2>/dev/null || true
           N=$(ls "episodes/$EP"/*.jpg 2>/dev/null | wc -l); echo "images: $N"
           echo "$N" > /tmp/n
           # keep only the 25 newest episodes
