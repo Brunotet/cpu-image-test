@@ -1,0 +1,36 @@
+name: Wan 2.1 weights cache (Kaggle CPU kernel, no GPU quota)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+    steps:
+      - run: pip install -q kaggle
+      - name: Write kernel
+        run: |
+          mkdir k
+          cat > k/kernel-metadata.json <<'JSON'
+          {"id":"simoncreaty/wan-weights","title":"wan weights","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":false,"enable_internet":true}
+          JSON
+          cat > k/kernel.py <<'PY'
+          import os, shutil, subprocess, time
+          from huggingface_hub import snapshot_download
+          t = time.time()
+          d = snapshot_download('Wan-AI/Wan2.1-T2V-1.3B-Diffusers', local_dir='/kaggle/working/wan')
+          shutil.rmtree('/kaggle/working/wan/.cache', ignore_errors=True)
+          print('DOWNLOAD SECONDS', round(time.time() - t), flush=True)
+          subprocess.run('du -sh /kaggle/working/wan; du -sh /kaggle/working/wan/*', shell=True)
+          PY
+      - name: Push kernel and wait
+        run: |
+          kaggle kernels push -p k
+          for i in $(seq 1 100); do
+            s=$(kaggle kernels status simoncreaty/wan-weights 2>&1 | tail -1); echo "$s"
+            case "$s" in *COMPLETE*|*ERROR*|*CANCEL*) break;; esac
+            sleep 30
+          done
