@@ -1,0 +1,87 @@
+[{"stream_name":"stderr","time":3.047311011,"data":"\rFetching 31 files:   0%|          | 0/31 [00:00\u003c?, ?it/s]Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stderr","time":95.750533181,"data":"\rFetching 31 files:   3%|▎         | 1/31 [00:00\u003c00:07,  4.06it/s]\rFetching 31 files:  10%|▉         | 3/31 [00:01\u003c00:11,  2.53it/s]\rFetching 31 files:  26%|██▌       | 8/31 [00:01\u003c00:02,  7.87it/s]\rFetching 31 files:  42%|████▏     | 13/31 [00:01\u003c00:01, 12.01it/s]\rFetching 31 files:  52%|█████▏    | 16/31 [00:01\u003c00:01, 12.17it/s]\rFetching 31 files:  58%|█████▊    | 18/31 [00:01\u003c00:01, 12.66it/s]\rFetching 31 files:  65%|██████▍   | 20/31 [00:09\u003c00:10,  1.02it/s]\rFetching 31 files:  71%|███████   | 22/31 [00:10\u003c00:07,  1.24it/s]\rFetching 31 files:  74%|███████▍  | 23/31 [00:10\u003c00:05,  1.42it/s]\rFetching 31 files:  77%|███████▋  | 24/31 [00:24\u003c00:21,  3.09s/it]\rFetching 31 files:  81%|████████  | 25/31 [00:26\u003c00:17,  2.94s/it]\rFetching 31 files:  84%|████████▍ | 26/31 [00:42\u003c00:29,  5.99s/it]\rFetching 31 files:  84%|████████▍ | 26/31 [01:32\u003c00:17,  3.57s/it]\n"}
+,{"stream_name":"stderr","time":95.76695376,"data":"Traceback (most recent call last):\n"}
+,{"stream_name":"stderr","time":95.770002647,"data":"  File \"/kaggle/src/script.py\", line 4, in \u003cmodule\u003e\n"}
+,{"stream_name":"stderr","time":95.770039578,"data":"    d = snapshot_download('Wan-AI/Wan2.1-T2V-1.3B-Diffusers', local_dir='/kaggle/working/wan')\n"}
+,{"stream_name":"stderr","time":95.770047439,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_validators.py\", line 89, in _inner_fn\n"}
+,{"stream_name":"stderr","time":95.770053911,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":95.770059954,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_http.py\", line 266, in _inner\n"}
+,{"stream_name":"stderr","time":95.770065901,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":95.770071304,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/_snapshot_download.py\", line 532, in snapshot_download\n"}
+,{"stream_name":"stderr","time":95.770077392,"data":"    hf_thread_map(\n"}
+,{"stream_name":"stderr","time":95.770082979,"data":"    ~~~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":95.770088509,"data":"        _inner_hf_hub_download,\n"}
+,{"stream_name":"stderr","time":95.770094146,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770099711,"data":"    ...\u003c3 lines\u003e...\n"}
+,{"stream_name":"stderr","time":95.770105459,"data":"        tqdm_class=tqdm_class,\n"}
+,{"stream_name":"stderr","time":95.770110987,"data":"        ^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770116457,"data":"    )\n"}
+,{"stream_name":"stderr","time":95.770122169,"data":"    ^\n"}
+,{"stream_name":"stderr","time":95.770127441,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/tqdm.py\", line 441, in hf_thread_map\n"}
+,{"stream_name":"stderr","time":95.770134055,"data":"    results[future_to_index[future]] = future.result()\n"}
+,{"stream_name":"stderr","time":95.770138158,"data":"                                       ~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stderr","time":95.770142319,"data":"  File \"/usr/lib/python3.13/concurrent/futures/_base.py\", line 453, in result\n"}
+,{"stream_name":"stderr","time":95.770148119,"data":"    return self.__get_result()\n"}
+,{"stream_name":"stderr","time":95.770176259,"data":"           ~~~~~~~~~~~~~~~~~^^\n"}
+,{"stream_name":"stderr","time":95.770182001,"data":"  File \"/usr/lib/python3.13/concurrent/futures/_base.py\", line 402, in __get_result\n"}
+,{"stream_name":"stderr","time":95.770187021,"data":"    raise self._exception\n"}
+,{"stream_name":"stderr","time":95.770191556,"data":"  File \"/usr/lib/python3.13/concurrent/futures/thread.py\", line 59, in run\n"}
+,{"stream_name":"stderr","time":95.770196532,"data":"    result = self.fn(*self.args, **self.kwargs)\n"}
+,{"stream_name":"stderr","time":95.770201329,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/_snapshot_download.py\", line 512, in _inner_hf_hub_download\n"}
+,{"stream_name":"stderr","time":95.770206562,"data":"    hf_hub_download(  # type: ignore\n"}
+,{"stream_name":"stderr","time":95.770211314,"data":"    ~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770215819,"data":"        repo_id,\n"}
+,{"stream_name":"stderr","time":95.770220232,"data":"        ^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770224439,"data":"    ...\u003c14 lines\u003e...\n"}
+,{"stream_name":"stderr","time":95.770228849,"data":"        dry_run=dry_run,\n"}
+,{"stream_name":"stderr","time":95.770232977,"data":"        ^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770237087,"data":"    )\n"}
+,{"stream_name":"stderr","time":95.770241159,"data":"    ^\n"}
+,{"stream_name":"stderr","time":95.770245222,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_validators.py\", line 89, in _inner_fn\n"}
+,{"stream_name":"stderr","time":95.770249582,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":95.770254045,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/utils/_http.py\", line 266, in _inner\n"}
+,{"stream_name":"stderr","time":95.770258546,"data":"    return fn(*args, **kwargs)\n"}
+,{"stream_name":"stderr","time":95.770262721,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1026, in hf_hub_download\n"}
+,{"stream_name":"stderr","time":95.770269049,"data":"    return _hf_hub_download_to_local_dir(\n"}
+,{"stream_name":"stderr","time":95.770273341,"data":"        # Destination\n"}
+,{"stream_name":"stderr","time":95.770277355,"data":"    ...\u003c16 lines\u003e...\n"}
+,{"stream_name":"stderr","time":95.770281722,"data":"        dry_run=dry_run,\n"}
+,{"stream_name":"stderr","time":95.770285839,"data":"    )\n"}
+,{"stream_name":"stderr","time":95.770289671,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 1505, in _hf_hub_download_to_local_dir\n"}
+,{"stream_name":"stderr","time":95.770294336,"data":"    _download_to_tmp_and_move(\n"}
+,{"stream_name":"stderr","time":95.770298345,"data":"    ~~~~~~~~~~~~~~~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":95.770302849,"data":"        incomplete_path=paths.incomplete_path(etag),\n"}
+,{"stream_name":"stderr","time":95.770307416,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770311701,"data":"    ...\u003c8 lines\u003e...\n"}
+,{"stream_name":"stderr","time":95.770316312,"data":"        tqdm_class=tqdm_class,\n"}
+,{"stream_name":"stderr","time":95.770320515,"data":"        ^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770325024,"data":"    )\n"}
+,{"stream_name":"stderr","time":95.770329611,"data":"    ^\n"}
+,{"stream_name":"stderr","time":95.770334019,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 2016, in _download_to_tmp_and_move\n"}
+,{"stream_name":"stderr","time":95.770344986,"data":"    xet_get(\n"}
+,{"stream_name":"stderr","time":95.770349714,"data":"    ~~~~~~~^\n"}
+,{"stream_name":"stderr","time":95.770354734,"data":"        incomplete_path=tmp_path,\n"}
+,{"stream_name":"stderr","time":95.770359252,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770364019,"data":"    ...\u003c4 lines\u003e...\n"}
+,{"stream_name":"stderr","time":95.770368701,"data":"        tqdm_class=tqdm_class,\n"}
+,{"stream_name":"stderr","time":95.770373099,"data":"        ^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770377758,"data":"    )\n"}
+,{"stream_name":"stderr","time":95.770382028,"data":"    ^\n"}
+,{"stream_name":"stderr","time":95.770387134,"data":"  File \"/usr/local/lib/python3.13/dist-packages/huggingface_hub/file_download.py\", line 589, in xet_get\n"}
+,{"stream_name":"stderr","time":95.770392485,"data":"    with session.new_file_download_group(\n"}
+,{"stream_name":"stderr","time":95.770396959,"data":"         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^\n"}
+,{"stream_name":"stderr","time":95.770401561,"data":"        endpoint=connection_info.endpoint,\n"}
+,{"stream_name":"stderr","time":95.770405842,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770410144,"data":"    ...\u003c5 lines\u003e...\n"}
+,{"stream_name":"stderr","time":95.770414428,"data":"        progress_callback=progress.update_progress,\n"}
+,{"stream_name":"stderr","time":95.770418751,"data":"        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\n"}
+,{"stream_name":"stderr","time":95.770423074,"data":"    ) as group:\n"}
+,{"stream_name":"stderr","time":95.770427455,"data":"    ^\n"}
+,{"stream_name":"stderr","time":95.770431999,"data":"RuntimeError: Task error: File reconstruction error: IO Error: No space left on device (os error 28)\n"}
+,{"stream_name":"stderr","time":99.241803406,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":99.241841503,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":99.743675909,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":99.743743263,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":106.551184397,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":108.091110219,"data":"[NbConvertApp] Writing 274529 bytes to __results__.html\n"}
+]
