@@ -40,7 +40,11 @@ jobs:
           import os, sys, subprocess, time, glob, json, base64
           SHOTS = json.loads(base64.b64decode('__SHOTS_B64__').decode())
           W = '/kaggle/working'
-          MODEL = os.path.dirname(glob.glob('/kaggle/input/**/model_index.json', recursive=True)[0])
+          _mc = glob.glob('/kaggle/input/**/model_index.json', recursive=True)
+          if not _mc:
+              subprocess.run('ls -laR /kaggle/input | head -60', shell=True)
+              sys.exit(1)
+          MODEL = os.path.dirname(_mc[0])
           STYLE = ', simple flat doodle illustration, clean black outlines, soft colors, white background, minimalist, no text'
           NEG = 'blurry, low quality, text, letters, words, watermark, deformed, photo, realistic'
           if len(sys.argv) > 1:
