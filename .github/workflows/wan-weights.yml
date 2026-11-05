@@ -2,7 +2,7 @@ name: Wan 2.1 weights cache (Kaggle CPU kernel, no GPU quota)
 on:
   workflow_dispatch:
 permissions:
-  contents: read
+  contents: write
 jobs:
   run:
     runs-on: ubuntu-latest
@@ -10,6 +10,7 @@ jobs:
     env:
       KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
     steps:
+      - uses: actions/checkout@v4
       - run: pip install -q kaggle
       - name: Write kernel
         run: |
@@ -19,18 +20,40 @@ jobs:
           JSON
           cat > k/kernel.py <<'PY'
           import os, shutil, subprocess, time
+          subprocess.run('pip install -q -U diffusers transformers accelerate sentencepiece ftfy', shell=True)
+          import torch
           from huggingface_hub import snapshot_download
           t = time.time()
-          d = snapshot_download('Wan-AI/Wan2.1-T2V-1.3B-Diffusers', local_dir='/kaggle/working/wan')
-          shutil.rmtree('/kaggle/working/wan/.cache', ignore_errors=True)
-          print('DOWNLOAD SECONDS', round(time.time() - t), flush=True)
+          # full repo goes to the (large) HF cache, NOT /kaggle/working which is capped at 20 GB
+          src = snapshot_download('Wan-AI/Wan2.1-T2V-1.3B-Diffusers')
+          print('DOWNLOAD SECONDS', round(time.time() - t), src, flush=True)
+          out = '/kaggle/working/wan'
+          os.makedirs(out, exist_ok=True)
+          shutil.copy(src + '/model_index.json', out)
+          for d in ('tokenizer', 'scheduler', 'vae'):
+              if os.path.isdir(src + '/' + d):
+                  shutil.copytree(src + '/' + d, out + '/' + d, symlinks=False)
+          from transformers import UMT5EncoderModel
+          te = UMT5EncoderModel.from_pretrained(src + '/text_encoder', torch_dtype=torch.float16)
+          te.save_pretrained(out + '/text_encoder', safe_serialization=True)
+          del te
+          from diffusers import WanTransformer3DModel
+          tr = WanTransformer3DModel.from_pretrained(src + '/transformer', torch_dtype=torch.float16)
+          tr.save_pretrained(out + '/transformer', safe_serialization=True)
+          print('CONVERT SECONDS', round(time.time() - t), flush=True)
           subprocess.run('du -sh /kaggle/working/wan; du -sh /kaggle/working/wan/*', shell=True)
           PY
       - name: Push kernel and wait
         run: |
           kaggle kernels push -p k
-          for i in $(seq 1 100); do
+          for i in $(seq 1 120); do
             s=$(kaggle kernels status simoncreaty/wan-weights 2>&1 | tail -1); echo "$s"
             case "$s" in *COMPLETE*|*ERROR*|*CANCEL*) break;; esac
             sleep 30
           done
+          mkdir -p kaggle-wan
+          { echo "$s"; kaggle kernels output simoncreaty/wan-weights -p wout --file-pattern '.*\.log' 2>&1 | tail -3; } > kaggle-wan/diag.txt
+          cp wout/*.log kaggle-wan/weights.log 2>/dev/null || true
+          git config user.name github-actions; git config user.email a@b.c
+          git add kaggle-wan; git commit -m "wan weights status" || true
+          git pull --rebase -q; git push || true
