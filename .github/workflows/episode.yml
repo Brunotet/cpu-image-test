@@ -40,11 +40,7 @@ jobs:
           import os, sys, subprocess, time, glob, json, base64
           SHOTS = json.loads(base64.b64decode('__SHOTS_B64__').decode())
           W = '/kaggle/working'
-          _mc = glob.glob('/kaggle/input/**/model_index.json', recursive=True)
-          if not _mc:
-              subprocess.run('ls -laR /kaggle/input | head -60', shell=True)
-              sys.exit(1)
-          MODEL = os.path.dirname(_mc[0])
+          MODEL = os.environ.get('WAN_MODEL', '')
           STYLE = ', simple flat doodle illustration, clean black outlines, soft colors, white background, minimalist, no text'
           NEG = 'blurry, low quality, text, letters, words, watermark, deformed, photo, realistic'
           if len(sys.argv) > 1:
@@ -100,8 +96,22 @@ jobs:
           os.makedirs(W + '/out', exist_ok=True)
           subprocess.run('nvidia-smi -L', shell=True)
           t = time.time()
-          subprocess.run('pip install -q -U diffusers transformers accelerate sentencepiece ftfy', shell=True)
+          subprocess.run('pip install -q -U diffusers transformers accelerate sentencepiece ftfy hf_transfer', shell=True)
           print('PIP SECONDS', int(time.time() - t), flush=True)
+          t = time.time()
+          # the HF download is far faster than reading the mounted dataset (~130 s vs ~500 s)
+          try:
+              os.environ['HF_HUB_ENABLE_HF_TRANSFER'] = '1'
+              from huggingface_hub import snapshot_download
+              os.environ['WAN_MODEL'] = snapshot_download('Wan-AI/Wan2.1-T2V-1.3B-Diffusers')
+              print('HF DOWNLOAD SECONDS', int(time.time() - t), flush=True)
+          except Exception as e:
+              print('HF download failed, falling back to dataset', repr(e)[:200], flush=True)
+              _mc = glob.glob('/kaggle/input/**/model_index.json', recursive=True)
+              if not _mc:
+                  subprocess.run('ls -laR /kaggle/input | head -60', shell=True)
+                  sys.exit(1)
+              os.environ['WAN_MODEL'] = os.path.dirname(_mc[0])
           me = os.path.abspath(__file__)
           ps = [subprocess.Popen([sys.executable, me, str(g)], env=dict(os.environ, CUDA_VISIBLE_DEVICES=str(g))) for g in (0, 1)]
           for p in ps: p.wait()
