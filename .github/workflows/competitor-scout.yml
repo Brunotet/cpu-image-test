@@ -1,0 +1,56 @@
+name: competitor-scout
+# Reads the competitor channels listed in tools/competitor_channels.txt (title, views, upload date of their Shorts) and commits tools/competitor/<handle>.json.
+# The n8n workflow reads it from raw.githubusercontent.com because YouTube blocks the n8n host.
+on:
+  push:
+    paths: ['tools/competitor_channels.txt']
+  schedule:
+    - cron: '17 */6 * * *'
+  workflow_dispatch:
+permissions:
+  contents: write
+jobs:
+  scout:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - run: pip install -U yt-dlp
+      - name: Scrape channels
+        run: |
+          mkdir -p tools/competitor
+          while read -r H; do
+            H="$(echo "$H" | tr -d '\r' | xargs)"; [ -z "$H" ] && continue
+            N="${H#@}"
+            for TAB in shorts videos; do
+              yt-dlp --flat-playlist --playlist-end 60 -J "https://www.youtube.com/$H/$TAB" > "work_$TAB.json" 2>err_$TAB.txt || echo "{}" > "work_$TAB.json"
+            done
+            python - "$N" <<'PY'
+          import json, sys
+          n = sys.argv[1]
+          out = []
+          seen = set()
+          for tab in ('shorts', 'videos'):
+              try:
+                  d = json.load(open(f'work_{tab}.json'))
+              except Exception:
+                  d = {}
+              for e in (d.get('entries') or []):
+                  if not e or e.get('id') in seen: continue
+                  seen.add(e.get('id'))
+                  out.append({'id': e.get('id'), 'title': e.get('title'), 'views': e.get('view_count'), 'description': (e.get('description') or '')[:300], 'duration': e.get('duration'), 'tab': tab})
+          out.sort(key=lambda x: -(x['views'] or 0))
+          json.dump({'channel': n, 'count': len(out), 'videos': out}, open(f'tools/competitor/{n}.json', 'w'), indent=1)
+          print(n, len(out))
+          PY
+          done < tools/competitor_channels.txt
+          cat err_shorts.txt | tail -5 || true
+      - name: Commit
+        run: |
+          git config user.name "scout"; git config user.email "scout@users.noreply.github.com"
+          git add tools/competitor
+          git commit -m "competitor scan" || echo nothing
+          git pull --rebase -q || true
+          git push || true
