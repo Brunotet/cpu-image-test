@@ -1,0 +1,51 @@
+name: video-transcribe
+# Downloads a social video (Facebook, YouTube, TikTok, Instagram...) from the URL in tools/transcribe_queue.txt, transcribes it with Whisper and commits the transcript to tools/transcripts/.
+on:
+  push:
+    paths: ['tools/transcribe_queue.txt']
+  workflow_dispatch:
+    inputs:
+      url:
+        description: 'Video URL'
+        required: false
+permissions:
+  contents: write
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - uses: FedericoCarboni/setup-ffmpeg@v3
+      - name: Install tools
+        run: pip install -U yt-dlp faster-whisper
+      - name: Download and transcribe
+        env:
+          INPUT_URL: ${{ github.event.inputs.url }}
+        run: |
+          URL="${INPUT_URL:-$(head -n1 tools/transcribe_queue.txt | tr -d '\r')}"
+          echo "URL: $URL"
+          mkdir -p work tools/transcripts
+          yt-dlp -f "bv*[height<=720]+ba/b" --no-playlist -o "work/video.%(ext)s" "$URL" || yt-dlp --no-playlist -o "work/video.%(ext)s" "$URL" || { echo "DOWNLOAD FAILED" > tools/transcripts/latest.txt; exit 0; }
+          ffmpeg -y -i work/video.* -vn -ac 1 -ar 16000 work/a.wav
+          python - <<'PY'
+          from faster_whisper import WhisperModel
+          import json
+          m = WhisperModel("small", device="cpu", compute_type="int8")
+          segs, info = m.transcribe("work/a.wav", vad_filter=True)
+          out = []
+          for s in segs:
+              out.append(f"[{s.start:6.1f}-{s.end:6.1f}] {s.text.strip()}")
+          open("tools/transcripts/latest.txt", "w").write("\n".join(out) + "\n")
+          print("\n".join(out))
+          PY
+          ffprobe -v error -show_entries format=duration -of csv=p=0 work/video.* > tools/transcripts/latest.duration.txt || true
+      - name: Commit transcript
+        run: |
+          git config user.name "transcriber"; git config user.email "transcriber@users.noreply.github.com"
+          git add tools/transcripts
+          git commit -m "transcript" || echo nothing
+          git pull --rebase -q || true
+          git push || true
