@@ -20,7 +20,7 @@ jobs:
         with: { python-version: '3.11' }
       - uses: FedericoCarboni/setup-ffmpeg@v3
       - name: Install tools
-        run: pip install -U yt-dlp faster-whisper
+        run: pip install -U yt-dlp faster-whisper youtube-transcript-api
       - name: Download and transcribe
         env:
           INPUT_URL: ${{ github.event.inputs.url }}
@@ -40,6 +40,7 @@ jobs:
             URL="$(echo "$URL" | tr -d '\r' | xargs)"; [ -z "$URL" ] && continue
             n=$((n+1)); NAME="$(echo "$URL" | sed 's/[^A-Za-z0-9]/_/g' | tail -c 40)"
             rm -f work/video.*
+            case "$URL" in *youtube.com*|*youtu.be*) python tools/yt_text.py "$URL" "tools/transcripts/$NAME.txt"; if ! grep -q FAILED "tools/transcripts/$NAME.txt"; then continue; fi;; esac
             yt-dlp -f "bv*[height<=720]+ba/b" --no-playlist -o "work/video.%(ext)s" "$URL" || yt-dlp --no-playlist -o "work/video.%(ext)s" "$URL" || { echo "DOWNLOAD FAILED $URL" > "tools/transcripts/$NAME.txt"; continue; }
             ffmpeg -y -i work/video.* -vn -ac 1 -ar 16000 work/a.wav
             python work/tr.py work/a.wav "tools/transcripts/$NAME.txt"
