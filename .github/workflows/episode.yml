@@ -41,7 +41,7 @@ jobs:
           SHOTS = json.loads(base64.b64decode('__SHOTS_B64__').decode())
           W = '/kaggle/working'
           MODEL = os.environ.get('WAN_MODEL', '')
-          STYLE = ', clean-line cartoon illustration, bold black outlines, flat vibrant colors, exaggerated expressive cartoon characters, masculine men with short hair, dramatic pose, white background, no text'
+          STYLE = ', clean-line cartoon illustration, bold black outlines, flat vibrant colors, extreme caricature, wildly exaggerated expressive cartoon characters, oversized heads with huge bulging eyes, masculine men with short hair, dramatic pose, comic book energy, white background, no text'
           NEG = 'blurry, low quality, text, letters, words, watermark, deformed, photo, realistic, feminine, woman, girl, anime, collage, multiple panels, extra limbs, merged bodies'
           if len(sys.argv) > 1:
               # ---- worker: one per GPU ----
