@@ -19,6 +19,8 @@ jobs:
         with: { python-version: '3.11' }
       - run: pip install -U yt-dlp
       - name: Scrape channels
+        env:
+          YT_API_KEY: ${{ secrets.YT_API_KEY }}
         run: |
           mkdir -p tools/competitor
           while read -r H; do
@@ -42,6 +44,28 @@ jobs:
                   seen.add(e.get('id'))
                   out.append({'id': e.get('id'), 'title': e.get('title'), 'views': e.get('view_count'), 'description': (e.get('description') or '')[:300], 'duration': e.get('duration'), 'tab': tab})
           out.sort(key=lambda x: -(x['views'] or 0))
+          import os, urllib.request, urllib.parse
+          key = os.environ.get('YT_API_KEY')
+          if key:
+              try:
+                  def api(path, **q):
+                      q['key'] = key
+                      return json.load(urllib.request.urlopen('https://www.googleapis.com/youtube/v3/' + path + '?' + urllib.parse.urlencode(q), timeout=30))
+                  ch = api('channels', part='contentDetails', forHandle=n)['items'][0]['contentDetails']['relatedPlaylists']['uploads']
+                  ids, tok = [], None
+                  for _ in range(4):
+                      r = api('playlistItems', part='contentDetails', playlistId=ch, maxResults=50, **({'pageToken': tok} if tok else {}))
+                      ids += [i['contentDetails']['videoId'] for i in r['items']]
+                      tok = r.get('nextPageToken')
+                      if not tok: break
+                  api_out = []
+                  for k in range(0, len(ids), 50):
+                      for v in api('videos', part='snippet,statistics,contentDetails', id=','.join(ids[k:k+50]))['items']:
+                          api_out.append({'id': v['id'], 'title': v['snippet']['title'], 'views': int(v['statistics'].get('viewCount', 0)), 'description': v['snippet'].get('description', '')[:300], 'duration': v['contentDetails']['duration'], 'tab': 'api'})
+                  if api_out:
+                      out = sorted(api_out, key=lambda x: -x['views']); print('YouTube API ok', len(out))
+              except Exception as ex:
+                  print('API failed, using yt-dlp data:', ex)
           json.dump({'channel': n, 'count': len(out), 'videos': out}, open(f'tools/competitor/{n}.json', 'w'), indent=1)
           print(n, len(out))
           PY
