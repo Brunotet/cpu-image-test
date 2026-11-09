@@ -41,8 +41,8 @@ jobs:
           SHOTS = json.loads(base64.b64decode('__SHOTS_B64__').decode())
           W = '/kaggle/working'
           MODEL = os.environ.get('WAN_MODEL', '')
-          STYLE = ', clean-line cartoon illustration, bold black outlines, flat vibrant colors, extreme caricature, wildly exaggerated expressive cartoon characters, oversized heads with huge bulging eyes, masculine men with short hair, dramatic pose, comic book energy, white background, no text'
-          NEG = 'blurry, low quality, text, letters, words, watermark, deformed, photo, realistic, feminine, woman, girl, anime, collage, multiple panels, extra limbs, merged bodies'
+          STYLE = ', clean-line cartoon illustration, bold black outlines, flat vibrant colors, extreme caricature, exaggerated expressive cartoon character, big head with two simple round eyes, one masculine man with short hair, simple full body pose, comic book energy, white background, no text'
+          NEG = 'blurry, low quality, text, letters, words, numbers, writing, sign, label, logo, watermark, deformed, mutated, disfigured, photo, realistic, feminine, woman, girl, anime, collage, multiple panels, extra limbs, extra arms, extra hands, extra fingers, six fingers, deformed hands, three eyes, extra eyes, two heads, merged bodies, fused bodies, duplicate, clone, crowd, group'
           if len(sys.argv) > 1:
               # ---- worker: one per GPU ----
               g = int(sys.argv[1])
@@ -74,7 +74,7 @@ jobs:
                   for attempt in (1, 2):
                       try:
                           r = pipe(prompt_embeds=emb[n].to('cuda', torch.float16), negative_prompt_embeds=ne.to('cuda', torch.float16),
-                                   height=h, width=w, num_frames=1, num_inference_steps=25, guidance_scale=5.0,
+                                   height=h, width=w, num_frames=1, num_inference_steps=32, guidance_scale=5.0,
                                    generator=torch.Generator('cuda').manual_seed(1000 + n + attempt), output_type='pil')
                           r.frames[0][0].convert('RGB').save('%s/out/%02d.jpg' % (W, n), quality=92)
                           ok = True; break
