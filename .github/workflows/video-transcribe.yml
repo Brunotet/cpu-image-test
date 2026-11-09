@@ -43,6 +43,8 @@ jobs:
             case "$URL" in *youtube.com*|*youtu.be*) python tools/yt_text.py "$URL" "tools/transcripts/$NAME.txt"; if ! grep -q FAILED "tools/transcripts/$NAME.txt"; then continue; fi;; esac
             yt-dlp -f "bv*[height<=720]+ba/b" --no-playlist -o "work/video.%(ext)s" "$URL" || yt-dlp --no-playlist -o "work/video.%(ext)s" "$URL" || { echo "DOWNLOAD FAILED $URL" > "tools/transcripts/$NAME.txt"; continue; }
             ffmpeg -y -i work/video.* -vn -ac 1 -ar 16000 work/a.wav
+            mkdir -p tools/frames
+            ffmpeg -y -i work/video.* -t 75 -vf "fps=1/2.5,scale=240:-1,tile=6x5" -frames:v 1 -q:v 4 "tools/frames/$NAME.jpg" || true
             python work/tr.py work/a.wav "tools/transcripts/$NAME.txt"
             echo "$URL" | cat - "tools/transcripts/$NAME.txt" > work/t.tmp && mv work/t.tmp "tools/transcripts/$NAME.txt"
             cp "tools/transcripts/$NAME.txt" tools/transcripts/latest.txt
@@ -50,7 +52,7 @@ jobs:
       - name: Commit transcript
         run: |
           git config user.name "transcriber"; git config user.email "transcriber@users.noreply.github.com"
-          git add tools/transcripts
+          git add tools/transcripts tools/frames
           git commit -m "transcript" || echo nothing
           git pull --rebase -q || true
           git push || true
