@@ -12,6 +12,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - run: sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg
       - run: |
           mkdir -p tools/previews w
           curl -sSL -o w/v.mp4 "${{ inputs.url }}"
