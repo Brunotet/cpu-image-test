@@ -1,0 +1,678 @@
+[  0.0-  3.0] There's a video that went insanely viral a few years ago.
+   words: There's@0.0 a@0.3 video@0.4 that@0.6 went@0.9 insanely@1.1 viral@1.6 a@2.1 few@2.4 years@2.5 ago.@2.7
+[  3.6-  7.2] A humpback whale, tangled in hundreds of meters of fishing net,
+   words: A@3.6 humpback@3.8 whale,@4.3 tangled@5.0 in@5.4 hundreds@5.6 of@6.0 meters@6.2 of@6.4 fishing@6.6 net,@6.9
+[  7.5- 10.2] completely exhausted, barely able to stay at the surface.
+   words: completely@7.5 exhausted,@7.9 barely@8.8 able@9.0 to@9.4 stay@9.5 at@9.7 the@9.8 surface.@9.9
+[ 10.9- 13.4] A team of divers spent hours cutting it free.
+   words: A@10.9 team@11.0 of@11.3 divers@11.4 spent@11.7 hours@12.0 cutting@12.6 it@13.0 free.@13.1
+[ 13.8- 18.7] And the moment the last piece of rope fell away — kai, the whale, didn't just swim off —
+   words: And@13.8 the@14.0 moment@14.1 the@14.4 last@14.6 piece@14.9 of@15.1 rope@15.3 fell@15.5 away@15.8 —@16.0 kai,@16.3 the@16.7 whale,@16.8 didn't@17.1 just@17.3 swim@17.5 off@17.8 —@18.2
+[ 18.7- 19.5] it circled back.
+   words: it@18.7 circled@18.8 back.@19.2
+[ 20.0- 24.8] It swam around each diver one by one, nudging them gently with its massive body.
+   words: It@20.0 swam@20.2 around@20.5 each@20.7 diver@21.0 one@21.4 by@21.9 one,@22.1 nudging@22.7 them@23.0 gently@23.2 with@23.5 its@23.8 massive@23.9 body.@24.4
+[ 25.0- 27.1] Some of the divers were crying inside their masks.
+   words: Some@25.0 of@25.1 the@25.2 divers@25.3 were@25.6 crying@25.8 inside@26.2 their@26.5 masks.@26.7
+[ 27.1- 31.5] One of them later said it was the most profound experience of his entire life.
+   words: One@27.1 of@27.8 them@27.9 later@28.0 said@28.3 it@28.5 was@28.6 the@28.7 most@28.8 profound@29.1 experience@29.6 of@30.2 his@30.5 entire@30.6 life.@31.1
+[ 31.7- 35.7] Now, here's the question that's been haunting biologists, animal behaviorists,
+   words: Now,@31.7 here's@31.8 the@32.2 question@32.3 that's@32.6 been@32.9 haunting@33.0 biologists,@33.4 animal@34.6 behaviorists,@34.9
+[ 35.9- 41.5] and, frankly, anyone who's ever watched that footage at 2 am with a cup of tea going cold in their hands.
+   words: and,@35.9 frankly,@36.2 anyone@36.8 who's@37.1 ever@37.4 watched@37.5 that@37.9 footage@38.1 at@38.4 2@38.6 am@38.9 with@39.3 a@39.6 cup@39.7 of@39.8 tea@40.0 going@40.2 cold@40.5 in@40.9 their@41.0 hands.@41.2
+[ 41.7- 43.7] Did that whale know what just happened?
+   words: Did@41.7 that@41.8 whale@42.1 know@42.3 what@42.7 just@43.0 happened?@43.2
+[ 44.2- 48.4] Did it understand that these strange air-breathing creatures with scissors had just saved its life?
+   words: Did@44.2 it@44.4 understand@44.5 that@44.9 these@45.1 strange@45.2 air@45.6 -breathing@46.0 creatures@46.3 with@46.7 scissors@46.9 had@47.2 just@47.5 saved@47.7 its@48.0 life?@48.1
+[ 48.9- 50.8] Or was it just confused?
+   words: Or@48.9 was@49.3 it@49.7 just@49.9 confused?@50.2
+[ 51.2- 56.9] And the answer, it turns out, is a lot more complicated and a lot more beautiful than anyone expected.
+   words: And@51.2 the@51.3 answer,@51.4 it@51.8 turns@51.9 out,@52.2 is@52.5 a@52.6 lot@52.7 more@52.9 complicated@53.1 and@53.8 a@54.4 lot@54.6 more@54.8 beautiful@55.0 than@55.5 anyone@56.1 expected.@56.4
+[ 56.9- 58.8] Hold my beer and let me explain.
+   words: Hold@56.9 my@57.5 beer@57.7 and@57.9 let@58.1 me@58.3 explain.@58.4
+[ 59.0- 60.5] They're simple associative learning.
+   words: They're@59.0 simple@59.1 associative@59.5 learning.@60.2
+[ 60.9- 64.0] You do X, I get Y. I'll remember that.
+   words: You@60.9 do@61.0 X,@61.3 I@62.0 get@62.2 Y.@62.4 I'll@63.2 remember@63.5 that.@63.7
+[ 64.3- 67.0] A dog learns that the sound of a can opener means food.
+   words: A@64.3 dog@64.3 learns@64.5 that@64.9 the@65.1 sound@65.2 of@65.4 a@65.6 can@65.7 opener@65.9 means@66.3 food.@66.6
+[ 67.2- 69.8] A rat learns that pressing a lever gives it a reward.
+   words: A@67.2 rat@67.3 learns@67.5 that@67.9 pressing@68.1 a@68.5 lever@68.7 gives@68.9 it@69.2 a@69.4 reward.@69.5
+[ 70.0- 72.7] That's not really understanding, it's pattern recognition.
+   words: That's@70.0 not@70.4 really@70.5 understanding,@70.7 it's@71.6 pattern@71.8 recognition.@72.1
+[ 73.2- 76.4] And almost every animal on earth can do that to some degree.
+   words: And@73.2 almost@73.3 every@73.7 animal@74.0 on@74.3 earth@74.6 can@74.9 do@75.1 that@75.4 to@75.7 some@75.8 degree.@76.1
+[ 76.8- 79.3] Including animals with brains the size of a grain of rice,
+   words: Including@76.8 animals@77.1 with@77.6 brains@77.9 the@78.1 size@78.3 of@78.5 a@78.7 grain@78.8 of@78.9 rice,@79.1
+[ 79.5- 82.0] which is genuinely unsettling when you think about it.
+   words: which@79.5 is@79.7 genuinely@79.9 unsettling@80.4 when@81.1 you@81.3 think@81.4 about@81.6 it.@81.9
+[ 82.1- 83.8] But then there's something much more sophisticated,
+   words: But@82.1 then@82.2 there's@82.4 something@82.6 much@82.8 more@83.1 sophisticated,@83.2
+[ 84.2- 86.0] the ability to model another mind,
+   words: the@84.2 ability@84.2 to@84.6 model@84.8 another@85.2 mind,@85.5
+[ 86.0- 88.8] to understand that you have intentions, that you wanted to help,
+   words: to@86.0 understand@86.2 that@86.5 you@86.8 have@86.9 intentions,@87.1 that@87.9 you@88.0 wanted@88.1 to@88.4 help,@88.6
+[ 89.0- 91.9] that what you did was directed at me on purpose,
+   words: that@89.0 what@89.1 you@89.3 did@89.5 was@89.8 directed@90.0 at@90.3 me@90.6 on@90.9 purpose,@91.4
+[ 92.3- 94.0] out of something resembling care.
+   words: out@92.3 of@92.6 something@92.7 resembling@93.0 care.@93.6
+[ 94.2- 96.4] That's what scientists call theory of mind.
+   words: That's@94.2 what@94.5 scientists@94.6 call@95.0 theory@95.5 of@95.9 mind.@96.1
+[ 97.0- 99.7] And for a long time, we thought it was exclusively human.
+   words: And@97.0 for@97.2 a@97.3 long@97.5 time,@97.6 we@98.1 thought@98.2 it@98.4 was@98.6 exclusively@98.7 human.@99.2
+[100.0-100.7] We were wrong.
+   words: We@100.0 were@100.1 wrong.@100.3
+[101.0-102.5] Let's talk about dolphins first,
+   words: Let's@101.0 talk@101.3 about@101.5 dolphins@101.8 first,@102.2
+[102.7-106.4] because dolphins are basically the overachievers of the animal kingdom,
+   words: because@102.7 dolphins@102.9 are@103.3 basically@103.6 the@104.1 overachievers@104.4 of@105.2 the@105.6 animal@105.7 kingdom,@106.0
+[106.4-108.3] and they absolutely know it.
+   words: and@106.4 they@106.9 absolutely@107.1 know@107.8 it.@108.1
+[108.8-113.2] Dolphins in the wild have been documented helping injured humans on multiple occasions.
+   words: Dolphins@108.8 in@109.3 the@109.4 wild@109.6 have@109.8 been@110.0 documented@110.1 helping@110.6 injured@111.0 humans@111.4 on@111.9 multiple@112.2 occasions.@112.7
+[113.8-119.4] In 2004, a pot of bottlenose dolphins in New Zealand formed a tight protective circle around
+   words: In@113.8 2004,@114.0 a@115.1 pot@115.3 of@115.5 bottlenose@115.7 dolphins@116.3 in@116.7 New@117.0 Zealand@117.1 formed@117.4 a@117.7 tight@117.9 protective@118.2 circle@118.6 around@119.1
+[119.4-121.7] a group of swimmers, and kept them there for 40 minutes.
+   words: a@119.4 group@119.6 of@119.7 swimmers,@119.8 and@120.3 kept@120.4 them@120.6 there@120.8 for@120.9 40@121.1 minutes.@121.4
+[122.0-122.2] Why?
+   words: Why?@122.0
+[122.4-124.9] Because a great white shark was circling just outside.
+   words: Because@122.4 a@122.6 great@122.8 white@123.1 shark@123.3 was@123.6 circling@123.8 just@124.2 outside.@124.4
+[125.4-128.5] The dolphins had detected the shark before the humans even knew it was there.
+   words: The@125.4 dolphins@125.6 had@125.9 detected@126.1 the@126.4 shark@126.6 before@126.8 the@127.0 humans@127.2 even@127.5 knew@127.8 it@128.0 was@128.2 there.@128.3
+[128.7-132.1] They herded the swimmers toward safety, then chased the shark away.
+   words: They@128.7 herded@128.8 the@129.0 swimmers@129.2 toward@129.5 safety,@129.7 then@130.6 chased@131.0 the@131.4 shark@131.6 away.@131.8
+[132.2-133.7] Now you could argue that was instinct.
+   words: Now@132.2 you@132.4 could@132.6 argue@132.7 that@133.0 was@133.2 instinct.@133.3
+[134.3-136.6] Dolphins sometimes protect other species.
+   words: Dolphins@134.3 sometimes@134.8 protect@135.2 other@135.8 species.@136.2
+[136.9-139.2] There are records of them shielding seals from orcas.
+   words: There@136.9 are@137.1 records@137.2 of@137.5 them@137.6 shielding@137.8 seals@138.3 from@138.5 orcas.@138.8
+[139.2-144.3] Maybe it's just a general protect small vulnerable thing response hardwired into their brains.
+   words: Maybe@139.2 it's@139.7 just@140.0 a@140.1 general@140.3 protect@140.6 small@141.1 vulnerable@141.6 thing@142.0 response@142.4 hardwired@142.7 into@143.5 their@143.8 brains.@144.0
+[144.6-146.2] But here's where it gets interesting.
+   words: But@144.6 here's@145.1 where@145.4 it@145.5 gets@145.6 interesting.@145.8
+[146.4-149.4] When researchers studied dolphin behavior in rescue scenarios,
+   words: When@146.4 researchers@146.4 studied@146.8 dolphin@147.2 behavior@147.6 in@148.2 rescue@148.5 scenarios,@148.8
+[149.8-151.4] they noticed something crucial.
+   words: they@149.8 noticed@150.1 something@150.5 crucial.@150.9
+[151.6-153.2] Dolphins don't just react.
+   words: Dolphins@151.6 don't@152.0 just@152.5 react.@152.7
+[154.0-154.6] They adapt.
+   words: They@154.0 adapt.@154.2
+[154.9-156.7] If a human is in distress and struggling,
+   words: If@154.9 a@155.0 human@155.1 is@155.4 in@155.6 distress@155.7 and@156.0 struggling,@156.2
+[156.9-160.7] dolphins will position themselves underneath the person to hold them above water.
+   words: dolphins@156.9 will@157.2 position@157.4 themselves@157.8 underneath@158.2 the@158.7 person@159.0 to@159.3 hold@159.5 them@159.8 above@160.0 water.@160.2
+[161.1-164.5] The exact same behavior they use with injured members of their own pod.
+   words: The@161.1 exact@161.4 same@161.8 behavior@162.0 they@162.4 use@162.6 with@162.8 injured@163.0 members@163.3 of@163.7 their@163.9 own@164.0 pod.@164.2
+[164.7-166.1] They're not just doing something random.
+   words: They're@164.7 not@164.8 just@165.0 doing@165.2 something@165.4 random.@165.6
+[166.1-171.1] They're applying a specific learned intentional behavior to a completely different species.
+   words: They're@166.1 applying@166.7 a@167.1 specific@167.3 learned@167.7 intentional@168.2 behavior@168.9 to@169.4 a@169.6 completely@169.8 different@170.2 species.@170.6
+[171.4-172.5] That's not instinct.
+   words: That's@171.4 not@172.0 instinct.@172.1
+[172.7-173.9] That's problem solving.
+   words: That's@172.7 problem@173.1 solving.@173.5
+[174.1-175.3] That's generalization.
+   words: That's@174.1 generalization.@174.5
+[175.7-180.0] And it suggests these animals have a mental model sophisticated enough to recognize that
+   words: And@175.7 it@175.9 suggests@176.0 these@176.3 animals@176.7 have@177.2 a@177.4 mental@177.6 model@177.9 sophisticated@178.3 enough@178.6 to@179.2 recognize@179.4 that@179.7
+[180.0-184.9] you are a living thing, that you are in trouble, and that the thing they know how to do can help
+   words: you@180.0 are@180.2 a@180.4 living@180.5 thing,@180.7 that@181.3 you@181.5 are@181.7 in@181.9 trouble,@182.0 and@182.3 that@182.9 the@183.0 thing@183.1 they@183.4 know@183.5 how@183.7 to@183.9 do@184.0 can@184.2 help@184.5
+[184.9-188.3] you, which is honestly more than some people manage in an emergency.
+   words: you,@184.9 which@185.5 is@185.8 honestly@185.9 more@186.3 than@186.6 some@186.7 people@186.9 manage@187.2 in@187.6 an@187.7 emergency.@187.9
+[188.7-192.9] What makes dolphins even more remarkable is their sense of individual recognition.
+   words: What@188.7 makes@188.7 dolphins@189.0 even@189.3 more@189.7 remarkable@190.1 is@190.6 their@191.0 sense@191.2 of@191.5 individual@191.7 recognition.@192.2
+[193.5-197.7] Dolphins learn each other's signature whistles, essentially names,
+   words: Dolphins@193.5 learn@194.0 each@194.3 other's@194.6 signature@195.0 whistles,@195.3 essentially@196.3 names,@196.8
+[198.0-201.9] and use them to call specific individuals across long distances.
+   words: and@198.0 use@198.3 them@198.6 to@198.7 call@198.8 specific@199.1 individuals@199.5 across@200.3 long@200.7 distances.@201.3
+[202.2-206.1] They've been shown in controlled experiments to remember specific humans they interacted with
+   words: They've@202.2 been@202.3 shown@202.5 in@202.7 controlled@202.9 experiments@203.2 to@203.8 remember@204.0 specific@204.2 humans@204.7 they@205.1 interacted@205.4 with@205.8
+[206.1-209.0] after gaps of more than 20 years.
+   words: after@206.1 gaps@206.9 of@207.4 more@207.7 than@207.9 20@208.1 years.@208.5
+[209.3-209.9] 20 years.
+   words: 20@209.3 years.@209.5
+[210.3-213.0] That's longer than some people remember their college roommates.
+   words: That's@210.3 longer@210.7 than@211.0 some@211.2 people@211.4 remember@211.7 their@212.0 college@212.3 roommates.@212.6
+[213.7-215.3] The dolphin is sitting there in the ocean.
+   words: The@213.7 dolphin@213.8 is@214.1 sitting@214.3 there@214.5 in@214.7 the@214.9 ocean.@215.0
+[215.7-218.1] Two decades later, like, oh yeah, that's Dave.
+   words: Two@215.7 decades@215.9 later,@216.2 like,@216.9 oh@217.2 yeah,@217.4 that's@217.8 Dave.@218.0
+[218.7-219.3] He's all right.
+   words: He's@218.7 all@218.9 right.@219.1
+[219.8-222.5] Elephants are another case that keeps scientists up at night.
+   words: Elephants@219.8 are@220.2 another@220.4 case@220.7 that@221.0 keeps@221.2 scientists@221.5 up@221.9 at@222.2 night.@222.3
+[222.5-226.0] Elephants have one of the most complex social structures in the animal kingdom.
+   words: Elephants@222.5 have@223.0 one@223.2 of@223.3 the@223.4 most@223.5 complex@223.7 social@224.2 structures@224.6 in@225.1 the@225.3 animal@225.4 kingdom.@225.6
+[226.3-227.6] They grieve their dead.
+   words: They@226.3 grieve@226.4 their@226.9 dead.@227.2
+[227.8-229.4] They recognize themselves in mirrors.
+   words: They@227.8 recognize@227.9 themselves@228.3 in@228.7 mirrors.@229.0
+[229.6-236.1] A test that, by the way, most animals completely fail, including your cat, who we're fairly
+   words: A@229.6 test@229.8 that,@230.0 by@230.7 the@230.9 way,@231.0 most@231.5 animals@231.7 completely@232.1 fail,@232.5 including@233.6 your@233.9 cat,@234.2 who@234.8 we're@235.0 fairly@235.7
+[236.1-237.4] sure doesn't even know it's a cat.
+   words: sure@236.1 doesn't@236.4 even@236.6 know@236.8 it's@237.0 a@237.2 cat.@237.2
+[237.8-242.1] Elephants form deep long-term bonds, they cooperate to solve problems,
+   words: Elephants@237.8 form@238.3 deep@238.5 long@239.0 -term@239.5 bonds,@239.8 they@240.6 cooperate@240.7 to@241.1 solve@241.4 problems,@241.6
+[242.3-247.6] and they have demonstrated empathy not just toward other elephants but toward other species.
+   words: and@242.3 they@242.5 have@242.6 demonstrated@242.7 empathy@243.1 not@243.7 just@244.2 toward@244.6 other@245.0 elephants@245.6 but@246.2 toward@246.5 other@247.0 species.@247.2
+[247.9-251.1] There's a sanctuary in Thailand called the Elephant Nature Park.
+   words: There's@247.9 a@248.1 sanctuary@248.2 in@248.6 Thailand@248.8 called@249.2 the@249.6 Elephant@250.0 Nature@250.4 Park.@250.8
+[251.8-255.3] And the elephants there have done something remarkable on multiple occasions.
+   words: And@251.8 the@252.1 elephants@252.2 there@252.5 have@252.9 done@253.1 something@253.2 remarkable@253.5 on@254.0 multiple@254.4 occasions.@254.8
+[255.7-260.5] When a caretaker is distressed, crying, sick, or in pain, the elephants come.
+   words: When@255.7 a@255.7 caretaker@255.8 is@256.3 distressed,@256.4 crying,@257.3 sick,@258.1 or@259.1 in@259.2 pain,@259.4 the@259.8 elephants@259.9 come.@260.2
+[260.7-261.9] They put their trunks on you.
+   words: They@260.7 put@260.8 their@260.9 trunks@261.1 on@261.5 you.@261.7
+[262.0-262.9] They rumble softly.
+   words: They@262.0 rumble@262.1 softly.@262.5
+[263.3-263.9] They stand close.
+   words: They@263.3 stand@263.3 close.@263.6
+[264.3-268.1] The sanctuary director described an elephant who walked two hours to reach her when she
+   words: The@264.3 sanctuary@264.4 director@264.8 described@265.1 an@265.6 elephant@265.8 who@266.1 walked@266.4 two@266.6 hours@266.9 to@267.2 reach@267.4 her@267.6 when@267.8 she@267.9
+[268.1-270.6] was going through a period of intense personal grief.
+   words: was@268.1 going@268.2 through@268.5 a@268.7 period@268.8 of@269.1 intense@269.3 personal@269.7 grief.@270.2
+[270.8-274.6] As if the animal had sensed something was wrong from a distance no human could explain.
+   words: As@270.8 if@270.9 the@271.0 animal@271.2 had@271.4 sensed@271.6 something@272.0 was@272.3 wrong@272.5 from@272.7 a@272.9 distance@273.1 no@273.4 human@273.7 could@274.0 explain.@274.2
+[274.8-278.5] But the question remains, is this understanding or is it just emotional contagion?
+   words: But@274.8 the@274.9 question@275.0 remains,@275.2 is@275.8 this@276.0 understanding@276.1 or@276.7 is@277.1 it@277.2 just@277.3 emotional@277.5 contagion?@277.9
+[278.5-282.9] Are elephants picking up on distress signals and responding reflexively the way a dog might?
+   words: Are@278.5 elephants@278.8 picking@279.2 up@279.5 on@279.7 distress@279.8 signals@280.1 and@280.5 responding@280.7 reflexively@281.1 the@281.8 way@282.1 a@282.3 dog@282.5 might?@282.7
+[283.2-284.7] Here's what tips it for many researchers.
+   words: Here's@283.2 what@283.4 tips@283.5 it@283.7 for@283.9 many@284.0 researchers.@284.2
+[285.1-288.1] Elephants don't just respond emotionally, they respond strategically.
+   words: Elephants@285.1 don't@285.4 just@285.6 respond@285.8 emotionally,@286.2 they@287.0 respond@287.1 strategically.@287.5
+[288.5-292.8] There are documented cases of wild elephants approaching ranger stations after being injured,
+   words: There@288.5 are@288.5 documented@288.7 cases@289.1 of@289.5 wild@289.8 elephants@290.2 approaching@290.6 ranger@291.0 stations@291.3 after@291.8 being@292.2 injured,@292.4
+[293.6-297.7] not fleeing from humans as they normally would, but actively seeking them out.
+   words: not@293.6 fleeing@293.9 from@294.2 humans@294.4 as@294.8 they@295.0 normally@295.1 would,@295.4 but@296.1 actively@296.3 seeking@296.9 them@297.2 out.@297.4
+[297.9-302.6] One famous case involved an elephant in Kenya with a serious wound from a poacher's spear.
+   words: One@297.9 famous@298.1 case@298.4 involved@298.7 an@299.1 elephant@299.3 in@299.7 Kenya@300.0 with@300.3 a@300.6 serious@300.8 wound@301.1 from@301.5 a@301.7 poacher's@301.9 spear.@302.4
+[302.9-306.4] Rangers observed it waiting near a road where vehicles regularly passed.
+   words: Rangers@302.9 observed@303.1 it@303.6 waiting@303.8 near@304.0 a@304.3 road@304.5 where@304.8 vehicles@305.0 regularly@305.4 passed.@305.9
+[306.4-311.1] When a conservation vehicle stopped, the elephant approached slowly, turned sideways,
+   words: When@306.4 a@306.7 conservation@306.9 vehicle@307.2 stopped,@307.7 the@308.6 elephant@308.8 approached@309.1 slowly,@309.6 turned@310.4 sideways,@310.6
+[311.5-312.2] and presented the wound.
+   words: and@311.5 presented@311.5 the@311.8 wound.@312.0
+[312.5-314.4] It waited while the team treated the injury.
+   words: It@312.5 waited@312.6 while@312.8 the@313.1 team@313.2 treated@313.5 the@313.9 injury.@314.0
+[314.7-317.1] And it came back the next day for a follow-up, apparently.
+   words: And@314.7 it@314.8 came@314.9 back@315.1 the@315.3 next@315.5 day@315.7 for@316.0 a@316.2 follow@316.4 -up,@316.6 apparently.@316.8
+[317.7-321.5] If this sounds completely unbelievable to you, welcome to Wildlife Research.
+   words: If@317.7 this@317.9 sounds@318.0 completely@318.3 unbelievable@318.8 to@319.4 you,@319.7 welcome@320.2 to@320.4 Wildlife@320.6 Research.@321.0
+[321.9-323.7] This is just Tuesday for these people.
+   words: This@321.9 is@322.1 just@322.3 Tuesday@322.5 for@322.9 these@323.3 people.@323.4
+[324.2-328.3] There's also the remarkable story of a young elephant named Satao in Kenya's
+   words: There's@324.2 also@324.4 the@324.6 remarkable@324.8 story@325.2 of@325.7 a@325.9 young@326.0 elephant@326.2 named@326.6 Satao@326.9 in@327.7 Kenya's@327.9
+[328.3-332.2] Tsavo East Park, who developed an extraordinary relationship with one
+   words: Tsavo@328.3 East@328.7 Park,@329.1 who@329.7 developed@329.8 an@330.2 extraordinary@330.4 relationship@330.8 with@331.7 one@331.9
+[332.2-335.4] particular ranger over years of peaceful coexistence.
+   words: particular@332.2 ranger@332.7 over@333.3 years@333.6 of@334.0 peaceful@334.2 coexistence.@334.6
+[336.2-339.1] When poachers eventually killed Satao for his tusks,
+   words: When@336.2 poachers@336.5 eventually@336.9 killed@337.3 Satao@337.7 for@338.3 his@338.5 tusks,@338.6
+[339.5-343.1] one of the most documented and mourned elephant deaths in conservation history.
+   words: one@339.5 of@339.7 the@339.8 most@339.9 documented@340.1 and@340.6 mourned@340.8 elephant@341.2 deaths@341.5 in@341.9 conservation@342.1 history.@342.5
+[343.3-346.7] Rangers reported that other elephants in the area became noticeably agitated
+   words: Rangers@343.3 reported@343.5 that@343.9 other@344.1 elephants@344.4 in@344.8 the@344.9 area@345.0 became@345.3 noticeably@345.6 agitated@346.3
+[346.7-348.1] and distressed for days.
+   words: and@346.7 distressed@347.1 for@347.5 days.@347.8
+[348.6-350.5] They had lost not just one of their own.
+   words: They@348.6 had@348.8 lost@349.0 not@349.2 just@349.5 one@349.7 of@350.0 their@350.1 own.@350.2
+[350.9-354.7] They had lost, in some sense, a point of connection between two worlds.
+   words: They@350.9 had@351.1 lost,@351.3 in@351.7 some@351.8 sense,@352.0 a@352.6 point@352.7 of@352.9 connection@353.1 between@353.5 two@353.9 worlds.@354.2
+[354.9-359.4] Now, we need to address the skeptics, because science doesn't let us just sit
+   words: Now,@354.9 we@355.4 need@355.7 to@355.9 address@356.0 the@356.4 skeptics,@356.6 because@357.3 science@357.8 doesn't@358.2 let@358.6 us@358.8 just@358.9 sit@359.1
+[359.4-362.6] here getting emotional about elephants without asking hard questions.
+   words: here@359.4 getting@359.6 emotional@359.8 about@360.3 elephants@360.5 without@361.0 asking@361.3 hard@361.9 questions.@362.2
+[363.5-366.5] The main counter-argument is anthropomorphism,
+   words: The@363.5 main@363.8 counter@364.0 -argument@364.4 is@364.9 anthropomorphism,@365.2
+[366.8-371.5] the tendency humans have to project our own emotions and intentions onto animals.
+   words: the@366.8 tendency@367.1 humans@367.5 have@367.9 to@368.2 project@368.4 our@368.8 own@369.2 emotions@369.5 and@369.9 intentions@370.1 onto@370.5 animals.@371.0
+[371.8-373.6] We want to believe the whale was grateful.
+   words: We@371.8 want@371.9 to@372.1 believe@372.2 the@372.4 whale@372.7 was@372.9 grateful.@373.2
+[374.1-376.0] We want to believe the elephant understood.
+   words: We@374.1 want@374.3 to@374.5 believe@374.6 the@374.9 elephant@375.1 understood.@375.4
+[376.5-378.7] Our brains are wired for narrative and meaning,
+   words: Our@376.5 brains@376.6 are@376.9 wired@377.1 for@377.4 narrative@377.7 and@378.1 meaning,@378.4
+[379.0-382.4] and we'll find it everywhere, even where it doesn't exist.
+   words: and@379.0 we'll@379.3 find@379.4 it@379.7 everywhere,@379.9 even@380.9 where@381.2 it@381.5 doesn't@381.7 exist.@382.1
+[382.8-384.3] And this is a legitimate concern.
+   words: And@382.8 this@383.2 is@383.3 a@383.5 legitimate@383.6 concern.@383.9
+[384.7-388.2] For decades, it was the dominant position in animal behavior research.
+   words: For@384.7 decades,@384.8 it@385.5 was@385.6 the@385.7 dominant@385.8 position@386.2 in@386.7 animal@386.9 behavior@387.2 research.@387.6
+[388.5-391.3] The Old Guard insisted on strict behaviorism.
+   words: The@388.5 Old@388.8 Guard@389.0 insisted@389.2 on@389.7 strict@390.0 behaviorism.@390.4
+[391.9-396.3] Don't attribute mental states to animals, only describe observable behaviors.
+   words: Don't@391.9 attribute@392.3 mental@392.8 states@393.1 to@393.4 animals,@393.6 only@394.3 describe@394.6 observable@395.1 behaviors.@395.8
+[396.6-399.0] A dog that wags its tail isn't happy.
+   words: A@396.6 dog@396.7 that@396.9 wags@397.0 its@397.2 tail@397.4 isn't@397.8 happy.@398.4
+[399.2-401.3] It's exhibiting a positive arousal response.
+   words: It's@399.2 exhibiting@399.3 a@399.8 positive@399.9 arousal@400.3 response.@400.9
+[401.6-405.2] A crow that returns to the spot where it left food isn't remembering.
+   words: A@401.6 crow@401.7 that@401.9 returns@402.0 to@402.3 the@402.5 spot@402.6 where@402.9 it@403.1 left@403.2 food@403.4 isn't@403.7 remembering.@404.7
+[405.6-407.7] It's following a conditioned retrieval behavior.
+   words: It's@405.6 following@405.8 a@406.1 conditioned@406.4 retrieval@406.8 behavior.@407.3
+[407.9-410.9] This approach kept things tidy and scientifically defensible.
+   words: This@407.9 approach@408.1 kept@408.4 things@408.7 tidy@409.0 and@409.3 scientifically@409.6 defensible.@410.2
+[411.4-414.3] It also gradually turned out to be wildly incomplete,
+   words: It@411.4 also@411.5 gradually@411.8 turned@412.4 out@412.7 to@412.9 be@413.0 wildly@413.2 incomplete,@413.6
+[414.6-416.5] because the evidence kept piling up.
+   words: because@414.6 the@415.1 evidence@415.3 kept@415.6 piling@415.9 up.@416.3
+[416.7-420.5] And at some point, the more parsimonious explanation, the simpler one.
+   words: And@416.7 at@416.8 some@416.9 point,@417.1 the@417.5 more@417.6 parsimonious@417.8 explanation,@418.7 the@419.8 simpler@420.0 one.@420.3
+[420.5-423.7] The one requiring fewer assumptions stopped being,
+   words: The@420.5 one@420.7 requiring@420.9 fewer@421.4 assumptions@421.9 stopped@422.5 being,@423.3
+[424.1-426.1] these animals are just running programs.
+   words: these@424.1 animals@424.1 are@424.6 just@424.9 running@425.2 programs.@425.6
+[426.4-429.6] And started being, these animals actually know things.
+   words: And@426.4 started@426.5 being,@426.8 these@427.6 animals@427.8 actually@428.3 know@428.9 things.@429.3
+[430.0-434.3] Franz de Waal, one of the most influential primatologists of the last 50 years,
+   words: Franz@430.0 de@430.2 Waal,@430.4 one@430.8 of@431.0 the@431.1 most@431.2 influential@431.4 primatologists@432.0 of@433.0 the@433.3 last@433.4 50@433.6 years,@433.9
+[434.7-437.8] spent his entire career arguing exactly this.
+   words: spent@434.7 his@435.0 entire@435.3 career@435.7 arguing@436.1 exactly@436.7 this.@437.3
+[438.3-441.2] He called the Old Skeptical Reflex anthropodenial,
+   words: He@438.3 called@438.5 the@438.7 Old@438.9 Skeptical@439.1 Reflex@439.6 anthropodenial,@440.0
+[441.7-445.7] a systematic refusal to acknowledge mental complexity in animals simply because
+   words: a@441.7 systematic@441.9 refusal@442.2 to@442.8 acknowledge@443.0 mental@443.4 complexity@443.8 in@444.4 animals@444.6 simply@445.0 because@445.4
+[445.7-447.2] acknowledging it made us uncomfortable.
+   words: acknowledging@445.7 it@446.3 made@446.5 us@446.7 uncomfortable.@446.8
+[447.2-450.4] Because if animals truly feel, truly understand,
+   words: Because@447.2 if@447.6 animals@447.8 truly@448.0 feel,@448.4 truly@449.3 understand,@449.7
+[451.0-453.6] truly form relationships across species lines,
+   words: truly@451.0 form@451.4 relationships@451.8 across@452.4 species@452.7 lines,@453.1
+[454.1-457.0] then an awful lot of what we do to them starts to look very different.
+   words: then@454.1 an@454.3 awful@454.5 lot@454.9 of@455.1 what@455.2 we@455.3 do@455.4 to@455.5 them@455.6 starts@455.8 to@456.0 look@456.2 very@456.3 different.@456.6
+[457.5-460.5] De Waal wasn't being sentimental, he was being rigorous.
+   words: De@457.5 Waal@457.6 wasn't@457.9 being@458.2 sentimental,@458.4 he@459.4 was@459.6 being@459.7 rigorous.@460.0
+[461.1-464.6] The data accumulated across decades of behavioral research
+   words: The@461.1 data@461.2 accumulated@461.6 across@462.2 decades@462.7 of@463.3 behavioral@463.6 research@464.0
+[464.6-467.5] pointed in one direction, and he followed it.
+   words: pointed@464.6 in@465.2 one@465.4 direction,@465.8 and@466.6 he@466.8 followed@466.9 it.@467.2
+[468.0-472.1] Let's talk about crows, because crows deserve their own documentary series,
+   words: Let's@468.0 talk@468.6 about@468.8 crows,@469.0 because@469.6 crows@469.8 deserve@470.2 their@470.5 own@470.7 documentary@471.0 series,@471.5
+[472.1-477.5] their own Netflix special, and honestly may be a seat at the United Nations.
+   words: their@472.1 own@472.6 Netflix@472.9 special,@473.3 and@474.1 honestly@474.3 may@474.9 be@475.4 a@475.7 seat@476.0 at@476.2 the@476.5 United@476.6 Nations.@476.9
+[477.8-480.1] Crows can recognize individual human faces,
+   words: Crows@477.8 can@478.0 recognize@478.2 individual@478.7 human@479.3 faces,@479.7
+[480.7-485.2] not just human body language, not just uniforms, actual specific faces.
+   words: not@480.7 just@480.9 human@481.1 body@481.3 language,@481.6 not@482.1 just@482.3 uniforms,@482.5 actual@483.4 specific@483.9 faces.@484.6
+[485.9-488.3] Research at the University of Washington showed that
+   words: Research@485.9 at@486.3 the@486.5 University@486.5 of@486.9 Washington@487.2 showed@487.7 that@488.1
+[488.3-492.0] crows who were captured and banded by researchers wearing specific masks
+   words: crows@488.3 who@488.6 were@488.8 captured@489.0 and@489.4 banded@489.7 by@490.1 researchers@490.2 wearing@490.6 specific@491.0 masks@491.5
+[492.0-497.0] would scold and dive bomb those same researchers for years afterward,
+   words: would@492.0 scold@492.7 and@492.9 dive@493.8 bomb@494.1 those@494.4 same@494.6 researchers@494.9 for@495.4 years@495.8 afterward,@496.5
+[497.3-498.2] whenever they appeared.
+   words: whenever@497.3 they@497.6 appeared.@497.8
+[498.4-500.9] Even out of context, even in different locations,
+   words: Even@498.4 out@498.6 of@498.8 context,@498.9 even@499.6 in@499.9 different@500.1 locations,@500.3
+[500.9-504.1] the crows would also recruit other crows to join the harassment.
+   words: the@500.9 crows@501.3 would@501.6 also@501.7 recruit@502.1 other@502.4 crows@502.8 to@503.1 join@503.3 the@503.5 harassment.@503.7
+[504.3-509.4] They were, in effect, sharing information about a specific individual they had deemed dangerous.
+   words: They@504.3 were,@504.4 in@504.8 effect,@505.0 sharing@505.5 information@505.7 about@506.3 a@506.7 specific@506.9 individual@507.3 they@508.0 had@508.3 deemed@508.5 dangerous.@508.7
+[510.0-512.7] This is already extraordinary, but flip it,
+   words: This@510.0 is@510.3 already@510.4 extraordinary,@510.8 but@511.7 flip@512.2 it,@512.4
+[512.8-517.2] there are well-documented cases of crows bringing gifts to humans who regularly feed them,
+   words: there@512.8 are@512.9 well@513.1 -documented@513.3 cases@513.7 of@514.2 crows@514.4 bringing@514.7 gifts@515.0 to@515.4 humans@515.6 who@515.9 regularly@516.1 feed@516.6 them,@517.0
+[517.6-521.6] buttons, shiny objects, pieces of glass, the occasional earring.
+   words: buttons,@517.6 shiny@518.5 objects,@518.8 pieces@519.5 of@519.7 glass,@519.9 the@520.5 occasional@520.6 earring.@521.1
+[522.0-525.1] One family in Seattle received hundreds of tiny objects
+   words: One@522.0 family@522.2 in@522.6 Seattle@522.7 received@523.0 hundreds@523.5 of@524.1 tiny@524.3 objects@524.6
+[525.1-528.0] over several years from a murder of crows they had been feeding
+   words: over@525.1 several@525.4 years@525.7 from@526.0 a@526.2 murder@526.4 of@526.6 crows@526.8 they@527.1 had@527.3 been@527.5 feeding@527.7
+[528.0-530.8] since one of the children started leaving them food as a toddler.
+   words: since@528.0 one@528.2 of@528.5 the@528.6 children@528.7 started@529.0 leaving@529.4 them@529.6 food@529.9 as@530.2 a@530.3 toddler.@530.4
+[531.6-533.4] The crows never brought gifts to strangers,
+   words: The@531.6 crows@531.7 never@532.0 brought@532.2 gifts@532.5 to@532.8 strangers,@533.0
+[533.9-536.4] only to the specific people who had been kind to them.
+   words: only@533.9 to@534.3 the@534.5 specific@534.6 people@534.9 who@535.3 had@535.5 been@535.6 kind@535.8 to@536.0 them.@536.3
+[537.0-538.2] Think about what that requires.
+   words: Think@537.0 about@537.2 what@537.4 that@537.6 requires.@537.7
+[538.5-541.6] It requires recognizing individual humans across time.
+   words: It@538.5 requires@538.6 recognizing@539.0 individual@539.6 humans@540.3 across@540.9 time.@541.1
+[541.9-545.3] It requires connecting past kindness to a current interaction.
+   words: It@541.9 requires@542.1 connecting@542.5 past@542.9 kindness@543.4 to@543.9 a@544.2 current@544.3 interaction.@544.7
+[545.8-548.0] It requires intentional reciprocation.
+   words: It@545.8 requires@545.9 intentional@546.3 reciprocation.@547.0
+[548.4-550.4] The crow is not eating the button.
+   words: The@548.4 crow@548.6 is@548.9 not@549.1 eating@549.5 the@549.9 button.@550.0
+[550.6-553.6] It's giving it to you, because you gave it something.
+   words: It's@550.6 giving@550.7 it@551.1 to@551.3 you,@551.5 because@552.0 you@552.4 gave@552.5 it@553.0 something.@553.2
+[554.0-555.9] That is a social transaction.
+   words: That@554.0 is@554.4 a@554.6 social@554.8 transaction.@555.2
+[555.9-560.1] That is functionally a gift, and it doesn't stop there.
+   words: That@555.9 is@556.5 functionally@556.7 a@557.7 gift,@557.9 and@558.5 it@558.8 doesn't@558.9 stop@559.4 there.@559.7
+[560.6-562.9] Crows have been observed doing something researchers call
+   words: Crows@560.6 have@560.7 been@560.9 observed@561.0 doing@561.3 something@561.7 researchers@562.0 call@562.5
+[562.9-566.6] consolation behavior, approaching a crow that has just lost a fight
+   words: consolation@562.9 behavior,@563.8 approaching@564.5 a@564.8 crow@565.1 that@565.3 has@565.6 just@565.8 lost@565.9 a@566.2 fight@566.4
+[566.6-570.8] and sitting close to it making soft sounds, engaging in gentle contact.
+   words: and@566.6 sitting@566.8 close@567.0 to@567.2 it@567.5 making@567.6 soft@567.9 sounds,@568.4 engaging@569.2 in@569.6 gentle@569.9 contact.@570.2
+[571.5-576.0] This was thought to be exclusively human or great ape behavior.
+   words: This@571.5 was@571.7 thought@571.9 to@572.2 be@572.5 exclusively@572.7 human@573.4 or@573.9 great@574.6 ape@575.1 behavior.@575.4
+[576.2-577.8] Crows apparently didn't get that memo.
+   words: Crows@576.2 apparently@576.4 didn't@576.8 get@577.2 that@577.3 memo.@577.5
+[578.0-579.5] Is that gratitude? Is that empathy?
+   words: Is@578.0 that@578.1 gratitude?@578.3 Is@578.9 that@579.1 empathy?@579.2
+[579.9-582.2] Scientists are cautious about using those words,
+   words: Scientists@579.9 are@580.2 cautious@580.6 about@581.0 using@581.3 those@581.6 words,@581.9
+[582.2-585.9] but they're increasingly comfortable saying whatever it is, it's not nothing.
+   words: but@582.2 they're@582.5 increasingly@582.8 comfortable@583.2 saying@583.7 whatever@584.2 it@584.6 is,@584.8 it's@585.2 not@585.4 nothing.@585.5
+[586.0-586.8] Back to that whale.
+   words: Back@586.0 to@586.2 that@586.4 whale.@586.5
+[587.0-591.5] After the 2011 rescue footage went viral, marine biologist Nan Hauser,
+   words: After@587.0 the@587.2 2011@587.4 rescue@588.0 footage@588.5 went@588.8 viral,@589.0 marine@589.6 biologist@589.9 Nan@590.5 Hauser,@591.0
+[591.9-596.4] one of the world's leading humpback whale researchers, had her own extraordinary experience.
+   words: one@591.9 of@592.1 the@592.2 world's@592.3 leading@592.7 humpback@592.8 whale@593.4 researchers,@593.6 had@594.5 her@594.7 own@594.9 extraordinary@595.2 experience.@595.7
+[596.7-600.6] She was diving in the Cook Islands when a 14 ton humpback started pushing her
+   words: She@596.7 was@596.8 diving@596.9 in@597.2 the@597.4 Cook@597.5 Islands@597.6 when@598.0 a@598.2 14@598.3 ton@598.8 humpback@599.0 started@599.7 pushing@600.1 her@600.4
+[600.6-603.4] through the water with its head, tucking her under its pectoral fin,
+   words: through@600.6 the@600.8 water@601.0 with@601.2 its@601.4 head,@601.5 tucking@601.9 her@602.2 under@602.3 its@602.6 pectoral@602.8 fin,@603.2
+[603.8-604.9] physically shielding her.
+   words: physically@603.8 shielding@604.2 her.@604.7
+[605.0-608.5] She had no idea what was happening and, understandably, was terrified.
+   words: She@605.0 had@605.1 no@605.3 idea@605.6 what@605.9 was@606.0 happening@606.1 and,@606.5 understandably,@607.2 was@608.0 terrified.@608.1
+[608.9-609.6] Then she saw it.
+   words: Then@608.9 she@609.0 saw@609.2 it.@609.5
+[609.6-613.0] A 10 foot tiger shark, just meters away.
+   words: A@609.6 10@610.3 foot@610.6 tiger@610.8 shark,@611.3 just@612.0 meters@612.3 away.@612.6
+[613.3-617.2] The whale had seen the shark before she had, and it had moved to protect her.
+   words: The@613.3 whale@613.3 had@613.5 seen@613.8 the@614.0 shark@614.1 before@614.4 she@614.6 had,@614.9 and@615.4 it@615.9 had@616.0 moved@616.1 to@616.4 protect@616.6 her.@616.9
+[617.5-620.1] Hauser, who had spent 30 years studying these animals,
+   words: Hauser,@617.5 who@618.0 had@618.2 spent@618.3 30@618.4 years@618.8 studying@619.1 these@619.4 animals,@619.7
+[620.3-622.7] said it was the most surreal moment of her career.
+   words: said@620.3 it@620.4 was@620.5 the@620.6 most@620.7 surreal@621.0 moment@621.5 of@622.0 her@622.2 career.@622.3
+[623.1-624.9] But what struck her most was this.
+   words: But@623.1 what@623.3 struck@623.5 her@623.8 most@624.0 was@624.4 this.@624.6
+[625.2-628.3] The whale had no evolutionary reason to protect her.
+   words: The@625.2 whale@625.4 had@625.7 no@626.0 evolutionary@626.3 reason@626.9 to@627.4 protect@627.6 her.@627.9
+[628.6-629.5] She wasn't its calf.
+   words: She@628.6 wasn't@628.7 its@629.1 calf.@629.2
+[629.9-631.3] She wasn't even its species.
+   words: She@629.9 wasn't@630.1 even@630.5 its@630.6 species.@630.8
+[631.9-635.1] The behavior was entirely outside what the whale needed to do
+   words: The@631.9 behavior@632.1 was@632.5 entirely@632.8 outside@633.2 what@633.7 the@634.0 whale@634.2 needed@634.4 to@634.7 do@634.9
+[635.1-637.7] for its own survival or reproductive success.
+   words: for@635.1 its@635.2 own@635.4 survival@635.6 or@636.1 reproductive@636.6 success.@637.1
+[637.7-642.1] Which means, in evolutionary terms, it was essentially irrational.
+   words: Which@637.7 means,@638.0 in@638.7 evolutionary@639.0 terms,@639.5 it@640.7 was@640.8 essentially@640.9 irrational.@641.5
+[642.5-643.3] And yet it happened.
+   words: And@642.5 yet@642.6 it@642.8 happened.@642.9
+[644.1-647.1] Scientists call behaviors like this altruistic.
+   words: Scientists@644.1 call@644.4 behaviors@644.8 like@645.2 this@645.5 altruistic.@645.8
+[647.4-650.9] Actions that benefit another organism at a cost to oneself,
+   words: Actions@647.4 that@647.7 benefit@647.9 another@648.3 organism@648.7 at@649.3 a@649.7 cost@649.8 to@650.2 oneself,@650.4
+[651.2-653.2] with no immediate survival advantage.
+   words: with@651.2 no@651.6 immediate@651.9 survival@652.3 advantage.@652.8
+[653.5-657.9] For a long time, biologists argued true altruism couldn't exist outside of
+   words: For@653.5 a@653.6 long@653.7 time,@653.9 biologists@654.4 argued@654.9 true@655.4 altruism@655.9 couldn't@656.6 exist@657.0 outside@657.3 of@657.7
+[657.9-660.0] kin selection or reciprocal benefit.
+   words: kin@657.9 selection@658.2 or@658.6 reciprocal@659.0 benefit.@659.4
+[660.5-663.4] Evolution wouldn't allow it, but it does exist.
+   words: Evolution@660.5 wouldn't@660.9 allow@661.4 it,@661.7 but@661.9 it@662.2 does@662.8 exist.@663.0
+[663.9-664.4] In humans.
+   words: In@663.9 humans.@664.1
+[664.7-665.1] In dolphins.
+   words: In@664.7 dolphins.@664.9
+[665.7-666.2] In elephants.
+   words: In@665.7 elephants.@665.9
+[666.2-670.4] In humpback whales who have apparently decided that protecting random scuba divers
+   words: In@666.2 humpback@666.7 whales@667.2 who@667.6 have@667.8 apparently@667.9 decided@668.3 that@668.7 protecting@668.9 random@669.3 scuba@669.7 divers@670.1
+[670.4-671.8] is just something they do now.
+   words: is@670.4 just@670.8 something@671.0 they@671.3 do@671.5 now.@671.6
+[672.0-674.4] There's a layer to all of this that doesn't get discussed enough,
+   words: There's@672.0 a@672.2 layer@672.3 to@672.5 all@672.7 of@672.8 this@673.0 that@673.1 doesn't@673.3 get@673.6 discussed@673.7 enough,@674.0
+[674.7-678.3] and it involves what happens before any interaction even takes place.
+   words: and@674.7 it@674.9 involves@675.0 what@675.3 happens@675.6 before@676.0 any@676.4 interaction@676.6 even@677.3 takes@677.6 place.@677.9
+[678.6-682.3] Many wild animals have an extraordinary ability to read human body language,
+   words: Many@678.6 wild@678.7 animals@679.1 have@679.5 an@679.8 extraordinary@679.9 ability@680.3 to@680.9 read@681.2 human@681.4 body@681.6 language,@681.9
+[682.8-687.3] heart rate, and stress levels with a precision that makes lie detectors look like fortune cookies.
+   words: heart@682.8 rate,@683.0 and@683.6 stress@683.8 levels@684.0 with@684.4 a@684.6 precision@684.8 that@685.0 makes@685.3 lie@685.5 detectors@685.7 look@686.1 like@686.4 fortune@686.7 cookies.@686.9
+[687.9-690.6] Horses can detect elevated cortisol in human sweat.
+   words: Horses@687.9 can@688.4 detect@688.5 elevated@688.9 cortisol@689.3 in@689.9 human@690.1 sweat.@690.3
+[690.9-691.9] Dogs can smell fear.
+   words: Dogs@690.9 can@691.1 smell@691.4 fear.@691.6
+[692.1-693.0] And that's not a metaphor.
+   words: And@692.1 that's@692.3 not@692.5 a@692.6 metaphor.@692.7
+[693.6-694.7] It's biochemistry.
+   words: It's@693.6 biochemistry.@693.8
+[694.7-698.6] They're literally detecting the hormonal composition of your emotional state.
+   words: They're@694.7 literally@695.1 detecting@695.5 the@696.1 hormonal@696.3 composition@696.8 of@697.4 your@697.7 emotional@697.8 state.@698.2
+[698.8-703.1] Elephants appear to be sensitive to subsonic sounds produced by human vocal cords
+   words: Elephants@698.8 appear@699.1 to@699.4 be@699.6 sensitive@699.7 to@700.1 subsonic@700.4 sounds@701.0 produced@701.4 by@701.7 human@702.0 vocal@702.4 cords@702.7
+[703.1-706.6] in distress frequencies that we're not even consciously aware we're making.
+   words: in@703.1 distress@703.5 frequencies@703.7 that@704.3 we're@704.6 not@704.7 even@704.9 consciously@705.2 aware@705.8 we're@706.1 making.@706.3
+[707.3-711.5] What this means is that when you approach an injured wild animal with genuine calm and
+   words: What@707.3 this@707.5 means@707.7 is@708.0 that@708.2 when@708.3 you@708.5 approach@708.6 an@709.0 injured@709.1 wild@709.5 animal@709.8 with@710.3 genuine@710.5 calm@710.9 and@711.3
+[711.5-715.9] genuine intention to help, you are communicating something even before you touch it.
+   words: genuine@711.5 intention@711.9 to@712.3 help,@712.6 you@713.1 are@713.2 communicating@713.3 something@713.8 even@714.4 before@714.9 you@715.2 touch@715.4 it.@715.7
+[715.9-718.6] The animal is reading a signal you don't know you're sending.
+   words: The@715.9 animal@716.0 is@716.3 reading@716.5 a@716.7 signal@716.9 you@717.3 don't@717.6 know@718.0 you're@718.1 sending.@718.3
+[718.9-721.8] And in many documented cases, that signal appears to matter.
+   words: And@718.9 in@719.0 many@719.1 documented@719.2 cases,@719.8 that@720.4 signal@720.6 appears@721.0 to@721.4 matter.@721.5
+[721.8-726.3] Wildlife rehabilitators consistently report that animals in acute distress,
+   words: Wildlife@721.8 rehabilitators@722.5 consistently@723.4 report@724.0 that@724.5 animals@724.8 in@725.2 acute@725.5 distress,@725.8
+[726.5-731.3] animals that would normally bite, scratch, flee, or fight, will sometimes go completely
+   words: animals@726.5 that@726.8 would@727.0 normally@727.2 bite,@727.5 scratch,@728.3 flee,@729.3 or@729.7 fight,@729.8 will@730.2 sometimes@730.3 go@730.7 completely@730.9
+[731.3-736.5] still when handled by someone who is genuinely physiologically calm, not performing calm.
+   words: still@731.3 when@731.6 handled@731.8 by@732.1 someone@732.4 who@732.7 is@732.9 genuinely@733.0 physiologically@733.6 calm,@734.9 not@735.5 performing@735.7 calm.@736.2
+[736.7-739.3] Actually calm, the animals can tell the difference.
+   words: Actually@736.7 calm,@737.1 the@738.1 animals@738.2 can@738.5 tell@738.7 the@738.8 difference.@739.0
+[739.5-740.4] This is not mysticism.
+   words: This@739.5 is@739.6 not@739.7 mysticism.@739.8
+[740.6-742.0] This is sensory biology.
+   words: This@740.6 is@740.7 sensory@741.0 biology.@741.4
+[742.9-746.8] These animals evolved to read the emotional states of other creatures as
+   words: These@742.9 animals@743.2 evolved@743.6 to@744.0 read@744.4 the@744.7 emotional@744.8 states@745.3 of@745.6 other@745.8 creatures@746.0 as@746.4
+[746.8-750.5] a survival mechanism, and they're applying that system to you.
+   words: a@746.8 survival@747.3 mechanism,@747.7 and@748.5 they're@749.0 applying@749.2 that@749.4 system@749.7 to@750.1 you.@750.3
+[750.5-755.5] You walk up to a fox with a broken leg, hands shaking, heart pounding with anxiety.
+   words: You@750.5 walk@750.7 up@751.0 to@751.3 a@751.5 fox@751.6 with@751.8 a@752.0 broken@752.1 leg,@752.3 hands@753.0 shaking,@753.3 heart@754.1 pounding@754.4 with@754.8 anxiety.@755.1
+[756.3-760.0] The fox reads that as predator, threat, fight or flee.
+   words: The@756.3 fox@756.5 reads@756.7 that@757.0 as@757.2 predator,@757.7 threat,@758.8 fight@759.3 or@759.5 flee.@759.7
+[760.2-765.0] You walk up with your nervous system genuinely settled, moving slowly, breathing steadily.
+   words: You@760.2 walk@760.3 up@760.5 with@760.7 your@760.8 nervous@761.0 system@761.2 genuinely@761.6 settled,@762.1 moving@763.0 slowly,@763.2 breathing@764.1 steadily.@764.6
+[765.3-769.7] The fox reads that as not a threat, and sometimes, just sometimes,
+   words: The@765.3 fox@765.4 reads@765.6 that@765.9 as@766.2 not@766.7 a@767.5 threat,@767.6 and@768.1 sometimes,@768.2 just@769.0 sometimes,@769.1
+[770.0-772.0] it holds still long enough to let you help.
+   words: it@770.0 holds@770.1 still@770.4 long@770.7 enough@771.0 to@771.3 let@771.4 you@771.6 help.@771.7
+[772.1-775.8] And then there are the stories that sit outside any clean scientific framework.
+   words: And@772.1 then@772.2 there@772.4 are@772.6 the@772.8 stories@772.9 that@773.2 sit@773.5 outside@773.6 any@773.9 clean@774.3 scientific@774.8 framework.@775.2
+[775.8-779.4] The ones researchers record publish in careful measured language,
+   words: The@775.8 ones@776.1 researchers@776.4 record@776.8 publish@777.2 in@778.0 careful@778.3 measured@778.6 language,@778.9
+[779.6-782.5] and then privately describe as the reason they do what they do.
+   words: and@779.6 then@780.0 privately@780.1 describe@780.4 as@780.8 the@781.1 reason@781.3 they@781.6 do@781.8 what@781.9 they@782.1 do.@782.2
+[782.7-787.0] In South Africa, a diver named Craig Foster spent a year building a relationship with a
+   words: In@782.7 South@782.8 Africa,@782.9 a@783.5 diver@783.6 named@783.8 Craig@784.1 Foster@784.5 spent@784.9 a@785.3 year@785.5 building@785.7 a@786.0 relationship@786.2 with@786.6 a@786.9
+[787.0-788.6] wild octopus in a kelp forest.
+   words: wild@787.0 octopus@787.3 in@787.7 a@788.0 kelp@788.1 forest.@788.3
+[788.9-790.0] He visited her every day.
+   words: He@788.9 visited@789.0 her@789.3 every@789.5 day.@789.8
+[790.2-792.6] He watched her hunt, watched her sleep, watched her grow.
+   words: He@790.2 watched@790.3 her@790.6 hunt,@790.7 watched@791.2 her@791.4 sleep,@791.5 watched@792.0 her@792.2 grow.@792.4
+[793.2-795.7] Over time, the octopus began to recognize him.
+   words: Over@793.2 time,@793.4 the@793.8 octopus@793.9 began@794.3 to@794.8 recognize@795.0 him.@795.3
+[795.9-796.7] She would approach him.
+   words: She@795.9 would@796.0 approach@796.1 him.@796.4
+[796.8-798.4] She would drape herself across his hand.
+   words: She@796.8 would@797.0 drape@797.1 herself@797.4 across@797.6 his@797.9 hand.@798.2
+[798.6-802.8] In octopus terms, allowing something that large to touch you is an extraordinary
+   words: In@798.6 octopus@798.7 terms,@799.1 allowing@799.8 something@800.1 that@800.5 large@800.8 to@801.2 touch@801.4 you@801.7 is@801.9 an@802.2 extraordinary@802.3
+[802.8-808.8] act of trust from an animal whose entire survival strategy is based on camouflage and escape.
+   words: act@802.8 of@803.0 trust@803.4 from@803.8 an@804.0 animal@804.1 whose@804.5 entire@804.7 survival@805.2 strategy@805.7 is@806.2 based@806.7 on@807.0 camouflage@807.2 and@807.8 escape.@808.5
+[808.9-811.3] Octopuses have a lifespan of roughly one year.
+   words: Octopuses@808.9 have@809.4 a@809.6 lifespan@809.7 of@810.0 roughly@810.5 one@810.8 year.@811.0
+[811.5-814.7] She died, as octopuses do, after laying her eggs.
+   words: She@811.5 died,@811.6 as@812.1 octopuses@812.3 do,@812.9 after@813.6 laying@814.0 her@814.2 eggs.@814.4
+[815.0-817.7] Foster returned to the kelp forest for years after.
+   words: Foster@815.0 returned@815.2 to@815.6 the@815.8 kelp@815.9 forest@816.2 for@816.6 years@816.8 after.@817.2
+[818.2-820.1] An octopus is not a dolphin.
+   words: An@818.2 octopus@818.4 is@818.8 not@819.2 a@819.5 dolphin.@819.7
+[820.5-821.4] It is not a mammal.
+   words: It@820.5 is@820.6 not@820.7 a@820.9 mammal.@821.0
+[821.6-823.2] It does not have a limbic system.
+   words: It@821.6 does@821.7 not@821.8 have@822.0 a@822.3 limbic@822.5 system.@822.8
+[823.6-827.8] Its brain is distributed across its body for reasons that evolution apparently
+   words: Its@823.6 brain@823.7 is@824.1 distributed@824.3 across@824.7 its@825.2 body@825.5 for@825.9 reasons@826.2 that@826.6 evolution@826.8 apparently@827.3
+[827.8-829.6] thought were a great idea.
+   words: thought@827.8 were@828.2 a@828.5 great@828.6 idea.@829.0
+[830.2-835.0] It should not, by most prior assumptions, be capable of anything resembling a social
+   words: It@830.2 should@830.5 not,@830.7 by@831.0 most@831.2 prior@831.5 assumptions,@831.8 be@832.6 capable@832.7 of@833.1 anything@833.4 resembling@833.9 a@834.5 social@834.6
+[835.0-836.4] relationship with a human being.
+   words: relationship@835.0 with@835.6 a@835.8 human@835.9 being.@836.1
+[837.1-838.5] And yet there is film of it.
+   words: And@837.1 yet@837.3 there@837.4 is@837.6 film@837.8 of@838.1 it.@838.3
+[838.6-844.2] Clear, undeniable, beautiful film of a creature from an entirely different branch
+   words: Clear,@838.6 undeniable,@839.4 beautiful@840.6 film@841.1 of@841.6 a@841.8 creature@842.0 from@842.2 an@842.5 entirely@842.6 different@843.2 branch@843.8
+[844.2-849.5] of the animal tree, choosing repeatedly to make contact with one specific human being.
+   words: of@844.2 the@844.5 animal@844.6 tree,@844.8 choosing@845.4 repeatedly@845.7 to@846.7 make@847.4 contact@847.6 with@848.0 one@848.3 specific@848.5 human@848.8 being.@849.2
+[850.1-853.9] If you watched my octopus teacher and felt like it rewired something in your brain,
+   words: If@850.1 you@850.4 watched@850.5 my@850.8 octopus@851.0 teacher@851.4 and@851.8 felt@852.1 like@852.3 it@852.5 rewired@852.6 something@853.0 in@853.3 your@853.5 brain,@853.7
+[854.1-854.6] you're not alone.
+   words: you're@854.1 not@854.2 alone.@854.3
+[854.8-857.0] Multiple marine biologists said the same thing.
+   words: Multiple@854.8 marine@855.0 biologists@855.4 said@856.1 the@856.4 same@856.6 thing.@856.8
+[857.0-860.3] Not because the footage was sentimental, because it was data.
+   words: Not@857.0 because@857.4 the@857.7 footage@857.8 was@858.1 sentimental,@858.2 because@859.0 it@859.7 was@859.9 data.@860.0
+[860.5-863.2] There's also a deeply practical angle to all of this.
+   words: There's@860.5 also@860.7 a@861.0 deeply@861.1 practical@861.5 angle@861.9 to@862.4 all@862.6 of@862.8 this.@863.0
+[863.4-867.1] And it's one that wildlife conservationists take very seriously.
+   words: And@863.4 it's@863.7 one@863.9 that@864.0 wildlife@864.2 conservationists@864.6 take@865.6 very@865.9 seriously.@866.5
+[868.1-872.8] If animals can recognize individual humans, and we've established that many of them can,
+   words: If@868.1 animals@868.3 can@868.6 recognize@869.0 individual@869.5 humans,@869.9 and@871.0 we've@871.2 established@871.4 that@871.7 many@872.0 of@872.2 them@872.4 can,@872.5
+[873.3-876.4] then the behavior of those individuals matters enormously.
+   words: then@873.3 the@873.5 behavior@873.6 of@874.0 those@874.3 individuals@874.5 matters@875.1 enormously.@875.7
+[877.0-881.0] Conservation researchers have observed that animals in protected areas where
+   words: Conservation@877.0 researchers@877.6 have@878.2 observed@878.5 that@878.9 animals@879.2 in@879.6 protected@879.9 areas@880.3 where@880.8
+[881.0-884.0] rangers are consistently respectful and non-threatening
+   words: rangers@881.0 are@881.5 consistently@881.7 respectful@882.3 and@883.0 non@883.3 -threatening@883.5
+[884.5-888.6] show measurably lower stress responses to human presence over time.
+   words: show@884.5 measurably@884.8 lower@885.7 stress@886.1 responses@886.4 to@887.1 human@887.2 presence@887.6 over@887.9 time.@888.2
+[889.2-892.8] They become, in effect, more tolerant, more approachable.
+   words: They@889.2 become,@889.5 in@890.1 effect,@890.3 more@891.1 tolerant,@891.2 more@892.0 approachable.@892.2
+[892.9-896.9] And in critically endangered species, that approachability can be the difference
+   words: And@892.9 in@893.0 critically@893.1 endangered@893.4 species,@894.1 that@895.1 approachability@895.2 can@896.0 be@896.3 the@896.4 difference@896.6
+[896.9-901.0] between successful conservation programs and total failure.
+   words: between@896.9 successful@897.3 conservation@898.0 programs@898.7 and@899.2 total@900.2 failure.@900.6
+[901.2-905.4] In Rwanda, mountain gorilla groups that were habituated for tourism and research,
+   words: In@901.2 Rwanda,@901.3 mountain@902.0 gorilla@902.3 groups@902.6 that@903.0 were@903.3 habituated@903.4 for@903.9 tourism@904.1 and@904.6 research,@904.9
+[905.6-910.2] meaning they were slowly, carefully, non-intrusively exposed to humans
+   words: meaning@905.6 they@905.8 were@906.3 slowly,@906.5 carefully,@907.4 non@908.2 -intrusively@908.4 exposed@909.1 to@909.4 humans@909.8
+[910.2-914.6] until they stopped fleeing, became demonstrably healthier over time.
+   words: until@910.2 they@910.5 stopped@910.7 fleeing,@910.9 became@911.7 demonstrably@912.5 healthier@913.3 over@913.8 time.@914.2
+[914.7-917.2] Because humans could monitor them, treat their injuries,
+   words: Because@914.7 humans@914.9 could@915.3 monitor@915.5 them,@915.9 treat@916.4 their@916.6 injuries,@916.8
+[917.4-919.4] and protect them from poachers more effectively.
+   words: and@917.4 protect@917.5 them@917.9 from@918.1 poachers@918.3 more@918.8 effectively.@919.0
+[919.7-921.8] The gorillas didn't just tolerate human presence.
+   words: The@919.7 gorillas@919.8 didn't@920.2 just@920.5 tolerate@920.6 human@921.1 presence.@921.4
+[922.1-925.6] In some groups, they began to actively seek it out when they were sick or injured.
+   words: In@922.1 some@922.3 groups,@922.5 they@922.9 began@923.0 to@923.3 actively@923.4 seek@923.8 it@924.1 out@924.2 when@924.5 they@924.6 were@924.8 sick@924.9 or@925.1 injured.@925.3
+[926.0-927.5] The animals had figured something out.
+   words: The@926.0 animals@926.1 had@926.5 figured@926.7 something@926.9 out.@927.2
+[927.9-929.5] These particular humans were useful.
+   words: These@927.9 particular@928.0 humans@928.5 were@929.0 useful.@929.2
+[930.2-931.5] Maybe more than useful.
+   words: Maybe@930.2 more@930.6 than@930.9 useful.@931.1
+[931.9-935.6] One gorilla researcher described an aging silverback with a deep thorn wound
+   words: One@931.9 gorilla@932.1 researcher@932.5 described@932.9 an@933.5 aging@933.7 silverback@933.9 with@934.6 a@934.8 deep@934.9 thorn@935.1 wound@935.4
+[935.6-939.9] in his foot who approached her directly, sat down, and extended his foot toward her.
+   words: in@935.6 his@935.8 foot@935.9 who@936.2 approached@936.3 her@936.7 directly,@936.8 sat@937.6 down,@937.8 and@938.5 extended@938.6 his@939.0 foot@939.2 toward@939.4 her.@939.7
+[939.9-941.7] He had watched her treat other gorillas.
+   words: He@939.9 had@940.2 watched@940.3 her@940.6 treat@940.8 other@941.0 gorillas.@941.3
+[942.3-943.3] He had made a connection.
+   words: He@942.3 had@942.5 made@942.6 a@942.8 connection.@942.9
+[943.5-944.5] He wanted the same thing.
+   words: He@943.5 wanted@943.6 the@943.8 same@944.0 thing.@944.2
+[944.8-948.8] That is, at minimum, observational learning applied to a social situation.
+   words: That@944.8 is,@944.9 at@945.5 minimum,@945.6 observational@946.4 learning@947.0 applied@947.3 to@947.6 a@947.9 social@948.0 situation.@948.2
+[949.4-952.8] At maximum, it's something that rhymes very closely with trust.
+   words: At@949.4 maximum,@949.6 it's@950.5 something@950.6 that@950.9 rhymes@951.2 very@951.5 closely@951.9 with@952.3 trust.@952.5
+[953.2-955.4] So, what does this all actually mean?
+   words: So,@953.2 what@953.7 does@954.0 this@954.2 all@954.4 actually@954.6 mean?@955.0
+[955.6-956.4] Here's where we land.
+   words: Here's@955.6 where@955.9 we@956.0 land.@956.1
+[956.6-959.0] Do wild animals know when we're trying to help them?
+   words: Do@956.6 wild@956.7 animals@957.1 know@957.6 when@957.9 we're@958.1 trying@958.2 to@958.4 help@958.5 them?@958.7
+[959.2-962.1] Some of them, in some circumstances, almost certainly do.
+   words: Some@959.2 of@959.4 them,@959.5 in@959.8 some@960.0 circumstances,@960.1 almost@961.0 certainly@961.2 do.@961.8
+[962.3-967.1] Not in the abstract philosophical sense of fully modeling our intentions and internal states,
+   words: Not@962.3 in@962.5 the@962.8 abstract@962.9 philosophical@963.4 sense@963.9 of@964.4 fully@964.6 modeling@965.0 our@965.4 intentions@965.7 and@966.1 internal@966.4 states,@966.8
+[967.1-969.9] but in a practical, functional sense.
+   words: but@967.1 in@967.7 a@968.2 practical,@968.3 functional@969.0 sense.@969.4
+[970.1-971.7] They detect that something changed.
+   words: They@970.1 detect@970.2 that@970.6 something@970.8 changed.@971.1
+[972.2-975.9] They register safety where there was threat, relief where there was pain.
+   words: They@972.2 register@972.3 safety@972.7 where@973.2 there@973.4 was@973.5 threat,@973.7 relief@974.4 where@974.8 there@975.3 was@975.5 pain.@975.6
+[976.1-976.6] They remember.
+   words: They@976.1 remember.@976.2
+[976.8-977.3] They return.
+   words: They@976.8 return.@976.9
+[977.5-978.7] They sometimes reciprocate.
+   words: They@977.5 sometimes@977.6 reciprocate.@978.0
+[978.9-984.4] And in at least some species, the great apes, the cetaceans, the corvids, the elephants,
+   words: And@978.9 in@979.1 at@979.3 least@979.4 some@979.6 species,@979.9 the@980.6 great@980.7 apes,@980.9 the@981.6 cetaceans,@981.7 the@982.8 corvids,@982.9 the@983.9 elephants,@984.0
+[984.7-987.3] and apparently certain remarkably ambitious mollusks,
+   words: and@984.7 apparently@984.8 certain@985.2 remarkably@985.6 ambitious@986.3 mollusks,@986.7
+[987.5-990.1] there's increasingly strong evidence of something deeper.
+   words: there's@987.5 increasingly@987.7 strong@988.2 evidence@988.6 of@989.0 something@989.3 deeper.@989.7
+[990.3-994.1] A recognition not just that something helped, but that you helped.
+   words: A@990.3 recognition@990.4 not@990.8 just@991.2 that@991.5 something@991.8 helped,@992.1 but@993.0 that@993.3 you@993.5 helped.@993.7
+[994.1-999.5] A specific, persistent, social awareness of individual beings and their track record of
+   words: A@994.1 specific,@994.7 persistent,@995.5 social@996.4 awareness@996.8 of@997.3 individual@997.5 beings@997.9 and@998.4 their@998.6 track@998.8 record@999.0 of@999.3
+[999.5-1000.0] behavior.
+   words: behavior.@999.5
+[1000.2-1001.8] Is that knowledge?
+   words: Is@1000.2 that@1000.4 knowledge?@1001.2
+[1002.1-1002.8] Is that gratitude?
+   words: Is@1002.1 that@1002.2 gratitude?@1002.4
+[1003.2-1003.9] Is that trust?
+   words: Is@1003.2 that@1003.4 trust?@1003.5
+[1004.2-1006.1] Science is still working out the vocabulary.
+   words: Science@1004.2 is@1004.6 still@1004.8 working@1005.0 out@1005.3 the@1005.5 vocabulary.@1005.6
+[1006.5-1012.0] The honest answer is that our categories, gratitude, understanding, awareness, knowledge,
+   words: The@1006.5 honest@1006.6 answer@1006.9 is@1007.3 that@1007.5 our@1007.7 categories,@1007.9 gratitude,@1009.0 understanding,@1010.1 awareness,@1011.1 knowledge,@1011.7
+[1012.3-1016.8] were built by humans, for humans, to describe human experience.
+   words: were@1012.3 built@1012.8 by@1013.0 humans,@1013.3 for@1014.2 humans,@1014.5 to@1015.2 describe@1015.6 human@1016.0 experience.@1016.3
+[1017.1-1021.9] And we're now trying to use those categories to describe experiences that evolved independently
+   words: And@1017.1 we're@1017.3 now@1017.4 trying@1017.6 to@1017.9 use@1018.0 those@1018.2 categories@1018.4 to@1019.0 describe@1019.2 experiences@1019.6 that@1020.3 evolved@1020.6 independently@1021.1
+[1021.9-1028.0] in creatures with different bodies, different senses, different time scales, different worlds.
+   words: in@1021.9 creatures@1022.6 with@1022.9 different@1023.2 bodies,@1023.4 different@1024.4 senses,@1024.6 different@1025.6 time@1025.9 scales,@1026.2 different@1027.1 worlds.@1027.4
+[1028.2-1033.1] Maybe the whale that circled those divers wasn't expressing gratitude in any sense we'd recognize
+   words: Maybe@1028.2 the@1028.4 whale@1028.6 that@1028.9 circled@1029.2 those@1029.6 divers@1029.8 wasn't@1030.1 expressing@1030.6 gratitude@1031.1 in@1031.5 any@1031.8 sense@1032.1 we'd@1032.4 recognize@1032.7
+[1033.1-1034.9] if we could read its mind directly.
+   words: if@1033.1 we@1033.3 could@1033.5 read@1033.6 its@1033.8 mind@1033.9 directly.@1034.2
+[1035.5-1038.3] But something in that animal drove it back.
+   words: But@1035.5 something@1036.0 in@1036.4 that@1036.8 animal@1037.0 drove@1037.5 it@1037.8 back.@1038.0
+[1038.9-1041.3] Something made those divers worth returning to.
+   words: Something@1038.9 made@1039.3 those@1039.5 divers@1039.7 worth@1040.1 returning@1040.4 to.@1041.0
+[1041.6-1042.3] Something registered.
+   words: Something@1041.6 registered.@1041.9
+[1042.8-1046.9] Whether we call that gratitude or something else probably says more about our need for
+   words: Whether@1042.8 we@1043.0 call@1043.2 that@1043.4 gratitude@1043.6 or@1044.0 something@1044.4 else@1044.7 probably@1045.0 says@1045.5 more@1045.8 about@1046.1 our@1046.3 need@1046.5 for@1046.7
+[1046.9-1050.2] clean categories than it does about the animal's inner experience.
+   words: clean@1046.9 categories@1047.1 than@1047.7 it@1048.2 does@1048.4 about@1048.5 the@1048.8 animal's@1048.9 inner@1049.4 experience.@1049.6
+[1051.0-1053.7] The crow with its collection of buttons knew something.
+   words: The@1051.0 crow@1051.5 with@1051.8 its@1052.0 collection@1052.1 of@1052.5 buttons@1052.7 knew@1053.0 something.@1053.3
+[1054.1-1056.6] The elephant presenting its wound knew something.
+   words: The@1054.1 elephant@1054.4 presenting@1054.8 its@1055.3 wound@1055.5 knew@1055.8 something.@1056.2
+[1057.2-1060.6] The octopus reaching her arm across a diver's hand knew something.
+   words: The@1057.2 octopus@1057.4 reaching@1057.8 her@1058.3 arm@1058.5 across@1058.8 a@1059.0 diver's@1059.3 hand@1059.6 knew@1059.8 something.@1060.1
+[1060.8-1063.1] The gorilla extending his foot knew something.
+   words: The@1060.8 gorilla@1060.9 extending@1061.2 his@1061.7 foot@1062.0 knew@1062.3 something.@1062.7
+[1063.5-1067.1] And maybe the most important thing those animals knew, the thing they'd been trying
+   words: And@1063.5 maybe@1063.7 the@1063.9 most@1064.0 important@1064.2 thing@1064.7 those@1064.9 animals@1065.1 knew,@1065.4 the@1066.1 thing@1066.2 they'd@1066.5 been@1066.7 trying@1066.8
+[1067.1-1070.7] to show us for centuries while we stood there debating whether they were really
+   words: to@1067.1 show@1067.2 us@1067.4 for@1067.6 centuries@1067.7 while@1068.2 we@1068.7 stood@1068.9 there@1069.2 debating@1069.4 whether@1069.8 they@1070.1 were@1070.3 really@1070.5
+[1070.7-1073.9] capable of knowing anything at all, is that the line between us and them
+   words: capable@1070.7 of@1071.0 knowing@1071.3 anything@1071.5 at@1071.9 all,@1072.0 is@1072.4 that@1072.5 the@1072.6 line@1072.7 between@1072.9 us@1073.2 and@1073.5 them@1073.7
+[1073.9-1076.1] was never as clean as we wanted to believe.
+   words: was@1073.9 never@1074.4 as@1074.7 clean@1074.9 as@1075.1 we@1075.3 wanted@1075.4 to@1075.6 believe.@1075.8
+[1076.3-1078.1] That whale didn't have to circle back.
+   words: That@1076.3 whale@1076.6 didn't@1076.8 have@1077.2 to@1077.4 circle@1077.6 back.@1077.8
+[1078.1-1078.8] But it did.
+   words: But@1078.1 it@1078.4 did.@1078.6
+[1079.0-1080.8] And that in the end is the whole story.
+   words: And@1079.0 that@1079.1 in@1079.3 the@1079.5 end@1079.6 is@1079.9 the@1080.1 whole@1080.3 story.@1080.4
