@@ -1,0 +1,43 @@
+name: study-video
+# Downloads a social video, commits a timestamped transcript and 1-frame-per-second contact sheets to tools/study/<name>_* for style study.
+on:
+  workflow_dispatch:
+    inputs:
+      url: { description: 'video url', required: true }
+      name: { description: 'output name', required: true, default: 'ref' }
+permissions:
+  contents: write
+jobs:
+  go:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with: { python-version: '3.11' }
+      - uses: FedericoCarboni/setup-ffmpeg@v3
+      - run: pip install -U yt-dlp faster-whisper
+      - env:
+          URL: ${{ inputs.url }}
+          NAME: ${{ inputs.name }}
+        run: |
+          mkdir -p w tools/study
+          yt-dlp -f "bv*[height<=720]+ba/b" --no-playlist -o "w/v.%(ext)s" "$URL" || yt-dlp --no-playlist -o "w/v.%(ext)s" "$URL"
+          V=$(ls w/v.* | head -1)
+          ffprobe -v error -show_entries format=duration:stream=width,height -of default=nw=1 "$V" > tools/study/${NAME}_info.txt
+          ffmpeg -y -loglevel error -i "$V" -vn -ac 1 -ar 16000 w/a.wav
+          python - <<'PY'
+          import os
+          from faster_whisper import WhisperModel
+          m = WhisperModel("small", device="cpu", compute_type="int8")
+          segs, _ = m.transcribe("w/a.wav", vad_filter=True, word_timestamps=True)
+          out=[]
+          for s in segs:
+              out.append(f"[{s.start:5.1f}-{s.end:5.1f}] {s.text.strip()}")
+              out.append("   words: " + " ".join(f"{w.word.strip()}@{w.start:.1f}" for w in s.words))
+          open(f"tools/study/{os.environ['NAME']}_transcript.txt","w").write("\n".join(out)+"\n")
+          PY
+          ffmpeg -y -loglevel error -i "$V" -vf "fps=1,scale=270:-1,tile=5x4" -q:v 3 "tools/study/${NAME}_sheet_%02d.jpg"
+          git config user.name study; git config user.email study@users.noreply.github.com
+          git add tools/study; git commit -m "study $NAME" || true
+          git pull --rebase -q || true; git push || true
