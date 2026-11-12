@@ -43,6 +43,7 @@ jobs:
           MODEL = os.environ.get('WAN_MODEL', '')
           STYLE = ', clean-line cartoon illustration, bold black outlines, flat vibrant colors, extreme caricature, exaggerated expressive cartoon character, big head with two simple round eyes, one masculine man with short hair, simple full body pose, comic book energy, white background, no text'
           NEG = 'blurry, low quality, text, letters, words, numbers, writing, sign, label, logo, watermark, deformed, mutated, disfigured, photo, realistic, feminine, woman, girl, anime, collage, multiple panels, extra limbs, extra arms, extra hands, extra fingers, six fingers, deformed hands, three eyes, extra eyes, two heads, merged bodies, fused bodies, duplicate, clone, crowd, group'
+          NEG = SHOTS[0].get('neg') or NEG
           if len(sys.argv) > 1:
               # ---- worker: one per GPU ----
               g = int(sys.argv[1])
@@ -60,7 +61,7 @@ jobs:
               ne = None
               with torch.no_grad():
                   for s in mine:
-                      pe, ne = pipe.encode_prompt(prompt=s['p'] + STYLE, negative_prompt=NEG, do_classifier_free_guidance=True, device='cuda')
+                      pe, ne = pipe.encode_prompt(prompt=s['p'] + (s.get('style') or STYLE), negative_prompt=NEG, do_classifier_free_guidance=True, device='cuda')
                       emb[int(s['n'])] = pe.cpu()
                   ne = ne.cpu() if ne is not None else None
               pipe.text_encoder = None
