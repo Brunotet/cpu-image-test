@@ -1,0 +1,78 @@
+name: Episode music (Kaggle, ACE-Step)
+on:
+  workflow_dispatch:
+    inputs:
+      episode_id:
+        required: true
+        type: string
+      cue_b64:
+        description: base64 JSON list of music cues
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: kaggle-music
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN_MUSIC }}
+      EP: ${{ inputs.episode_id }}
+      CUE_B64: ${{ inputs.cue_b64 }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - name: Build the kernel from the acestep-final2 notebook
+        run: |
+          mkdir -p src k
+          kaggle kernels pull brunotet/acestep-final2 -p src
+          python3 - <<'PY'
+          import os, json, base64, glob
+          cues = json.loads(base64.b64decode(os.environ["CUE_B64"]).decode())
+          assert isinstance(cues, list) and cues
+          f = glob.glob("src/*.py")[0]
+          s = open(f).read()
+          i = s.index("CUES = [")
+          j = s.index(chr(10) + "XF = ")
+          s = s[:i] + "CUES = " + repr(cues) + s[j:]
+          open("k/music.py", "w").write(s)
+          print("cues:", [c["name"] for c in cues])
+          PY
+          cat > k/kernel-metadata.json <<'JSON'
+          {"id":"brunotet/psy-music","title":"psy music","code_file":"music.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":true,"machine_shape":"NvidiaTeslaT4Highmem","dataset_sources":[],"kernel_sources":[],"competition_sources":[],"model_sources":[]}
+          JSON
+      - name: Run kernel
+        run: |
+          kaggle kernels push -p k
+          for i in $(seq 1 120); do
+            s=$(kaggle kernels status brunotet/psy-music 2>&1 | tail -1); echo "$s"
+            case "$s" in
+              *COMPLETE*|*ERROR*|*CANCEL*) break;;
+            esac
+            sleep 30
+          done
+          for t in 1 2 3 4 5 6; do
+            rm -rf kout; mkdir -p kout
+            kaggle kernels output brunotet/psy-music -p kout 2>&1 | tail -n 3 || true
+            got=$(find kout -name "*.mp3" | wc -l); echo "attempt $t: $got mp3"
+            [ "$got" -ge 1 ] && break
+            sleep 30
+          done
+          find kout -type f | head -40
+      - name: Commit music
+        if: always()
+        run: |
+          mkdir -p "episodes/$EP"
+          f=$(find kout -name "psy_music_seed*.mp3" 2>/dev/null | head -1)
+          if [ -n "$f" ]; then cp "$f" "episodes/$EP/music.mp3"; touch /tmp/ok; fi
+          cp kout/*.log "episodes/$EP/music_kernel.log" 2>/dev/null || true
+          cp kout/final_manifest.json "episodes/$EP/music.json" 2>/dev/null || true
+          git config user.name "github-actions"
+          git config user.email "a@b.c"
+          git add -A episodes
+          git commit -m "episode $EP music" || true
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push && break || sleep 5; done
+          test -f /tmp/ok
