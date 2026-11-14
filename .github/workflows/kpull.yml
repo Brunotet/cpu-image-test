@@ -1,0 +1,34 @@
+name: Pull Kaggle notebook
+on:
+  workflow_dispatch:
+    inputs:
+      kernel:
+        description: owner/slug of the notebook
+        required: true
+permissions:
+  contents: write
+jobs:
+  pull:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN_MUSIC }}
+      KERNEL: ${{ inputs.kernel }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - name: Pull notebook
+        run: |
+          mkdir -p "kpull/$KERNEL"
+          kaggle kernels pull "$KERNEL" -p "kpull/$KERNEL" -m 2>&1 | tee "kpull/$KERNEL/pull.log" || true
+          { echo "== my kernels"; kaggle kernels list --mine 2>&1 | head -30; echo "== my datasets"; kaggle datasets list --mine 2>&1 | head -30; } > "kpull/$KERNEL/info.txt" || true
+          ls -la "kpull/$KERNEL"
+      - name: Commit
+        if: always()
+        run: |
+          git config user.name "kpull"
+          git config user.email "kpull@users.noreply.github.com"
+          git add kpull
+          git commit -m "kpull $KERNEL" || true
+          git pull --rebase -q || true
+          git push || true
