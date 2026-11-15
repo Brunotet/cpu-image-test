@@ -1,28 +1,7 @@
-ERROR Traceback (most recent call last):
-  File "/home/runner/work/cpu-image-test/cpu-image-test/tools/repair.py", line 14, in <module>
-    log.append("input duration %.1f s" % dur(f))
-                                         ~~~^^^
-  File "/home/runner/work/cpu-image-test/cpu-image-test/tools/repair.py", line 6, in dur
-    return float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", p]).decode().strip())
-                 ~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.14/subprocess.py", line 473, in check_output
-    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
-           ~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-               **kwargs).stdout
-               ^^^^^^^^^
-  File "/usr/lib/python3.14/subprocess.py", line 555, in run
-    with Popen(*popenargs, **kwargs) as process:
-         ~~~~~^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.14/subprocess.py", line 1039, in __init__
-    self._execute_child(args, executable, preexec_fn, close_fds,
-    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-                        pass_fds, cwd, env,
-                        ^^^^^^^^^^^^^^^^^^^
-    ...<5 lines>...
-                        gid, gids, uid, umask,
-                        ^^^^^^^^^^^^^^^^^^^^^^
-                        start_new_session, process_group)
-                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
-  File "/usr/lib/python3.14/subprocess.py", line 1990, in _execute_child
-    raise child_exception_type(errno_num, err_msg, err_filename)
-FileNotFoundError: [Errno 2] No such file or directory: 'ffprobe'
+input duration 83.0 s
+pass 0 gaps: [(57.931562, 61.249208), (62.998687, 64.327979)]
+removed silence 57.9-61.2 s
+pass 1 gaps: [(58.181687, 59.509458)]
+removed silence 58.2-59.5 s
+pass 2 gaps: []
+final duration 75.4 s, remaining gaps: 0
