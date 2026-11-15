@@ -1,0 +1,170 @@
+name: Episode images (Kaggle 2xT4, Wan 2.1)
+on:
+  workflow_dispatch:
+    inputs:
+      episode_id:
+        required: true
+        type: string
+      shots_b64:
+        description: "base64 JSON list: [{n,who,p,w,h}]"
+        required: true
+        type: string
+      callback_url:
+        required: false
+        default: ""
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: kaggle-episode
+  cancel-in-progress: false
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN }}
+      EP: ${{ inputs.episode_id }}
+      SHOTS_B64: ${{ inputs.shots_b64 }}
+      CALLBACK_URL: ${{ inputs.callback_url }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - name: Write kernel
+        run: |
+          mkdir k
+          cat > k/kernel-metadata.json <<'JSON'
+          {"id":"simoncreaty/episode-images","title":"episode images","code_file":"kernel.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":true,"enable_internet":true,"kernel_sources":["simoncreaty/wan-weights"]}
+          JSON
+          cat > k/kernel.tpl <<'PY'
+          import os, sys, subprocess, time, glob, json, base64
+          SHOTS = json.loads(base64.b64decode('__SHOTS_B64__').decode())
+          W = '/kaggle/working'
+          MODEL = os.environ.get('WAN_MODEL', '')
+          STYLE = ', clean-line cartoon illustration, bold black outlines, flat vibrant colors, extreme caricature, exaggerated expressive cartoon character, big head with two simple round eyes, one masculine man with short hair, simple full body pose, comic book energy, white background, no text'
+          NEG = 'blurry, low quality, text, letters, words, numbers, writing, sign, label, logo, watermark, deformed, mutated, disfigured, photo, realistic, feminine, woman, girl, anime, collage, multiple panels, extra limbs, extra arms, extra hands, extra fingers, six fingers, deformed hands, three eyes, extra eyes, two heads, merged bodies, fused bodies, duplicate, clone, crowd, group'
+          NEG = SHOTS[0].get('neg') or NEG
+          STYLE = SHOTS[0].get('style') or STYLE
+          if len(sys.argv) > 1:
+              # ---- worker: one per GPU ----
+              g = int(sys.argv[1])
+              import torch, gc
+              from diffusers import AutoencoderKLWan, WanPipeline
+              from transformers import UMT5EncoderModel, AutoTokenizer
+              mine = SHOTS[g::2]
+              t0 = time.time()
+              te = UMT5EncoderModel.from_pretrained(MODEL, subfolder='text_encoder', torch_dtype=torch.float16, device_map='cuda')
+              tok = AutoTokenizer.from_pretrained(MODEL, subfolder='tokenizer')
+              vae = AutoencoderKLWan.from_pretrained(MODEL, subfolder='vae', torch_dtype=torch.float32)
+              pipe = WanPipeline.from_pretrained(MODEL, text_encoder=te, tokenizer=tok, vae=vae, torch_dtype=torch.float16)
+              # encode every prompt once, then drop the 11 GB text encoder so the transformer runs fully on the GPU
+              emb = {}
+              ne = None
+              with torch.no_grad():
+                  for s in mine:
+                      pe, ne = pipe.encode_prompt(prompt=s['p'] + STYLE, negative_prompt=NEG, do_classifier_free_guidance=True, device='cuda')
+                      emb[int(s['n'])] = pe.cpu()
+                  ne = ne.cpu() if ne is not None else None
+              pipe.text_encoder = None
+              del te; gc.collect(); torch.cuda.empty_cache()
+              pipe.transformer.to('cuda'); pipe.vae.to('cuda')
+              print('GPU%d READY %.0f s, %d shots' % (g, time.time() - t0, len(mine)), flush=True)
+              for s in mine:
+                  n = int(s['n']); t = time.time()
+                  w, h = int(s.get('w', 1024)), int(s.get('h', 576))
+                  ok = False
+                  for attempt in (1, 2):
+                      try:
+                          r = pipe(prompt_embeds=emb[n].to('cuda', torch.float16), negative_prompt_embeds=ne.to('cuda', torch.float16),
+                                   height=h, width=w, num_frames=1, num_inference_steps=32, guidance_scale=5.0,
+                                   generator=torch.Generator('cuda').manual_seed(1000 + n + attempt), output_type='pil')
+                          r.frames[0][0].convert('RGB').save('%s/out/%02d.jpg' % (W, n), quality=92)
+                          ok = True; break
+                      except Exception as e:
+                          print('FAILED', n, repr(e)[:300], flush=True)
+                  print('RENDER %02d gpu %d %.1f s ok=%s' % (n, g, time.time() - t, ok), flush=True)
+              sys.exit(0)
+          # ---- main ----
+          START = time.time()
+          import threading
+          LIMIT = 900 + 60 * len(SHOTS)
+          def watchdog():
+              while True:
+                  time.sleep(5)
+                  if time.time() - START > LIMIT:
+                      print('WATCHDOG: exceeded %d s, aborting to protect the GPU quota' % LIMIT, flush=True)
+                      os._exit(2)
+          threading.Thread(target=watchdog, daemon=True).start()
+          os.makedirs(W + '/out', exist_ok=True)
+          subprocess.run('nvidia-smi -L', shell=True)
+          t = time.time()
+          subprocess.run('pip install -q -U diffusers transformers accelerate sentencepiece ftfy hf_transfer', shell=True)
+          print('PIP SECONDS', int(time.time() - t), flush=True)
+          t = time.time()
+          # the HF download is far faster than reading the mounted dataset (~130 s vs ~500 s)
+          try:
+              os.environ['HF_HUB_ENABLE_HF_TRANSFER'] = '1'
+              from huggingface_hub import snapshot_download
+              os.environ['WAN_MODEL'] = snapshot_download('Wan-AI/Wan2.1-T2V-1.3B-Diffusers')
+              print('HF DOWNLOAD SECONDS', int(time.time() - t), flush=True)
+          except Exception as e:
+              print('HF download failed, falling back to dataset', repr(e)[:200], flush=True)
+              _mc = glob.glob('/kaggle/input/**/model_index.json', recursive=True)
+              if not _mc:
+                  subprocess.run('ls -laR /kaggle/input | head -60', shell=True)
+                  sys.exit(1)
+              os.environ['WAN_MODEL'] = os.path.dirname(_mc[0])
+          me = os.path.abspath(__file__)
+          ps = [subprocess.Popen([sys.executable, me, str(g)], env=dict(os.environ, CUDA_VISIBLE_DEVICES=str(g))) for g in (0, 1)]
+          for p in ps: p.wait()
+          print('TOTAL', int(time.time() - START), 's', flush=True)
+          subprocess.run('ls -la %s/out | head -60' % W, shell=True)
+          PY
+          python3 - <<'PY'
+          import os
+          t = open('k/kernel.tpl').read().replace('__SHOTS_B64__', os.environ['SHOTS_B64'])
+          open('k/kernel.py','w').write(t)
+          PY
+          rm k/kernel.tpl
+      - name: Run kernel
+        run: |
+          kaggle kernels push -p k
+          N=$(echo "$SHOTS_B64" | base64 -d | python3 -c "import json,sys; print(len(json.load(sys.stdin)))")
+          echo "expecting $N images"
+          for i in $(seq 1 100); do
+            s=$(kaggle kernels status simoncreaty/episode-images 2>&1 | tail -1); echo "$s"
+            case "$s" in
+              *'status "KernelWorkerStatus.COMPLETE"'*|*'status "KernelWorkerStatus.ERROR"'*|*'status "KernelWorkerStatus.CANCEL'*) break;;
+            esac
+            sleep 20
+          done
+          # Kaggle's file host answers 502 now and then: retry the download until every image is here
+          for t in 1 2 3 4 5 6; do
+            rm -rf kout; mkdir -p kout
+            kaggle kernels output simoncreaty/episode-images -p kout 2>&1 | tail -n 3 || true
+            got=$(find kout -name '*.jpg' | wc -l); echo "attempt $t: $got of $N images"
+            [ "$got" -ge "$N" ] && break
+            sleep 30
+          done
+          find kout -type f | head -60
+      - name: Commit images
+        run: |
+          mkdir -p "episodes/$EP"
+          find kout -name '*.jpg' -exec cp {} "episodes/$EP/" \;
+          cp kout/*.log "episodes/$EP/kernel.log" 2>/dev/null || true
+          N=$(ls "episodes/$EP"/*.jpg 2>/dev/null | wc -l); echo "images: $N"
+          echo "$N" > /tmp/n
+          # keep only the 25 newest episodes
+          ls -1dt episodes/*/ | tail -n +26 | xargs -r rm -rf
+          git config user.name "github-actions"; git config user.email "a@b.c"
+          git add -A episodes
+          git commit -m "episode $EP images" || true
+          for i in 1 2 3 4 5; do git pull --rebase -q && git push && break || sleep 5; done
+      - name: Callback to n8n
+        if: always() && env.CALLBACK_URL != ''
+        run: |
+          N=$(cat /tmp/n 2>/dev/null || echo 0)
+          if [ "$N" -gt 0 ]; then S=ok; else S=error; fi
+          curl -s -X POST -H 'Content-Type: application/json' \
+            -d "{\"status\":\"$S\",\"episode_id\":\"$EP\",\"count\":$N,\"base_url\":\"https://raw.githubusercontent.com/Brunotet/cpu-image-test/main/episodes/$EP\"}" \
+            "$CALLBACK_URL" -w '\nHTTP %{http_code}\n'
