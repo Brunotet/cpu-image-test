@@ -64,38 +64,9 @@ jobs:
           find kout -type f | head -40
       - name: Repair silent gaps at the joins
         run: |
-          cat > repair.py <<'PY'
-          import re, subprocess, sys, os
-          f = sys.argv[1]
-          def dur(p):
-              return float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", p]).decode().strip())
-          def gaps(p):
-              r = subprocess.run(["ffmpeg", "-nostats", "-i", p, "-af", "silencedetect=noise=-48dB:d=0.4", "-f", "null", "-"], capture_output=True, text=True)
-              s = re.findall(r"silence_start: ([0-9.]+)", r.stderr)
-              e = re.findall(r"silence_end: ([0-9.]+)", r.stderr)
-              return [(float(a), float(b)) for a, b in zip(s, e)]
-          log = []
-          cur = f
-          for k in range(3):
-              d = dur(cur)
-              gs = [g for g in gaps(cur) if g[0] > 3 and g[1] < d - 6]
-              if not gs:
-                  break
-              a, b = gs[0]
-              nxt = "fix%d.mp3" % k
-              flt = "[0:a]atrim=0:%.3f,asetpts=PTS-STARTPTS[x];[0:a]atrim=start=%.3f,asetpts=PTS-STARTPTS[y];[x][y]acrossfade=d=1.5:c1=tri:c2=tri[o]" % (a, b)
-              subprocess.run(["ffmpeg", "-y", "-i", cur, "-filter_complex", flt, "-map", "[o]", "-b:a", "320k", nxt], check=True, capture_output=True)
-              log.append("removed silence %.1f-%.1f s" % (a, b))
-              cur = nxt
-          if cur != f:
-              os.replace(cur, f)
-          d = dur(f)
-          log.append("remaining gaps: %d" % len([g for g in gaps(f) if g[0] > 3 and g[1] < d - 6]))
-          open(os.path.join(os.path.dirname(f), "repair.txt"), "w").write(chr(10).join(log))
-          print(log)
-          PY
           f=$(find kout -name "psy_music_seed*.mp3" 2>/dev/null | head -1)
-          if [ -n "$f" ]; then python3 repair.py "$f" || true; fi
+          echo "repairing: $f"
+          if [ -n "$f" ]; then python3 tools/repair.py "$f" > repair.log 2>&1 || true; cat repair.log; fi
       - name: Commit music
         if: always()
         run: |
@@ -106,6 +77,7 @@ jobs:
           cp kout/final_manifest.json "episodes/$EP/music.json" 2>/dev/null || true
           r=$(find kout -name repair.txt 2>/dev/null | head -1)
           if [ -n "$r" ]; then cp "$r" "episodes/$EP/music_repair.txt"; fi
+          cp repair.log "episodes/$EP/music_repair.log" 2>/dev/null || true
           git config user.name "github-actions"
           git config user.email "a@b.c"
           git add -A episodes
