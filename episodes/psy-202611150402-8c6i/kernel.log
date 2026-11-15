@@ -1,0 +1,67 @@
+[{"stream_name":"stdout","time":0.749438543,"data":"GPU 0: Tesla T4 (UUID: GPU-f417bd6b-0676-44d3-e262-4f2c2a934678)\n"}
+,{"stream_name":"stdout","time":0.749499976,"data":"GPU 1: Tesla T4 (UUID: GPU-896d3590-ea77-bf8b-3331-864948478c27)\n"}
+,{"stream_name":"stdout","time":0.771364648,"data":"               total        used        free      shared  buff/cache   available\n"}
+,{"stream_name":"stdout","time":0.77138726,"data":"Mem:              31           1          26           0           4          30\n"}
+,{"stream_name":"stdout","time":0.774141416,"data":"4\n"}
+,{"stream_name":"stderr","time":5.007655037,"data":"/usr/local/lib/python3.13/dist-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.\n"}
+,{"stream_name":"stderr","time":5.00768728,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":5.848840602,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":81.716516312,"data":"DOWNLOAD SECONDS 80\n"}
+,{"stream_name":"stdout","time":84.762204004,"data":"found sd-cli ['/kaggle/input/sdcpp-build/bin/sd-cli']\n"}
+,{"stream_name":"stdout","time":85.311571756,"data":"found sd-server ['/kaggle/input/sdcpp-build/bin/sd-server']\n"}
+,{"stream_name":"stdout","time":130.709527227,"data":"SRV 02 gpu1 36.8 s (t=129)\n"}
+,{"stream_name":"stdout","time":130.815425645,"data":"SRV 01 gpu0 36.9 s (t=130)\n"}
+,{"stream_name":"stdout","time":154.354218333,"data":"SRV 03 gpu1 23.6 s (t=153)\n"}
+,{"stream_name":"stdout","time":154.601286137,"data":"SRV 04 gpu0 23.8 s (t=153)\n"}
+,{"stream_name":"stdout","time":178.499182814,"data":"SRV 05 gpu1 24.1 s (t=177)\n"}
+,{"stream_name":"stdout","time":178.931032113,"data":"SRV 06 gpu0 24.3 s (t=178)\n"}
+,{"stream_name":"stdout","time":203.351430928,"data":"SRV 07 gpu1 24.9 s (t=202)\n"}
+,{"stream_name":"stdout","time":204.018544248,"data":"SRV 08 gpu0 25.1 s (t=203)\n"}
+,{"stream_name":"stdout","time":229.08055436,"data":"SRV 09 gpu1 25.7 s (t=228)\n"}
+,{"stream_name":"stdout","time":230.055250013,"data":"SRV 10 gpu0 26.0 s (t=229)\n"}
+,{"stream_name":"stdout","time":255.422386295,"data":"SRV 11 gpu1 26.3 s (t=254)\n"}
+,{"stream_name":"stdout","time":256.693999482,"data":"SRV 12 gpu0 26.6 s (t=255)\n"}
+,{"stream_name":"stdout","time":281.196595155,"data":"SRV 13 gpu1 25.8 s (t=280)\n"}
+,{"stream_name":"stdout","time":282.609808924,"data":"SRV 14 gpu0 25.9 s (t=281)\n"}
+,{"stream_name":"stdout","time":306.80450468,"data":"SRV 15 gpu1 25.6 s (t=306)\n"}
+,{"stream_name":"stdout","time":308.517217477,"data":"SRV 16 gpu0 25.9 s (t=307)\n"}
+,{"stream_name":"stdout","time":332.777250102,"data":"SRV 17 gpu1 26.0 s (t=332)\n"}
+,{"stream_name":"stdout","time":334.784715198,"data":"SRV 18 gpu0 26.3 s (t=334)\n"}
+,{"stream_name":"stdout","time":358.68345343,"data":"SRV 19 gpu1 25.9 s (t=357)\n"}
+,{"stream_name":"stdout","time":360.878662411,"data":"SRV 20 gpu0 26.1 s (t=360)\n"}
+,{"stream_name":"stdout","time":384.425966065,"data":"SRV 21 gpu1 25.7 s (t=383)\n"}
+,{"stream_name":"stdout","time":386.796299325,"data":"SRV 22 gpu0 25.9 s (t=386)\n"}
+,{"stream_name":"stdout","time":410.119021481,"data":"SRV 23 gpu1 25.7 s (t=409)\n"}
+,{"stream_name":"stdout","time":412.781797358,"data":"SRV 24 gpu0 26.0 s (t=412)\n"}
+,{"stream_name":"stdout","time":436.032588498,"data":"SRV 25 gpu1 25.9 s (t=435)\n"}
+,{"stream_name":"stdout","time":438.798846611,"data":"SRV 26 gpu0 26.0 s (t=438)\n"}
+,{"stream_name":"stdout","time":461.848723671,"data":"SRV 27 gpu1 25.8 s (t=461)\n"}
+,{"stream_name":"stdout","time":464.810586469,"data":"SRV 28 gpu0 26.0 s (t=464)\n"}
+,{"stream_name":"stdout","time":487.571653979,"data":"SRV 29 gpu1 25.7 s (t=486)\n"}
+,{"stream_name":"stdout","time":490.650898933,"data":"SRV 30 gpu0 25.8 s (t=489)\n"}
+,{"stream_name":"stdout","time":513.337457103,"data":"SRV 31 gpu1 25.8 s (t=512)\n"}
+,{"stream_name":"stdout","time":516.599314843,"data":"SRV 32 gpu0 25.9 s (t=515)\n"}
+,{"stream_name":"stdout","time":539.108391735,"data":"SRV 33 gpu1 25.8 s (t=538)\n"}
+,{"stream_name":"stdout","time":542.59216683,"data":"SRV 34 gpu0 26.0 s (t=541)\n"}
+,{"stream_name":"stdout","time":564.910177608,"data":"SRV 35 gpu1 25.8 s (t=564)\n"}
+,{"stream_name":"stdout","time":568.511827054,"data":"SRV 36 gpu0 25.9 s (t=567)\n"}
+,{"stream_name":"stdout","time":590.608278635,"data":"SRV 37 gpu1 25.7 s (t=589)\n"}
+,{"stream_name":"stdout","time":594.387863161,"data":"SRV 38 gpu0 25.9 s (t=593)\n"}
+,{"stream_name":"stdout","time":616.467949229,"data":"SRV 39 gpu1 25.9 s (t=615)\n"}
+,{"stream_name":"stdout","time":620.411764522,"data":"SRV 40 gpu0 26.0 s (t=619)\n"}
+,{"stream_name":"stdout","time":642.286087465,"data":"SRV 41 gpu1 25.8 s (t=641)\n"}
+,{"stream_name":"stdout","time":646.404605716,"data":"SRV 42 gpu0 26.0 s (t=645)\n"}
+,{"stream_name":"stdout","time":646.410070883,"data":"server gpu0 extra=['--mmap'] status=done\n"}
+,{"stream_name":"stdout","time":667.95504917,"data":"SRV 43 gpu1 25.7 s (t=667)\n"}
+,{"stream_name":"stdout","time":667.955255486,"data":"server gpu1 extra=['--mmap'] status=done\n"}
+,{"stream_name":"stdout","time":667.955459597,"data":"SERVER PHASE SECONDS 667\n"}
+,{"stream_name":"stdout","time":667.955557362,"data":"LEFT FOR CLI FALLBACK 0\n"}
+,{"stream_name":"stdout","time":669.000940897,"data":"IMAGES 43 of 43\n"}
+,{"stream_name":"stdout","time":669.001000809,"data":"TOTAL 668 s\n"}
+,{"stream_name":"stderr","time":671.100664141,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":671.100691075,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":671.361004579,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":671.361043058,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":672.234753787,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":673.182661995,"data":"[NbConvertApp] Writing 323089 bytes to __results__.html\n"}
+]
