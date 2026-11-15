@@ -1,7 +1,9 @@
-import re, subprocess, sys, os, traceback
+import re, subprocess, sys, os, traceback, shutil
 f = sys.argv[1]
 out_dir = os.path.dirname(os.path.abspath(f))
 log = []
+if not shutil.which("ffprobe"):
+    subprocess.run("sudo apt-get update -qq && sudo apt-get install -y -qq ffmpeg", shell=True, check=False)
 def dur(p):
     return float(subprocess.check_output(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "default=nw=1:nk=1", p]).decode().strip())
 def gaps(p):
