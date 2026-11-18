@@ -23,10 +23,31 @@ cookies = ["--cookies", "cookies.txt"] if os.path.exists("cookies.txt") else []
 for vid in ids:
     rec = {"id": vid}
     try:
-        cmd = ["yt-dlp", "--no-playlist", "-f", "bestaudio/best", "-x", "--audio-format", "mp3", "-o", "yt_dl/%(id)s.%(ext)s"] + cookies + ["https://www.youtube.com/shorts/" + vid]
-        r = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
-        rec["yt_dlp_rc"] = r.returncode
-        rec["yt_dlp_err"] = (r.stderr or "")[-500:]
+        errs = []
+        r = None
+        for client in ["", "android_vr", "tv", "mweb", "web_embedded", "ios", "web_safari"]:
+            cmd = ["yt-dlp", "--no-playlist", "-f", "bestaudio/best", "-x", "--audio-format", "mp3", "-o", "yt_dl/%(id)s.%(ext)s"] + cookies
+            if client:
+                cmd += ["--extractor-args", "youtube:player_client=" + client]
+            cmd += ["https://www.youtube.com/shorts/" + vid]
+            r = subprocess.run(cmd, capture_output=True, text=True, timeout=300)
+            errs.append("%s rc=%s %s" % (client or "default", r.returncode, (r.stderr or "")[-140:].replace(chr(10), " ")))
+            if glob.glob("yt_dl/" + vid + ".*"):
+                break
+        if not glob.glob("yt_dl/" + vid + ".*"):
+            for base in ["https://pipedapi.kavin.rocks", "https://pipedapi.adminforge.de", "https://api.piped.private.coffee", "https://pipedapi.r4fo.com", "https://pipedapi.leptons.xyz"]:
+                try:
+                    data = json.load(urllib.request.urlopen(urllib.request.Request(base + "/streams/" + vid, headers={"User-Agent": "Mozilla/5.0"}), timeout=25))
+                    aud = [s for s in data.get("audioStreams", []) if s.get("url")]
+                    aud.sort(key=lambda s: s.get("bitrate", 0))
+                    if aud:
+                        open("yt_dl/%s.m4a" % vid, "wb").write(urllib.request.urlopen(urllib.request.Request(aud[0]["url"], headers={"User-Agent": "Mozilla/5.0"}), timeout=90).read())
+                        rec["via"] = base
+                        break
+                except Exception as e:
+                    errs.append("piped %s: %s" % (base.split("//")[1], str(e)[:70]))
+        rec["yt_dlp_rc"] = r.returncode if r else None
+        rec["yt_dlp_err"] = " || ".join(errs)[-1800:]
         files = glob.glob("yt_dl/" + vid + ".*")
         if files:
             segs, info = model.transcribe(files[0], beam_size=5)
