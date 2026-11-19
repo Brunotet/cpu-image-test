@@ -1,0 +1,64 @@
+[{"stream_name":"stdout","time":0.753726099,"data":"GPU 0: Tesla T4 (UUID: GPU-2f6bd94d-799a-15f7-aced-3a251e24ce51)\n"}
+,{"stream_name":"stdout","time":0.753766495,"data":"GPU 1: Tesla T4 (UUID: GPU-581d54a3-cbf2-2f64-f070-8952b9eb3f93)\n"}
+,{"stream_name":"stdout","time":0.775463834,"data":"               total        used        free      shared  buff/cache   available\n"}
+,{"stream_name":"stdout","time":0.775497209,"data":"Mem:              31           1          25           0           5          30\n"}
+,{"stream_name":"stdout","time":0.778997122,"data":"4\n"}
+,{"stream_name":"stderr","time":4.7596286370000005,"data":"/usr/local/lib/python3.13/dist-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.\n"}
+,{"stream_name":"stderr","time":4.759665124,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":5.265333467,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":74.145983119,"data":"DOWNLOAD SECONDS 73\n"}
+,{"stream_name":"stdout","time":74.672890925,"data":"found sd-cli ['/kaggle/input/sdcpp-build/bin/sd-cli']\n"}
+,{"stream_name":"stdout","time":75.602464839,"data":"found sd-server ['/kaggle/input/sdcpp-build/bin/sd-server']\n"}
+,{"stream_name":"stdout","time":124.408894407,"data":"SRV 02 gpu1 39.8 s (t=123)\n"}
+,{"stream_name":"stdout","time":124.85207594,"data":"SRV 01 gpu0 40.3 s (t=124)\n"}
+,{"stream_name":"stdout","time":149.485593926,"data":"SRV 03 gpu1 25.1 s (t=148)\n"}
+,{"stream_name":"stdout","time":150.501298942,"data":"SRV 04 gpu0 25.6 s (t=149)\n"}
+,{"stream_name":"stdout","time":174.96370448,"data":"SRV 05 gpu1 25.5 s (t=174)\n"}
+,{"stream_name":"stdout","time":177.006741613,"data":"SRV 06 gpu0 26.5 s (t=176)\n"}
+,{"stream_name":"stdout","time":201.360679396,"data":"SRV 07 gpu1 26.4 s (t=200)\n"}
+,{"stream_name":"stdout","time":204.171235705,"data":"SRV 08 gpu0 27.2 s (t=203)\n"}
+,{"stream_name":"stdout","time":227.321925763,"data":"SRV 09 gpu1 26.0 s (t=226)\n"}
+,{"stream_name":"stdout","time":230.489985075,"data":"SRV 10 gpu0 26.3 s (t=229)\n"}
+,{"stream_name":"stdout","time":253.133936554,"data":"SRV 11 gpu1 25.8 s (t=252)\n"}
+,{"stream_name":"stdout","time":256.931035582,"data":"SRV 12 gpu0 26.4 s (t=256)\n"}
+,{"stream_name":"stdout","time":279.35023288,"data":"SRV 13 gpu1 26.2 s (t=278)\n"}
+,{"stream_name":"stdout","time":283.687367566,"data":"SRV 14 gpu0 26.8 s (t=282)\n"}
+,{"stream_name":"stdout","time":305.435859665,"data":"SRV 15 gpu1 26.1 s (t=304)\n"}
+,{"stream_name":"stdout","time":309.994886062,"data":"SRV 16 gpu0 26.3 s (t=309)\n"}
+,{"stream_name":"stdout","time":331.615406968,"data":"SRV 17 gpu1 26.2 s (t=330)\n"}
+,{"stream_name":"stdout","time":336.223680658,"data":"SRV 18 gpu0 26.2 s (t=335)\n"}
+,{"stream_name":"stdout","time":357.827090269,"data":"SRV 19 gpu1 26.2 s (t=357)\n"}
+,{"stream_name":"stdout","time":362.464478807,"data":"SRV 20 gpu0 26.2 s (t=361)\n"}
+,{"stream_name":"stdout","time":384.001851352,"data":"SRV 21 gpu1 26.2 s (t=383)\n"}
+,{"stream_name":"stdout","time":388.811460391,"data":"SRV 22 gpu0 26.3 s (t=388)\n"}
+,{"stream_name":"stdout","time":410.120400973,"data":"SRV 23 gpu1 26.1 s (t=409)\n"}
+,{"stream_name":"stdout","time":414.95315586,"data":"SRV 24 gpu0 26.1 s (t=414)\n"}
+,{"stream_name":"stdout","time":436.24406853200003,"data":"SRV 25 gpu1 26.1 s (t=435)\n"}
+,{"stream_name":"stdout","time":441.26306712,"data":"SRV 26 gpu0 26.3 s (t=440)\n"}
+,{"stream_name":"stdout","time":462.401649205,"data":"SRV 27 gpu1 26.2 s (t=461)\n"}
+,{"stream_name":"stdout","time":467.305947945,"data":"SRV 28 gpu0 26.0 s (t=466)\n"}
+,{"stream_name":"stdout","time":488.452122974,"data":"SRV 29 gpu1 26.1 s (t=487)\n"}
+,{"stream_name":"stdout","time":493.373260283,"data":"SRV 30 gpu0 26.1 s (t=492)\n"}
+,{"stream_name":"stdout","time":514.720754393,"data":"SRV 31 gpu1 26.3 s (t=514)\n"}
+,{"stream_name":"stdout","time":519.489543757,"data":"SRV 32 gpu0 26.1 s (t=518)\n"}
+,{"stream_name":"stdout","time":540.764369562,"data":"SRV 33 gpu1 26.0 s (t=540)\n"}
+,{"stream_name":"stdout","time":545.546885507,"data":"SRV 34 gpu0 26.1 s (t=544)\n"}
+,{"stream_name":"stdout","time":566.840836009,"data":"SRV 35 gpu1 26.1 s (t=566)\n"}
+,{"stream_name":"stdout","time":571.612194707,"data":"SRV 36 gpu0 26.1 s (t=570)\n"}
+,{"stream_name":"stdout","time":592.989997112,"data":"SRV 37 gpu1 26.1 s (t=592)\n"}
+,{"stream_name":"stdout","time":597.673191973,"data":"SRV 38 gpu0 26.1 s (t=596)\n"}
+,{"stream_name":"stdout","time":619.021122176,"data":"SRV 39 gpu1 26.0 s (t=618)\n"}
+,{"stream_name":"stdout","time":619.021434564,"data":"server gpu1 extra=['--mmap'] status=done\n"}
+,{"stream_name":"stdout","time":623.640636214,"data":"SRV 40 gpu0 26.0 s (t=622)\n"}
+,{"stream_name":"stdout","time":623.640864899,"data":"server gpu0 extra=['--mmap'] status=done\n"}
+,{"stream_name":"stdout","time":623.641010921,"data":"SERVER PHASE SECONDS 622\n"}
+,{"stream_name":"stdout","time":623.641024147,"data":"LEFT FOR CLI FALLBACK 0\n"}
+,{"stream_name":"stdout","time":624.578501851,"data":"IMAGES 40 of 40\n"}
+,{"stream_name":"stdout","time":624.578531733,"data":"TOTAL 623 s\n"}
+,{"stream_name":"stderr","time":626.711518919,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":626.71154504,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":626.981862577,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":626.981886839,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":627.845289956,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":628.767689127,"data":"[NbConvertApp] Writing 323469 bytes to __results__.html\n"}
+]
