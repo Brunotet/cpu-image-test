@@ -1,0 +1,47 @@
+name: YouTube study on Kaggle
+on:
+  workflow_dispatch:
+    inputs:
+      ids:
+        description: comma separated YouTube video ids
+        required: true
+        type: string
+      label:
+        required: true
+        type: string
+permissions:
+  contents: read
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN_MUSIC }}
+      IDS: ${{ inputs.ids }}
+    steps:
+      - uses: actions/checkout@v4
+      - run: pip install -q kaggle
+      - name: Build and push the kernel
+        run: |
+          mkdir -p k
+          sed "s/__IDS__/$IDS/" tools/yt_kernel.py > k/yt.py
+          cat > k/kernel-metadata.json <<'JSON'
+          {"id":"brunotet/psy-yt-study","title":"psy yt study","code_file":"yt.py","language":"python","kernel_type":"script","is_private":true,"enable_gpu":false,"enable_internet":true,"dataset_sources":[],"kernel_sources":[],"competition_sources":[],"model_sources":[]}
+          JSON
+          kaggle kernels push -p k
+      - name: Wait and fetch the output
+        run: |
+          for i in $(seq 1 150); do
+            s=$(kaggle kernels status brunotet/psy-yt-study 2>&1 | tail -1); echo "$s"
+            case "$s" in *COMPLETE*|*ERROR*|*CANCEL*) break;; esac
+            sleep 30
+          done
+          mkdir -p ytout
+          kaggle kernels output brunotet/psy-yt-study -p ytout 2>&1 | tail -n 5 || true
+          find ytout -type f | head -30
+      - uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: yt-kaggle-${{ inputs.label }}
+          path: ytout/
+          retention-days: 7
