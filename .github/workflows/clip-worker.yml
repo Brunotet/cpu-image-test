@@ -1,0 +1,23 @@
+name: Wake clip-engine worker (Kaggle)
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: clip-worker
+  cancel-in-progress: false
+jobs:
+  wake:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    env:
+      KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN_MUSIC }}
+    steps:
+      - run: pip install -q kaggle
+      - name: Re-run the worker notebook
+        run: |
+          mkdir k
+          kaggle kernels pull brunotet/clip-engine-worker -p k -m
+          cat k/kernel-metadata.json
+          kaggle kernels push -p k
+          kaggle kernels status brunotet/clip-engine-worker
