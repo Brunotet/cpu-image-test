@@ -14,7 +14,6 @@ jobs:
       KAGGLE_API_TOKEN: ${{ secrets.KAGGLE_API_TOKEN_MUSIC }}
       CFG_KEY: ${{ secrets.CLIP_WORKER_API_KEY }}
       CFG_HOOK: ${{ secrets.CLIP_N8N_TUNNEL_WEBHOOK }}
-      CFG_GH: ${{ secrets.CLIP_GITHUB_TOKEN }}
       CFG_COOKIE: ${{ secrets.CLIP_YT_COOKIE }}
     steps:
       - run: pip install -q kaggle
@@ -24,7 +23,7 @@ jobs:
           kaggle kernels pull brunotet/clip-engine-worker -p k -m
           python3 - <<'PY'
           import os, json, glob
-          cfg = {"WORKER_API_KEY": os.environ["CFG_KEY"], "N8N_TUNNEL_WEBHOOK": os.environ["CFG_HOOK"], "GITHUB_TOKEN": os.environ["CFG_GH"], "Cookie": os.environ.get("CFG_COOKIE", "")}
+          cfg = {"WORKER_API_KEY": os.environ["CFG_KEY"], "N8N_TUNNEL_WEBHOOK": os.environ["CFG_HOOK"], "Cookie": os.environ.get("CFG_COOKIE", "")}
           for k, v in cfg.items():
               if k != "Cookie" and not v:
                   raise SystemExit("missing GitHub secret for " + k)
