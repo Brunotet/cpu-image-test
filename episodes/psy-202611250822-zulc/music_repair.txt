@@ -1,0 +1,5 @@
+input duration 115.5 s
+pass 0 gaps: [(9.249875, 10.776854)]
+removed silence 9.2-10.8 s
+pass 1 gaps: []
+final duration 112.5 s, remaining gaps: 0
