@@ -1,0 +1,72 @@
+[{"stream_name":"stdout","time":0.958151463,"data":"GPU 0: Tesla T4 (UUID: GPU-a7f62afb-1f43-cc25-cfd2-7a92e99cd04a)\n"}
+,{"stream_name":"stdout","time":0.958220016,"data":"GPU 1: Tesla T4 (UUID: GPU-edc46554-5403-36e3-be7e-6676cfce2120)\n"}
+,{"stream_name":"stdout","time":0.985936904,"data":"               total        used        free      shared  buff/cache   available\n"}
+,{"stream_name":"stdout","time":0.98596543,"data":"Mem:              31           1          25           0           4          30\n"}
+,{"stream_name":"stdout","time":0.989885255,"data":"4\n"}
+,{"stream_name":"stderr","time":5.896666793,"data":"/usr/local/lib/python3.13/dist-packages/huggingface_hub/constants.py:302: FutureWarning: The `HF_HUB_ENABLE_HF_TRANSFER` environment variable is deprecated as 'hf_transfer' is not used anymore. Please use `HF_XET_HIGH_PERFORMANCE` instead to enable high performance transfer with Xet. Visit https://huggingface.co/docs/huggingface_hub/package_reference/environment_variables#hfxethighperformance for more details.\n"}
+,{"stream_name":"stderr","time":5.89670092,"data":"  warnings.warn(\n"}
+,{"stream_name":"stderr","time":6.612005344,"data":"Warning: You are sending unauthenticated requests to the HF Hub. Please set a HF_TOKEN to enable higher rate limits and faster downloads.\n"}
+,{"stream_name":"stdout","time":73.893655861,"data":"DOWNLOAD SECONDS 72\n"}
+,{"stream_name":"stdout","time":74.364000657,"data":"found sd-cli ['/kaggle/input/sdcpp-build/bin/sd-cli']\n"}
+,{"stream_name":"stdout","time":74.866751187,"data":"found sd-server ['/kaggle/input/sdcpp-build/bin/sd-server']\n"}
+,{"stream_name":"stdout","time":123.908869561,"data":"SRV 02 gpu1 40.5 s (t=122)\n"}
+,{"stream_name":"stdout","time":124.897150575,"data":"SRV 01 gpu0 41.5 s (t=123)\n"}
+,{"stream_name":"stdout","time":149.503538328,"data":"SRV 03 gpu1 25.6 s (t=148)\n"}
+,{"stream_name":"stdout","time":152.565737302,"data":"SRV 04 gpu0 27.7 s (t=151)\n"}
+,{"stream_name":"stdout","time":175.339617534,"data":"SRV 05 gpu1 25.8 s (t=174)\n"}
+,{"stream_name":"stdout","time":180.581984074,"data":"SRV 06 gpu0 28.0 s (t=179)\n"}
+,{"stream_name":"stdout","time":200.663083884,"data":"SRV 07 gpu1 25.3 s (t=199)\n"}
+,{"stream_name":"stdout","time":207.690840217,"data":"SRV 08 gpu0 27.1 s (t=206)\n"}
+,{"stream_name":"stdout","time":226.19425263,"data":"SRV 09 gpu1 25.5 s (t=225)\n"}
+,{"stream_name":"stdout","time":234.796188358,"data":"SRV 10 gpu0 27.1 s (t=233)\n"}
+,{"stream_name":"stdout","time":252.013235344,"data":"SRV 11 gpu1 25.8 s (t=251)\n"}
+,{"stream_name":"stdout","time":262.267451488,"data":"SRV 12 gpu0 27.5 s (t=261)\n"}
+,{"stream_name":"stdout","time":277.727032603,"data":"SRV 13 gpu1 25.7 s (t=276)\n"}
+,{"stream_name":"stdout","time":289.59387867,"data":"SRV 14 gpu0 27.3 s (t=288)\n"}
+,{"stream_name":"stdout","time":303.479311859,"data":"SRV 15 gpu1 25.8 s (t=302)\n"}
+,{"stream_name":"stdout","time":316.751214082,"data":"SRV 16 gpu0 27.2 s (t=315)\n"}
+,{"stream_name":"stdout","time":329.125252443,"data":"SRV 17 gpu1 25.6 s (t=328)\n"}
+,{"stream_name":"stdout","time":344.124534966,"data":"SRV 18 gpu0 27.4 s (t=343)\n"}
+,{"stream_name":"stdout","time":355.024430622,"data":"SRV 19 gpu1 25.9 s (t=354)\n"}
+,{"stream_name":"stdout","time":371.328368867,"data":"SRV 20 gpu0 27.2 s (t=370)\n"}
+,{"stream_name":"stdout","time":380.88334063,"data":"SRV 21 gpu1 25.9 s (t=379)\n"}
+,{"stream_name":"stdout","time":398.506716057,"data":"SRV 22 gpu0 27.2 s (t=397)\n"}
+,{"stream_name":"stdout","time":406.586237852,"data":"SRV 23 gpu1 25.7 s (t=405)\n"}
+,{"stream_name":"stdout","time":425.650494156,"data":"SRV 24 gpu0 27.1 s (t=424)\n"}
+,{"stream_name":"stdout","time":432.278475956,"data":"SRV 25 gpu1 25.7 s (t=431)\n"}
+,{"stream_name":"stdout","time":452.78354069,"data":"SRV 26 gpu0 27.1 s (t=451)\n"}
+,{"stream_name":"stdout","time":457.990007386,"data":"SRV 27 gpu1 25.7 s (t=457)\n"}
+,{"stream_name":"stdout","time":480.063834438,"data":"SRV 28 gpu0 27.3 s (t=479)\n"}
+,{"stream_name":"stdout","time":483.819609782,"data":"SRV 29 gpu1 25.8 s (t=482)\n"}
+,{"stream_name":"stdout","time":507.379097569,"data":"SRV 30 gpu0 27.3 s (t=506)\n"}
+,{"stream_name":"stdout","time":509.567422158,"data":"SRV 31 gpu1 25.7 s (t=508)\n"}
+,{"stream_name":"stdout","time":534.759139368,"data":"SRV 32 gpu0 27.4 s (t=533)\n"}
+,{"stream_name":"stdout","time":535.321790336,"data":"SRV 33 gpu1 25.8 s (t=534)\n"}
+,{"stream_name":"stdout","time":561.107099926,"data":"SRV 35 gpu1 25.8 s (t=560)\n"}
+,{"stream_name":"stdout","time":562.073571207,"data":"SRV 34 gpu0 27.3 s (t=561)\n"}
+,{"stream_name":"stdout","time":587.032073133,"data":"SRV 36 gpu1 25.9 s (t=586)\n"}
+,{"stream_name":"stdout","time":589.286695947,"data":"SRV 37 gpu0 27.2 s (t=588)\n"}
+,{"stream_name":"stdout","time":612.780760005,"data":"SRV 38 gpu1 25.7 s (t=611)\n"}
+,{"stream_name":"stdout","time":616.461845465,"data":"SRV 39 gpu0 27.2 s (t=615)\n"}
+,{"stream_name":"stdout","time":638.701962638,"data":"SRV 40 gpu1 25.9 s (t=637)\n"}
+,{"stream_name":"stdout","time":643.875274675,"data":"SRV 41 gpu0 27.4 s (t=642)\n"}
+,{"stream_name":"stdout","time":664.411408617,"data":"SRV 42 gpu1 25.7 s (t=663)\n"}
+,{"stream_name":"stdout","time":671.080578266,"data":"SRV 43 gpu0 27.2 s (t=670)\n"}
+,{"stream_name":"stdout","time":690.149692993,"data":"SRV 44 gpu1 25.7 s (t=689)\n"}
+,{"stream_name":"stdout","time":698.248335816,"data":"SRV 45 gpu0 27.2 s (t=697)\n"}
+,{"stream_name":"stdout","time":715.86402157,"data":"SRV 46 gpu1 25.7 s (t=714)\n"}
+,{"stream_name":"stdout","time":725.348241014,"data":"SRV 47 gpu0 27.1 s (t=724)\n"}
+,{"stream_name":"stdout","time":725.348421459,"data":"server gpu0 extra=['--mmap'] status=done\n"}
+,{"stream_name":"stdout","time":741.568270876,"data":"SRV 48 gpu1 25.7 s (t=740)\n"}
+,{"stream_name":"stdout","time":741.568464233,"data":"server gpu1 extra=['--mmap'] status=done\n"}
+,{"stream_name":"stdout","time":741.568760738,"data":"SERVER PHASE SECONDS 740\n"}
+,{"stream_name":"stdout","time":741.568781849,"data":"LEFT FOR CLI FALLBACK 0\n"}
+,{"stream_name":"stdout","time":742.867339151,"data":"IMAGES 48 of 48\n"}
+,{"stream_name":"stdout","time":742.867368731,"data":"TOTAL 741 s\n"}
+,{"stream_name":"stderr","time":745.287187086,"data":"/usr/local/lib/python3.13/dist-packages/mistune.py:435: SyntaxWarning: invalid escape sequence '\\|'\n"}
+,{"stream_name":"stderr","time":745.287221064,"data":"  cells[i][c] = re.sub('\\\\\\\\\\|', '|', cell)\n"}
+,{"stream_name":"stderr","time":745.639643517,"data":"/usr/local/lib/python3.13/dist-packages/nbconvert/filters/filter_links.py:36: SyntaxWarning: invalid escape sequence '\\_'\n"}
+,{"stream_name":"stderr","time":745.639671206,"data":"  text = re.sub(r'_', '\\_', text) # Escape underscores in display text\n"}
+,{"stream_name":"stderr","time":746.796007223,"data":"[NbConvertApp] Converting notebook __script__.ipynb to html\n"}
+,{"stream_name":"stderr","time":747.880547311,"data":"[NbConvertApp] Writing 324873 bytes to __results__.html\n"}
+]
