@@ -1,6 +1,11 @@
 name: Clip worker (GitHub runner)
 on:
   workflow_dispatch:
+    inputs:
+      reg_put:
+        description: presigned R2 URL where the worker address is written
+        required: false
+        default: ''
 permissions:
   contents: read
 concurrency:
@@ -13,6 +18,7 @@ jobs:
     env:
       WORKER_API_KEY: ${{ secrets.CLIP_WORKER_API_KEY }}
       N8N_HOOK: ${{ secrets.CLIP_N8N_TUNNEL_WEBHOOK }}
+      REG_PUT: ${{ github.event.inputs.reg_put }}
       YT_COOKIES_RAW: ${{ secrets.CLIP_YT_COOKIE }}
       WHISPER_DEVICE: cpu
       WHISPER_MODEL: small
@@ -56,8 +62,16 @@ jobs:
                   break
           print("WORKER URL:", url)
           time.sleep(3)
-          req = urllib.request.Request(os.environ["N8N_HOOK"], data=json.dumps({"worker_url": url}).encode(), headers={"Content-Type": "application/json"})
-          print("n8n notified:", urllib.request.urlopen(req, timeout=30).status)
+          body = json.dumps({"worker_url": url, "updated_at": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())}).encode()
+          if os.environ.get("REG_PUT"):
+              req = urllib.request.Request(os.environ["REG_PUT"], data=body, method="PUT", headers={"Content-Type": "application/json"})
+              print("registry written:", urllib.request.urlopen(req, timeout=30).status)
+          if os.environ.get("N8N_HOOK"):
+              try:
+                  req = urllib.request.Request(os.environ["N8N_HOOK"], data=body, headers={"Content-Type": "application/json"})
+                  print("n8n notified:", urllib.request.urlopen(req, timeout=30).status)
+              except Exception as ex:
+                  print("n8n notify skipped:", ex)
           IDLE = 15 * 60
           while api.poll() is None:
               time.sleep(30)
